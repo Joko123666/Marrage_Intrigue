@@ -1,0 +1,255 @@
+{
+  "schema_version": "0.1",
+  "created_at": "2026-06-15",
+  "language": "ko",
+  "project": "귀족 권력상승 시뮬레이션",
+  "engine_target": "Godot Engine 4.x",
+  "numeric_scale": {
+    "stat": "0~100. 50은 훈련된 평균, 70 이상은 상위권, 85 이상은 최상위권.",
+    "mood_axis": "맞선 레이더 축은 0~100. 선택지와 페르소나 보정은 일반적으로 -20~+20 범위의 가산값.",
+    "audience_modifier": "대상 계층 또는 인물 유형에 대한 상호작용 성공 판정 가산값. 단위는 점수 또는 %p로 변환 가능.",
+    "risk_modifier": "양수는 위험 증가, 음수는 위험 감소. 위험 종류별로 별도 누적 권장."
+  },
+  "core_stats": [
+    "beauty",
+    "culture",
+    "grace",
+    "etiquette",
+    "wildness",
+    "mask",
+    "impulse_control",
+    "funds",
+    "information",
+    "sociability",
+    "influence",
+    "status"
+  ],
+  "mood_axes": [
+    "favor",
+    "interest",
+    "trust",
+    "comfort",
+    "face",
+    "political_value"
+  ],
+  "suspicion_axes": [
+    "social_suspicion",
+    "direct_suspicion",
+    "threat_alert",
+    "evidence_risk"
+  ],
+  "note": "대사 단계는 주인공의 장기 성장 상태이고, 페르소나는 현재 사교계에 보여주는 연출/가면이다. 둘은 분리해서 관리한다.",
+  "choice_tags": [
+    {
+      "id": "wild",
+      "name_ko": "야성",
+      "summary_ko": "가공되지 않은 생기와 위험함을 드러낸다.",
+      "effects": {
+        "interest": 6,
+        "favor": 2,
+        "comfort": -4,
+        "face": -4
+      },
+      "uses_stats": [
+        "wildness"
+      ],
+      "risk": {
+        "origin_rumor": 3,
+        "impulse_leak": 2
+      }
+    },
+    {
+      "id": "calculated_wild",
+      "name_ko": "계산된 야성",
+      "summary_ko": "야성을 완전히 드러내지 않고 매혹 요소로 통제한다.",
+      "effects": {
+        "interest": 6,
+        "favor": 3,
+        "comfort": -1,
+        "face": -1
+      },
+      "uses_stats": [
+        "wildness",
+        "mask"
+      ],
+      "risk": {
+        "scandal_risk": 2
+      }
+    },
+    {
+      "id": "courtly",
+      "name_ko": "귀족식 예법",
+      "summary_ko": "체면과 안심을 올리는 정제된 대답.",
+      "effects": {
+        "face": 6,
+        "comfort": 4,
+        "trust": 2,
+        "interest": -1
+      },
+      "uses_stats": [
+        "etiquette",
+        "grace"
+      ],
+      "risk": {
+        "awkward_protocol_if_low_etiquette": 4
+      }
+    },
+    {
+      "id": "mask",
+      "name_ko": "가면",
+      "summary_ko": "진짜 감정을 감추고 상대가 원하는 감정을 보여준다.",
+      "effects": {
+        "trust": 4,
+        "comfort": 4,
+        "direct_suspicion": -3
+      },
+      "uses_stats": [
+        "mask",
+        "impulse_control"
+      ],
+      "risk": {
+        "mask_crack_if_fatigued": 3
+      }
+    },
+    {
+      "id": "direct",
+      "name_ko": "직설",
+      "summary_ko": "꾸미지 않고 바로 말한다. 하급·현장형 인물에게 유효하다.",
+      "effects": {
+        "interest": 3,
+        "trust": 2,
+        "face": -3
+      },
+      "uses_stats": [
+        "wildness"
+      ],
+      "risk": {
+        "protocol_risk": 3
+      }
+    },
+    {
+      "id": "threat",
+      "name_ko": "위협",
+      "summary_ko": "상대의 두려움을 건드린다. 관계 장기 안정성은 떨어진다.",
+      "effects": {
+        "fear": 6,
+        "trust": -5,
+        "comfort": -6
+      },
+      "uses_stats": [
+        "wildness",
+        "influence"
+      ],
+      "risk": {
+        "direct_suspicion": 5,
+        "retaliation_risk": 4
+      }
+    },
+    {
+      "id": "subtle_probe",
+      "name_ko": "은근한 탐색",
+      "summary_ko": "대화 중 상대 취향과 약점을 캐낸다.",
+      "effects": {
+        "information_gain": 4,
+        "interest": 2
+      },
+      "uses_stats": [
+        "culture",
+        "information",
+        "mask"
+      ],
+      "risk": {
+        "probing_detected": 3
+      }
+    },
+    {
+      "id": "formal_mourning",
+      "name_ko": "공식 애도",
+      "summary_ko": "배우자 사망 후 사회적 의심을 낮추는 공개 서사.",
+      "effects": {
+        "social_suspicion": -5,
+        "face": 4,
+        "trust": 3
+      },
+      "uses_stats": [
+        "mask",
+        "grace",
+        "etiquette"
+      ],
+      "risk": {
+        "overused_widow_image": 4
+      }
+    },
+    {
+      "id": "public_narrative",
+      "name_ko": "공개 서사",
+      "summary_ko": "사건의 의미를 사회가 받아들일 수 있는 이야기로 고정한다.",
+      "effects": {
+        "social_suspicion": -3,
+        "political_value": 3
+      },
+      "uses_stats": [
+        "sociability",
+        "influence",
+        "mask"
+      ],
+      "risk": {
+        "rival_counter_rumor": 3
+      }
+    },
+    {
+      "id": "royal_protocol",
+      "name_ko": "왕실 예법",
+      "summary_ko": "왕족과 궁정 행사에서 실수 위험을 줄인다.",
+      "effects": {
+        "face": 8,
+        "comfort": 6,
+        "political_value": 5
+      },
+      "uses_stats": [
+        "etiquette",
+        "grace",
+        "mask"
+      ],
+      "risk": {
+        "catastrophic_protocol_fail_if_low": 8
+      }
+    },
+    {
+      "id": "pious",
+      "name_ko": "신앙심",
+      "summary_ko": "성직자와 보수적 귀족에게 신뢰를 준다.",
+      "effects": {
+        "trust": 5,
+        "comfort": 4,
+        "face": 3,
+        "interest": -2
+      },
+      "uses_stats": [
+        "culture",
+        "etiquette"
+      ],
+      "risk": {
+        "hypocrisy_exposure": 4
+      }
+    },
+    {
+      "id": "political",
+      "name_ko": "정치 계산",
+      "summary_ko": "정략 가치와 파벌 이익을 앞세운다.",
+      "effects": {
+        "political_value": 8,
+        "face": 2,
+        "favor": -1
+      },
+      "uses_stats": [
+        "influence",
+        "sociability",
+        "culture"
+      ],
+      "risk": {
+        "rival_attention": 4
+      }
+    }
+  ]
+}

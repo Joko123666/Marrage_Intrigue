@@ -1,0 +1,100 @@
+{
+  "schema_version": "0.1",
+  "rumor_topics": [
+    {
+      "id": "origin_rumor",
+      "name_ko": "출신 소문",
+      "danger": "high",
+      "summary_ko": "주인공의 평민/슬럼가 출신에 대한 소문."
+    },
+    {
+      "id": "candidate_debt",
+      "name_ko": "후보 채무 소문",
+      "danger": "medium",
+      "summary_ko": "결혼 후보의 빚이나 비공식 수입에 관한 소문."
+    },
+    {
+      "id": "rival_scandal",
+      "name_ko": "라이벌 추문",
+      "danger": "medium",
+      "summary_ko": "경쟁 신붓감이나 방해자의 평판을 흔드는 소문."
+    },
+    {
+      "id": "widow_image",
+      "name_ko": "미망인 이미지",
+      "danger": "medium",
+      "summary_ko": "제거 이후 주인공이 어떤 미망인으로 보일지 결정하는 공개 서사."
+    }
+  ],
+  "operations": [
+    {
+      "id": "rumor_probe",
+      "name_ko": "탐문",
+      "weeks": 1,
+      "cost": {
+        "cash": 1
+      },
+      "base_success": 70,
+      "stat_influence": {
+        "stats": {"information": 0.55, "social": 0.25, "mask": 0.2},
+        "reference_stat": 30,
+        "chance_per_point": 0.5,
+        "fixed_effects": ["cash"]
+      },
+      "effects_on_success": {
+        "information": 3
+      },
+      "effects_on_fail": {
+        "fatigue": 2
+      }
+    },
+    {
+      "id": "rumor_seed",
+      "name_ko": "씨앗 뿌리기",
+      "target_npc_id": "npc_rival_celina",
+      "weeks": 1,
+      "cost": {
+        "information": 2,
+        "cash": 1
+      },
+      "base_success": 60,
+      "stat_influence": {
+        "stats": {"social": 0.4, "mask": 0.35, "information": 0.25},
+        "reference_stat": 40,
+        "chance_per_point": 0.6,
+        "fixed_effects": ["cash", "information"]
+      },
+      "effects_on_success": {},
+      "relationship_effects_on_success": {
+        "respect": -5,
+        "leverage": 5
+      },
+      "effects_on_fail": {
+        "social_suspicion": 3
+      }
+    },
+    {
+      "id": "rumor_cleanse",
+      "name_ko": "소문 희석",
+      "weeks": 2,
+      "cost": {
+        "cash": 3,
+        "social": 1
+      },
+      "base_success": 55,
+      "stat_influence": {
+        "stats": {"social": 0.45, "influence": 0.3, "mask": 0.25},
+        "reference_stat": 45,
+        "chance_per_point": 0.65,
+        "fixed_effects": ["cash"]
+      },
+      "effects_on_success": {
+        "origin_rumor": -6
+      },
+      "effects_on_fail": {
+        "origin_rumor": 2,
+        "fatigue": 3
+      }
+    }
+  ]
+}

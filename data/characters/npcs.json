@@ -1,0 +1,593 @@
+{
+  "schema_version": "0.1",
+  "characters": [
+    {
+      "id": "npc_tailor_mirelle",
+      "portrait": "res://assets/art/characters/npc_tailor_mirelle.png",
+      "name_ko": "미렐",
+      "role": "merchant_tailor",
+      "faction": "merchant_network",
+      "first_available_week": 1,
+      "public_summary_ko": "낡은 드레스도 귀족풍으로 고쳐내는 재단사. 입은 무겁지만 가격은 가볍지 않다.",
+      "private_summary_ko": "사교계 하녀들과 거래망을 갖고 있어 유행과 혼담 소문을 빠르게 안다.",
+      "relationship": {
+        "favor": 5,
+        "trust": 0,
+        "respect": -10,
+        "transaction_value": 20,
+        "fear": 0,
+        "loyalty": 0,
+        "suspicion": 10,
+        "debt": 0,
+        "leverage": 0
+      },
+      "interaction_tags": [
+        "shop",
+        "fashion",
+        "rumor",
+        "persona_support"
+      ],
+      "inventory_pool": [
+        "item_refitted_dress",
+        "item_ribbon_of_modesty",
+        "item_black_mourning_veil"
+      ]
+    },
+    {
+      "id": "npc_broker_crow",
+      "portrait": "res://assets/art/characters/npc_broker_crow.png",
+      "name_ko": "까마귀 브렌",
+      "role": "information_broker",
+      "faction": "underworld_loose_network",
+      "first_available_week": 1,
+      "public_summary_ko": "시장에서 작은 심부름을 중개하는 남자. 귀족 앞에서는 존재하지 않는 사람처럼 군다.",
+      "private_summary_ko": "사람의 약점과 채무 장부를 사고판다. 반복 거래 시 흔적 위험이 누적된다.",
+      "relationship": {
+        "favor": 0,
+        "trust": -5,
+        "respect": 5,
+        "transaction_value": 35,
+        "fear": 0,
+        "loyalty": 0,
+        "suspicion": 15,
+        "debt": 0,
+        "leverage": 0
+      },
+      "interaction_tags": [
+        "rumor",
+        "candidate_info",
+        "underworld",
+        "risk"
+      ],
+      "services": [
+        "service_candidate_background",
+        "service_servant_contact",
+        "service_sensitive_rumor"
+      ]
+    },
+    {
+      "id": "npc_guild_contact_ash",
+      "portrait": "res://assets/art/characters/npc_guild_contact_ash.png",
+      "name_ko": "재의 사자",
+      "role": "underworld_contact",
+      "faction": "gray_candle_guild",
+      "first_available_week": 8,
+      "public_summary_ko": "이름 없는 중개인. 필요한 사람에게만 모습을 드러낸다.",
+      "private_summary_ko": "직접적인 해결책을 제안하지만, 외부 흔적과 침묵 비용을 남긴다.",
+      "relationship": {
+        "favor": 0,
+        "trust": -20,
+        "respect": 15,
+        "transaction_value": 50,
+        "fear": 10,
+        "loyalty": 0,
+        "suspicion": 25,
+        "debt": 0,
+        "leverage": 0
+      },
+      "interaction_tags": [
+        "underworld",
+        "removal_support",
+        "external_trace"
+      ],
+      "services": [
+        "service_dangerous_help_abstract",
+        "service_evidence_distraction"
+      ]
+    },
+    {
+      "id": "npc_knight_adrien",
+      "portrait": "res://assets/art/characters/npc_knight_adrien.png",
+      "match_portraits": {
+        "neutral": "res://assets/art/characters/npc_knight_adrien.png",
+        "favorable": "res://assets/art/characters/match/npc_knight_adrien_match_favorable.png",
+        "wary": "res://assets/art/characters/match/npc_knight_adrien_match_wary.png"
+      },
+      "spouse_portraits": {
+        "neutral": "res://assets/art/characters/npc_knight_adrien.png",
+        "affectionate": "res://assets/art/characters/spouse/npc_knight_adrien_spouse_affectionate.png",
+        "suspicious": "res://assets/art/characters/spouse/npc_knight_adrien_spouse_suspicious.png",
+        "weakened": "res://assets/art/characters/spouse/npc_knight_adrien_spouse_weakened.png"
+      },
+      "name_ko": "아드리엔 경",
+      "role": "candidate_knight_tutorial",
+      "rank": "knight",
+      "faction": "minor_knightly_house",
+      "first_available_week": 10,
+      "public_summary_ko": "명예를 중시하는 젊은 기사. 돈은 부족하지만 평판은 나쁘지 않다.",
+      "private_summary_ko": "귀족 영애의 계산된 미소보다 거친 생명력에 흔들린다.",
+      "relationship": {
+        "favor": 0,
+        "trust": 0,
+        "respect": 0,
+        "transaction_value": 10,
+        "fear": 0,
+        "loyalty": 0,
+        "suspicion": 0,
+        "debt": 0,
+        "leverage": 0
+      },
+      "candidate_profile_id": "candidate_knight_tutorial_adrien"
+    },
+    {
+      "id": "npc_baron_lucas",
+      "portrait": "res://assets/art/characters/npc_baron_lucas_generated.png",
+      "spouse_portraits": {
+        "neutral": "res://assets/art/characters/npc_baron_lucas_generated.png",
+        "affectionate": "res://assets/art/characters/spouse/npc_baron_lucas_spouse_affectionate.png",
+        "suspicious": "res://assets/art/characters/spouse/npc_baron_lucas_spouse_suspicious.png",
+        "weakened": "res://assets/art/characters/spouse/npc_baron_lucas_spouse_weakened.png"
+      },
+      "name_ko": "루카스 남작",
+      "role": "candidate_baron",
+      "rank": "baron",
+      "faction": "rural_baron_house",
+      "first_available_week": 40,
+      "public_summary_ko": "허영심이 강한 시골 남작. 외모와 체면에 약하다.",
+      "private_summary_ko": "비공식 수입과 농민 불만을 숨기고 있다.",
+      "relationship": {
+        "favor": 0,
+        "trust": -5,
+        "respect": -5,
+        "transaction_value": 25,
+        "fear": 0,
+        "loyalty": 0,
+        "suspicion": 5,
+        "debt": 0,
+        "leverage": 0
+      },
+      "candidate_profile_id": "candidate_baron_lucas"
+    },
+    {
+      "id": "npc_maid_ella",
+      "portrait": "res://assets/art/characters/npc_maid_ella.png",
+      "name_ko": "엘라",
+      "role": "servant_maid",
+      "faction": "household_staff",
+      "first_available_week": 20,
+      "public_summary_ko": "저택의 어린 하녀. 누구의 편도 아닌 척하지만 많은 것을 본다.",
+      "private_summary_ko": "작은 친절과 돈에 흔들리지만, 공포가 커지면 말을 바꿀 수 있다.",
+      "relationship": {
+        "favor": 0,
+        "trust": -5,
+        "respect": -10,
+        "transaction_value": 15,
+        "fear": 0,
+        "loyalty": 0,
+        "suspicion": 5,
+        "debt": 0,
+        "leverage": 0
+      },
+      "interaction_tags": [
+        "servant",
+        "household_info",
+        "witness_risk"
+      ]
+    },
+    {
+      "id": "npc_rival_celina",
+      "portrait": "res://assets/art/characters/npc_rival_celina.png",
+      "name_ko": "셀리나 영애",
+      "role": "social_rival",
+      "rank": "minor_noble_lady",
+      "faction": "minor_noble_house",
+      "first_available_week": 24,
+      "public_summary_ko": "품위 있는 하급 귀족 영애. 주인공의 출신과 어색한 예법을 의심한다.",
+      "private_summary_ko": "자신보다 낮은 출신이 사교계에 들어오는 것을 참지 못한다.",
+      "relationship": {
+        "favor": -25,
+        "trust": -30,
+        "respect": -20,
+        "transaction_value": 0,
+        "fear": 0,
+        "loyalty": 0,
+        "suspicion": 30,
+        "debt": 0,
+        "leverage": 0
+      },
+      "interaction_tags": [
+        "rival",
+        "origin_attack",
+        "rumor_war"
+      ]
+    },
+    {
+      "id": "npc_knight_cedric",
+      "portrait": "res://assets/art/characters/npc_knight_cedric.png",
+      "match_portraits": {
+        "neutral": "res://assets/art/characters/npc_knight_cedric.png",
+        "favorable": "res://assets/art/characters/match/npc_knight_cedric_match_favorable.png",
+        "wary": "res://assets/art/characters/match/npc_knight_cedric_match_wary.png"
+      },
+      "name_ko": "세드릭 경",
+      "role": "candidate_knight",
+      "rank": "knight",
+      "faction": "border_knightly_house",
+      "first_available_week": 12,
+      "public_summary_ko": "국경 초소에서 복무한 과묵한 기사. 말수는 적지만 약속을 쉽게 어기지 않는다.",
+      "private_summary_ko": "가문 빚 때문에 안정적인 혼인을 찾지만, 배신을 감지하면 곧바로 거리를 둔다.",
+      "relationship": {
+        "favor": 0,
+        "trust": 5,
+        "respect": 5,
+        "transaction_value": 8,
+        "fear": 0,
+        "loyalty": 0,
+        "suspicion": 5,
+        "debt": 10,
+        "leverage": 0
+      },
+      "candidate_profile_id": "candidate_knight_cedric"
+    },
+    {
+      "id": "npc_knight_rohan",
+      "portrait": "res://assets/art/characters/npc_knight_rohan.png",
+      "match_portraits": {
+        "neutral": "res://assets/art/characters/npc_knight_rohan.png",
+        "favorable": "res://assets/art/characters/match/npc_knight_rohan_match_favorable.png",
+        "wary": "res://assets/art/characters/match/npc_knight_rohan_match_wary.png"
+      },
+      "name_ko": "로한 경",
+      "role": "candidate_knight",
+      "rank": "knight",
+      "faction": "tournament_circuit",
+      "first_available_week": 14,
+      "public_summary_ko": "마상시합으로 이름을 알린 젊은 기사. 화려하지만 충동적이고 자존심이 강하다.",
+      "private_summary_ko": "칭찬과 관중의 시선을 갈망한다. 체면을 세워주면 빠르게 가까워진다.",
+      "relationship": {
+        "favor": 5,
+        "trust": -5,
+        "respect": 0,
+        "transaction_value": 12,
+        "fear": 0,
+        "loyalty": 0,
+        "suspicion": 5,
+        "debt": 0,
+        "leverage": 0
+      },
+      "candidate_profile_id": "candidate_knight_rohan"
+    },
+    {
+      "id": "npc_baron_etienne",
+      "portrait": "res://assets/art/characters/npc_baron_etienne.png",
+      "name_ko": "에티엔 남작",
+      "role": "candidate_baron",
+      "rank": "baron",
+      "faction": "orchard_baron_house",
+      "first_available_week": 42,
+      "public_summary_ko": "과수원 영지를 가진 남작. 온화해 보이지만 장부와 채무에 예민하다.",
+      "private_summary_ko": "수확 실패와 사채 때문에 혼인 지참금과 현금 흐름을 중요하게 본다.",
+      "relationship": {
+        "favor": 0,
+        "trust": -5,
+        "respect": -5,
+        "transaction_value": 30,
+        "fear": 0,
+        "loyalty": 0,
+        "suspicion": 10,
+        "debt": 20,
+        "leverage": 0
+      },
+      "candidate_profile_id": "candidate_baron_etienne"
+    },
+    {
+      "id": "npc_baron_marius",
+      "portrait": "res://assets/art/characters/npc_baron_marius.png",
+      "name_ko": "마리우스 남작",
+      "role": "candidate_baron",
+      "rank": "baron",
+      "faction": "old_chapel_estate",
+      "first_available_week": 46,
+      "public_summary_ko": "신앙심 깊은 홀아비 남작. 검소하고 엄격하며 집안 평판을 중시한다.",
+      "private_summary_ko": "전처의 죽음 이후 하인들을 믿지 않는다. 조용한 충성과 체면을 원한다.",
+      "relationship": {
+        "favor": -5,
+        "trust": 0,
+        "respect": 5,
+        "transaction_value": 18,
+        "fear": 0,
+        "loyalty": 0,
+        "suspicion": 15,
+        "debt": 0,
+        "leverage": 0
+      },
+      "candidate_profile_id": "candidate_baron_marius"
+    },
+    {
+      "id": "npc_viscount_theodore",
+      "portrait": "res://assets/art/characters/npc_viscount_theodore.png",
+      "name_ko": "테오도르 자작",
+      "role": "candidate_viscount",
+      "rank": "viscount",
+      "faction": "court_records_office",
+      "first_available_week": 70,
+      "public_summary_ko": "궁정 기록원 가문 출신 자작. 문서와 선례를 무기로 삼는 신중한 남자다.",
+      "private_summary_ko": "공식 기록에 남지 않는 약점을 모은다. 교양과 정돈된 언행을 높게 평가한다.",
+      "relationship": {
+        "favor": 0,
+        "trust": -5,
+        "respect": 10,
+        "transaction_value": 25,
+        "fear": 0,
+        "loyalty": 0,
+        "suspicion": 15,
+        "debt": 0,
+        "leverage": 5
+      },
+      "candidate_profile_id": "candidate_viscount_theodore"
+    },
+    {
+      "id": "npc_viscount_hugo",
+      "portrait": "res://assets/art/characters/npc_viscount_hugo.png",
+      "name_ko": "위고 자작",
+      "role": "candidate_viscount",
+      "rank": "viscount",
+      "faction": "river_trade_house",
+      "first_available_week": 74,
+      "public_summary_ko": "강변 통행세와 무역권을 쥔 자작. 사교적이고 계산이 빠르다.",
+      "private_summary_ko": "무역 특혜를 둘러싼 뇌물 소문을 숨긴다. 정보력 있는 배우자를 경계하면서도 원한다.",
+      "relationship": {
+        "favor": 5,
+        "trust": -10,
+        "respect": 0,
+        "transaction_value": 35,
+        "fear": 0,
+        "loyalty": 0,
+        "suspicion": 20,
+        "debt": 0,
+        "leverage": 5
+      },
+      "candidate_profile_id": "candidate_viscount_hugo"
+    },
+    {
+      "id": "npc_viscount_felix",
+      "portrait": "res://assets/art/characters/npc_viscount_felix.png",
+      "name_ko": "펠릭스 자작",
+      "role": "candidate_viscount",
+      "rank": "viscount",
+      "faction": "academy_patronage",
+      "first_available_week": 78,
+      "public_summary_ko": "학술 후원으로 이름난 젊은 자작. 예술과 논쟁을 즐긴다.",
+      "private_summary_ko": "가문의 실권은 숙부가 쥐고 있다. 배우자의 사교 수완으로 독립하려 한다.",
+      "relationship": {
+        "favor": 5,
+        "trust": 0,
+        "respect": 5,
+        "transaction_value": 20,
+        "fear": 0,
+        "loyalty": 0,
+        "suspicion": 10,
+        "debt": 0,
+        "leverage": 0
+      },
+      "candidate_profile_id": "candidate_viscount_felix"
+    },
+    {
+      "id": "npc_count_astian",
+      "portrait": "res://assets/art/characters/npc_count_astian.png",
+      "name_ko": "아스티앙 백작",
+      "role": "candidate_count",
+      "rank": "count",
+      "faction": "old_count_house",
+      "first_available_week": 104,
+      "public_summary_ko": "오래된 백작가의 상속자. 품위와 혈통을 공개적으로 따진다.",
+      "private_summary_ko": "가문 재정은 안정적이나 후계 다툼이 심하다. 흠 없는 배우자 이미지를 요구한다.",
+      "relationship": {
+        "favor": -5,
+        "trust": -5,
+        "respect": 10,
+        "transaction_value": 30,
+        "fear": 0,
+        "loyalty": 0,
+        "suspicion": 20,
+        "debt": 0,
+        "leverage": 5
+      },
+      "candidate_profile_id": "candidate_count_astian"
+    },
+    {
+      "id": "npc_count_benedict",
+      "portrait": "res://assets/art/characters/npc_count_benedict.png",
+      "name_ko": "베네딕트 백작",
+      "role": "candidate_count",
+      "rank": "count",
+      "faction": "military_supply_house",
+      "first_available_week": 108,
+      "public_summary_ko": "군수 계약으로 세를 키운 백작. 실리적이고 거친 신흥 귀족을 싫어하지 않는다.",
+      "private_summary_ko": "전쟁 물자 횡령 의혹이 있다. 약점을 쥔 상대와도 필요하면 결혼한다.",
+      "relationship": {
+        "favor": 0,
+        "trust": -15,
+        "respect": 5,
+        "transaction_value": 45,
+        "fear": 0,
+        "loyalty": 0,
+        "suspicion": 25,
+        "debt": 0,
+        "leverage": 10
+      },
+      "candidate_profile_id": "candidate_count_benedict"
+    },
+    {
+      "id": "npc_count_claude",
+      "portrait": "res://assets/art/characters/npc_count_claude.png",
+      "name_ko": "클로드 백작",
+      "role": "candidate_count",
+      "rank": "count",
+      "faction": "salon_patron_house",
+      "first_available_week": 112,
+      "public_summary_ko": "살롱과 예술 후원으로 유명한 백작. 우아한 대화와 기품을 중시한다.",
+      "private_summary_ko": "사교계 평판에 약하다. 공개적인 부부 서사를 만들 수 있는 사람을 찾는다.",
+      "relationship": {
+        "favor": 5,
+        "trust": 0,
+        "respect": 5,
+        "transaction_value": 28,
+        "fear": 0,
+        "loyalty": 0,
+        "suspicion": 15,
+        "debt": 0,
+        "leverage": 0
+      },
+      "candidate_profile_id": "candidate_count_claude"
+    },
+    {
+      "id": "npc_marquis_valerian",
+      "portrait": "res://assets/art/characters/npc_marquis_valerian.png",
+      "name_ko": "발레리앙 후작",
+      "role": "candidate_marquis",
+      "rank": "marquis",
+      "faction": "western_march",
+      "first_available_week": 140,
+      "public_summary_ko": "서부 변경을 지키는 후작. 군사권과 자존심이 강하다.",
+      "private_summary_ko": "왕실 감시를 받는 파벌 수장이다. 배우자의 침착함과 정치 감각을 시험한다.",
+      "relationship": {
+        "favor": -5,
+        "trust": -10,
+        "respect": 15,
+        "transaction_value": 35,
+        "fear": 5,
+        "loyalty": 0,
+        "suspicion": 25,
+        "debt": 0,
+        "leverage": 5
+      },
+      "candidate_profile_id": "candidate_marquis_valerian"
+    },
+    {
+      "id": "npc_marquis_renard",
+      "portrait": "res://assets/art/characters/npc_marquis_renard.png",
+      "name_ko": "르나르 후작",
+      "role": "candidate_marquis",
+      "rank": "marquis",
+      "faction": "court_faction_red",
+      "first_available_week": 144,
+      "public_summary_ko": "궁정 파벌의 교활한 후작. 미소와 농담 뒤에 계산을 숨긴다.",
+      "private_summary_ko": "여러 약점을 동시에 쥐고 거래한다. 가면술이 낮은 상대는 오래 버티기 어렵다.",
+      "relationship": {
+        "favor": 0,
+        "trust": -20,
+        "respect": 5,
+        "transaction_value": 50,
+        "fear": 0,
+        "loyalty": 0,
+        "suspicion": 30,
+        "debt": 0,
+        "leverage": 15
+      },
+      "candidate_profile_id": "candidate_marquis_renard"
+    },
+    {
+      "id": "npc_marquis_dorian",
+      "portrait": "res://assets/art/characters/npc_marquis_dorian.png",
+      "name_ko": "도리앙 후작",
+      "role": "candidate_marquis",
+      "rank": "marquis",
+      "faction": "eastern_grain_league",
+      "first_available_week": 148,
+      "public_summary_ko": "동부 곡물 동맹을 대표하는 후작. 온화하지만 가문 이익에는 냉정하다.",
+      "private_summary_ko": "기근 책임을 피하려 한다. 공개 금슬과 선행 이미지를 정치적으로 이용한다.",
+      "relationship": {
+        "favor": 5,
+        "trust": -5,
+        "respect": 10,
+        "transaction_value": 40,
+        "fear": 0,
+        "loyalty": 0,
+        "suspicion": 20,
+        "debt": 0,
+        "leverage": 5
+      },
+      "candidate_profile_id": "candidate_marquis_dorian"
+    },
+    {
+      "id": "npc_duke_everard",
+      "portrait": "res://assets/art/characters/npc_duke_everard.png",
+      "name_ko": "에버라드 공작",
+      "role": "candidate_duke",
+      "rank": "duke",
+      "faction": "northern_duchy",
+      "first_available_week": 178,
+      "public_summary_ko": "북부 공작가의 냉정한 수장. 왕실과 맞먹는 의전과 위세를 가졌다.",
+      "private_summary_ko": "후계 구도가 불안하다. 배우자를 감정보다 파벌 안정 장치로 본다.",
+      "relationship": {
+        "favor": -10,
+        "trust": -15,
+        "respect": 20,
+        "transaction_value": 45,
+        "fear": 5,
+        "loyalty": 0,
+        "suspicion": 30,
+        "debt": 0,
+        "leverage": 10
+      },
+      "candidate_profile_id": "candidate_duke_everard"
+    },
+    {
+      "id": "npc_duke_severin",
+      "portrait": "res://assets/art/characters/npc_duke_severin.png",
+      "name_ko": "세브린 공작",
+      "role": "candidate_duke",
+      "rank": "duke",
+      "faction": "southern_diplomatic_house",
+      "first_available_week": 184,
+      "public_summary_ko": "남부 외교 가문 출신 공작. 부드럽지만 한 마디로 사람을 묶어 둔다.",
+      "private_summary_ko": "외국 사절과의 거래가 많다. 실수 없는 예법과 정치적 가치가 필수다.",
+      "relationship": {
+        "favor": 0,
+        "trust": -20,
+        "respect": 15,
+        "transaction_value": 55,
+        "fear": 0,
+        "loyalty": 0,
+        "suspicion": 35,
+        "debt": 0,
+        "leverage": 10
+      },
+      "candidate_profile_id": "candidate_duke_severin"
+    },
+    {
+      "id": "npc_duke_cassian",
+      "portrait": "res://assets/art/characters/npc_duke_cassian.png",
+      "name_ko": "카시안 공작",
+      "role": "candidate_duke",
+      "rank": "duke",
+      "faction": "capital_guard_duchy",
+      "first_available_week": 190,
+      "public_summary_ko": "수도 방위권을 쥔 젊은 공작. 결단이 빠르고 위험한 사람에게 끌린다.",
+      "private_summary_ko": "왕실과 군부 사이에서 균형을 잡는다. 야성과 가면술을 동시에 시험한다.",
+      "relationship": {
+        "favor": 0,
+        "trust": -10,
+        "respect": 10,
+        "transaction_value": 50,
+        "fear": 0,
+        "loyalty": 0,
+        "suspicion": 30,
+        "debt": 0,
+        "leverage": 5
+      },
+      "candidate_profile_id": "candidate_duke_cassian"
+    }
+  ]
+}

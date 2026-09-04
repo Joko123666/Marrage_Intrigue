@@ -1,0 +1,175 @@
+{
+  "schema_version": "0.1",
+  "safety_note_ko": "은폐 행동은 실제 범죄 은폐 절차가 아니라 사건 위험 토큰을 조정하는 추상 게임 행동이다.",
+  "case_axes": [
+    {
+      "id": "investigation_progress",
+      "name_ko": "조사 진행도",
+      "range": "0~100"
+    },
+    {
+      "id": "rumor_spread",
+      "name_ko": "소문 확산도",
+      "range": "0~100"
+    },
+    {
+      "id": "evidence_risk",
+      "name_ko": "증거 위험도",
+      "range": "0~100"
+    },
+    {
+      "id": "alibi_strength",
+      "name_ko": "알리바이 강도",
+      "range": "0~100"
+    },
+    {
+      "id": "public_grief",
+      "name_ko": "공개 애도",
+      "range": "0~100"
+    }
+  ],
+  "actions": [
+    {
+      "id": "coverup_public_mourning",
+      "name_ko": "공개 애도 연출",
+      "weeks": 1,
+      "requirements": {
+        "mask": 20
+      },
+      "base_success": 86,
+      "stat_influence": {
+        "stats": {"mask": 0.5, "grace": 0.3, "etiquette": 0.2},
+        "reference_stat": 45,
+        "chance_per_point": 0.45,
+        "min_chance": 10
+      },
+      "effects": {
+        "public_grief": 12,
+        "social_suspicion": -3,
+        "fatigue": 5
+      },
+      "effects_on_fail": {
+        "public_grief": 3,
+        "social_suspicion": 3,
+        "fatigue": 5
+      },
+      "summary_ko": "슬픔과 의무를 연출해 주변이 납득할 공개 서사를 만든다."
+    },
+    {
+      "id": "coverup_alibi_story",
+      "name_ko": "알리바이 서사 확정",
+      "weeks": 1,
+      "requirements": {
+        "information": 15,
+        "mask": 15
+      },
+      "base_success": 78,
+      "stat_influence": {
+        "stats": {"mask": 0.45, "information": 0.4, "impulse_control": 0.15},
+        "reference_stat": 45,
+        "chance_per_point": 0.5,
+        "min_chance": 10
+      },
+      "effects": {
+        "alibi_strength": 10,
+        "evidence_risk": -4,
+        "fatigue": 3
+      },
+      "effects_on_fail": {
+        "alibi_strength": 2,
+        "evidence_risk": 5,
+        "fatigue": 4
+      },
+      "summary_ko": "사건 당시의 위치와 증언을 게임적으로 정리한다."
+    },
+    {
+      "id": "coverup_official_opinion",
+      "name_ko": "공식 소견 확보",
+      "weeks": 2,
+      "requirements": {
+        "cash": 5,
+        "social": 5
+      },
+      "base_success": 72,
+      "stat_influence": {
+        "stats": {"social": 0.4, "influence": 0.3, "etiquette": 0.2, "status": 0.1},
+        "reference_stat": 45,
+        "chance_per_point": 0.55,
+        "min_chance": 10,
+        "fixed_effects": ["cash"]
+      },
+      "effects": {
+        "investigation_progress": -8,
+        "evidence_risk": -6,
+        "cash": -5
+      },
+      "effects_on_fail": {
+        "investigation_progress": 6,
+        "evidence_risk": 3,
+        "cash": -5,
+        "social_suspicion": 3
+      },
+      "summary_ko": "의사, 성직자, 가문 대리인 등에게 사건을 설명할 공식 명분을 확보한다."
+    },
+    {
+      "id": "coverup_witness_settlement",
+      "name_ko": "목격자 회유",
+      "weeks": 1,
+      "requirements": {
+        "cash": 4
+      },
+      "base_success": 70,
+      "stat_influence": {
+        "stats": {"social": 0.4, "mask": 0.3, "information": 0.3},
+        "reference_stat": 45,
+        "chance_per_point": 0.55,
+        "min_chance": 10,
+        "fixed_effects": ["cash"]
+      },
+      "effects": {
+        "evidence_risk": -8,
+        "cash": -4,
+        "underworld_trace": 2
+      },
+      "effects_on_fail": {
+        "evidence_risk": 7,
+        "cash": -4,
+        "underworld_trace": 4,
+        "social_suspicion": 2
+      },
+      "summary_ko": "불안정한 증언을 게임적으로 낮춘다. 반복 사용 시 장기 흔적이 남는다."
+    },
+    {
+      "id": "coverup_divert_motive",
+      "name_ko": "대체 동기 제시",
+      "weeks": 2,
+      "requirements": {
+        "information": 25
+      },
+      "base_success": 74,
+      "stat_influence": {
+        "stats": {"information": 0.45, "mask": 0.3, "influence": 0.25},
+        "reference_stat": 50,
+        "chance_per_point": 0.6,
+        "min_chance": 10,
+        "fixed_effects": ["information"]
+      },
+      "effects": {
+        "rumor_spread": -6,
+        "social_suspicion": -2,
+        "information": -5
+      },
+      "effects_on_fail": {
+        "rumor_spread": 7,
+        "social_suspicion": 4,
+        "information": -5
+      },
+      "summary_ko": "사건의 원인을 다른 갈등, 채무, 정적 관계로 돌리는 공개 서사를 만든다."
+    }
+  ],
+  "weekly_decay_after_event": {
+    "investigation_progress": 8,
+    "rumor_spread": 5,
+    "social_suspicion": 2
+  }
+}

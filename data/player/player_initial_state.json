@@ -1,0 +1,41 @@
+{
+  "schema_version": "0.1",
+  "id": "player_initial_state",
+  "start_age_years": 14,
+  "start_week": 1,
+  "hard_limit_age_years": 35,
+  "soft_limit_age_years": 30,
+  "background": "commoner_orphan_slum_survivor",
+  "current_voice_stage": "voice_0_street_beast",
+  "current_persona": "persona_street_survivor",
+  "stats": {
+    "beauty": 42,
+    "culture": 8,
+    "grace": 10,
+    "etiquette": 5,
+    "wildness": 72,
+    "mask": 4,
+    "impulse_control": 18,
+    "funds_power": 0,
+    "cash": 8,
+    "information": 12,
+    "social": 0,
+    "influence": 0,
+    "status": 0,
+    "fatigue": 10,
+    "stress": 15,
+    "ambition": 85
+  },
+  "global_risks": {
+    "social_suspicion": 0,
+    "origin_rumor": 20,
+    "notoriety": 0,
+    "underworld_trace": 0
+  },
+  "flags": {
+    "tutorial_completed": false,
+    "entered_nobility": false,
+    "married": false,
+    "widowed_once": false
+  }
+}

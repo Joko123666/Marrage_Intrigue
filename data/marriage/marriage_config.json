@@ -1,0 +1,178 @@
+{
+  "schema_version": "0.1",
+  "spouse_state_axes": [
+    {
+      "id": "health",
+      "name_ko": "건강",
+      "range": "0~100",
+      "summary_ko": "배우자의 신체 상태. 0에 가까울수록 사건/사망 이벤트 가능성이 커진다."
+    },
+    {
+      "id": "affection",
+      "name_ko": "애정도",
+      "range": "0~100",
+      "summary_ko": "배우자가 주인공에게 애착을 갖는 정도. 접근권과 직접의심에 영향."
+    },
+    {
+      "id": "direct_suspicion",
+      "name_ko": "직접의심",
+      "range": "0~100",
+      "summary_ko": "배우자가 플레이어를 직접 의심하는 정도."
+    },
+    {
+      "id": "threat_alert",
+      "name_ko": "경계도",
+      "range": "0~100",
+      "summary_ko": "배우자가 신변 위협을 느껴 방비를 강화하는 정도."
+    },
+    {
+      "id": "public_harmony",
+      "name_ko": "공개 금슬",
+      "range": "0~100",
+      "summary_ko": "외부에서 보기에 부부 관계가 안정적으로 보이는 정도."
+    }
+  ],
+  "wedding_options": [
+    {
+      "id": "wedding_modest",
+      "name_ko": "검소한 결혼식",
+      "weeks": 2,
+      "cash_cost": 8,
+      "effects": {
+        "cash": -8,
+        "public_harmony": 5,
+        "social": 1
+      }
+    },
+    {
+      "id": "wedding_social",
+      "name_ko": "사교적 결혼식",
+      "weeks": 3,
+      "cash_cost": 18,
+      "effects": {
+        "cash": -18,
+        "public_harmony": 10,
+        "social": 5,
+        "influence": 2,
+        "fatigue": 5
+      }
+    },
+    {
+      "id": "wedding_grand",
+      "name_ko": "과시적 결혼식",
+      "weeks": 4,
+      "cash_cost": 35,
+      "effects": {
+        "cash": -35,
+        "public_harmony": 12,
+        "social": 8,
+        "influence": 4,
+        "origin_rumor": -3,
+        "fatigue": 8
+      }
+    }
+  ],
+  "wedding_result_events": [
+    {
+      "id": "wedding_modest_humble_oath",
+      "name_ko": "조용한 맹세",
+      "summary_ko": "소박한 예식은 눈에 띄지 않았지만, 배우자는 과장 없는 태도를 진심으로 받아들였다.",
+      "option_ids": ["wedding_modest"],
+      "priority": 10,
+      "effects": {
+        "affection": 3,
+        "public_harmony": 2,
+        "social_suspicion": 1
+      }
+    },
+    {
+      "id": "wedding_modest_house_offended",
+      "name_ko": "상처 입은 체면",
+      "summary_ko": "배우자 가문은 검소한 예식을 체면 손상으로 받아들였고, 결혼 초반부터 시선을 날카롭게 세웠다.",
+      "option_ids": ["wedding_modest"],
+      "trigger_traits_any": ["bloodline_pride", "near_royal_protocol", "ducal_house", "vain"],
+      "priority": 40,
+      "effects": {
+        "public_harmony": -3,
+        "direct_suspicion": 2,
+        "social_suspicion": 2
+      }
+    },
+    {
+      "id": "wedding_social_useful_introductions",
+      "name_ko": "쓸 만한 소개",
+      "summary_ko": "적당히 갖춘 예식은 하객들의 입을 열었고, 새 친족과 사교계의 연결점이 생겼다.",
+      "option_ids": ["wedding_social"],
+      "priority": 10,
+      "effects": {
+        "information": 2,
+        "influence": 1,
+        "public_harmony": 2
+      }
+    },
+    {
+      "id": "wedding_social_salon_approval",
+      "name_ko": "살롱의 승인",
+      "summary_ko": "살롱과 평판을 중시하는 이들이 예식의 균형감을 칭찬하며 신혼부부의 공개 이미지를 밀어 올렸다.",
+      "option_ids": ["wedding_social"],
+      "trigger_traits_any": ["salon_patron", "salon_taste", "reputation_sensitive", "vain", "public_harmony_focused"],
+      "priority": 35,
+      "effects": {
+        "public_harmony": 4,
+        "social": 2,
+        "stress": 1
+      }
+    },
+    {
+      "id": "wedding_grand_public_spectacle",
+      "name_ko": "화려한 첫인상",
+      "summary_ko": "과시적인 예식은 출신을 둘러싼 말을 눌렀지만, 동시에 모두가 이 결혼을 기억하게 만들었다.",
+      "option_ids": ["wedding_grand"],
+      "priority": 10,
+      "effects": {
+        "public_harmony": 4,
+        "origin_rumor": -2,
+        "notoriety": 1,
+        "stress": 2
+      }
+    },
+    {
+      "id": "wedding_grand_protocol_pressure",
+      "name_ko": "의전의 무게",
+      "summary_ko": "상위 귀족의 의전은 완벽에 가까웠지만, 그만큼 이후에도 같은 수준을 요구받게 되었다.",
+      "option_ids": ["wedding_grand"],
+      "trigger_traits_any": ["near_royal_protocol", "ducal_house", "faction_leader", "capital_guard"],
+      "priority": 35,
+      "effects": {
+        "public_harmony": 5,
+        "influence": 1,
+        "stress": 3,
+        "threat_alert": 1
+      }
+    },
+    {
+      "id": "wedding_any_ledger_whispers",
+      "name_ko": "하객 사이의 장부 소문",
+      "summary_ko": "예식 자리에서 배우자 가문의 빚과 계약 이야기가 새어 나왔고, 쓸 만한 단서와 불편한 시선이 동시에 생겼다.",
+      "trigger_traits_any": ["debt_pressure", "hidden_money", "bribe_rumor", "war_contracts", "famine_blame"],
+      "priority": 30,
+      "effects": {
+        "information": 2,
+        "direct_suspicion": 1,
+        "social_suspicion": 1
+      }
+    },
+    {
+      "id": "wedding_any_watchful_household",
+      "name_ko": "하인들의 첫 평가",
+      "summary_ko": "저택 사람들은 예식 내내 새 안주인의 말과 표정을 기억했고, 가문 안쪽으로 들어가는 문턱이 분명해졌다.",
+      "trigger_traits_any": ["wary_household", "household_watch", "archive_power", "procedural_mind"],
+      "priority": 28,
+      "effects": {
+        "information": 1,
+        "threat_alert": 2,
+        "direct_suspicion": 1
+      }
+    }
+  ]
+}

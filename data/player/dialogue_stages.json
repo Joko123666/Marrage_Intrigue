@@ -1,0 +1,591 @@
+{
+  "schema_version": "0.1",
+  "created_at": "2026-06-15",
+  "language": "ko",
+  "project": "귀족 권력상승 시뮬레이션",
+  "engine_target": "Godot Engine 4.x",
+  "numeric_scale": {
+    "stat": "0~100. 50은 훈련된 평균, 70 이상은 상위권, 85 이상은 최상위권.",
+    "mood_axis": "맞선 레이더 축은 0~100. 선택지와 페르소나 보정은 일반적으로 -20~+20 범위의 가산값.",
+    "audience_modifier": "대상 계층 또는 인물 유형에 대한 상호작용 성공 판정 가산값. 단위는 점수 또는 %p로 변환 가능.",
+    "risk_modifier": "양수는 위험 증가, 음수는 위험 감소. 위험 종류별로 별도 누적 권장."
+  },
+  "core_stats": [
+    "beauty",
+    "culture",
+    "grace",
+    "etiquette",
+    "wildness",
+    "mask",
+    "impulse_control",
+    "funds",
+    "information",
+    "sociability",
+    "influence",
+    "status"
+  ],
+  "mood_axes": [
+    "favor",
+    "interest",
+    "trust",
+    "comfort",
+    "face",
+    "political_value"
+  ],
+  "suspicion_axes": [
+    "social_suspicion",
+    "direct_suspicion",
+    "threat_alert",
+    "evidence_risk"
+  ],
+  "note": "대사 단계는 주인공의 장기 성장 상태이고, 페르소나는 현재 사교계에 보여주는 연출/가면이다. 둘은 분리해서 관리한다.",
+  "stages": [
+    {
+      "id": "voice_0_street_beast",
+      "order": 0,
+      "name_ko": "골목의 짐승",
+      "short_name_ko": "야성 초반",
+      "summary_ko": "평민 고아로 시작한 직후의 말투. 짧고 직설적이며 감정과 적의가 얼굴에 드러난다. 귀족 예법은 모르지만 사람의 욕망과 위험은 빠르게 읽는다.",
+      "typical_conditions": {
+        "recommended": {
+          "max_etiquette": 19,
+          "max_mask": 14
+        },
+        "story_flags": [
+          "tutorial_start",
+          "before_first_marriage"
+        ]
+      },
+      "visual_behavior_ko": [
+        "시선이 빠르게 움직인다",
+        "긴장을 숨기지 못한다",
+        "비웃음을 들으면 바로 눈빛이 변한다",
+        "드레스와 장갑을 불편해한다"
+      ],
+      "speech_style_ko": {
+        "sentence_length": "짧음",
+        "honorific_ratio": "낮음",
+        "metaphor_level": "낮음",
+        "emotional_leak": "높음",
+        "preferred_words": [
+          "내가",
+          "싫어",
+          "거짓말",
+          "굶주림",
+          "빚",
+          "살아남다"
+        ],
+        "avoid_words": [
+          "영광",
+          "가문의 품격",
+          "삼가",
+          "폐하의 은혜"
+        ]
+      },
+      "unlocked_choice_tags": [
+        "wild",
+        "direct",
+        "threat",
+        "streetwise",
+        "blunt"
+      ],
+      "risky_choice_tags": [
+        "courtly",
+        "formal_mourning",
+        "theological",
+        "high_protocol"
+      ],
+      "base_modifiers": {
+        "audiences": {
+          "commoner": 8,
+          "servant": 7,
+          "merchant": 4,
+          "underworld": 8,
+          "knight": 5,
+          "baron": -4,
+          "viscount": -7,
+          "count_or_higher": -10,
+          "royal": -15
+        },
+        "match_axes": {
+          "favor": 2,
+          "interest": 10,
+          "trust": -5,
+          "comfort": -8,
+          "face": -10,
+          "political_value": -8
+        },
+        "actions": {
+          "rumor_gather": 5,
+          "bargain": 4,
+          "intimidate": 8,
+          "salon": -10,
+          "public_mourning": -8,
+          "alibi_acting": -6
+        },
+        "risks": {
+          "origin_rumor": 8,
+          "impulse_leak": 8,
+          "social_suspicion": 4,
+          "direct_suspicion_when_provoked": 6
+        }
+      }
+    },
+    {
+      "id": "voice_1_borrowed_dress",
+      "order": 1,
+      "name_ko": "빌린 드레스의 소녀",
+      "short_name_ko": "귀족 흉내 초입",
+      "summary_ko": "예법과 말투를 배우기 시작했지만 아직 어색하다. 공손한 표현과 거리의 감각이 섞이며, 일부 인물에게는 꾸밈없는 생기가 매력으로 보인다.",
+      "typical_conditions": {
+        "recommended": {
+          "min_etiquette": 20,
+          "min_mask": 10
+        },
+        "story_flags": [
+          "first_training_done",
+          "knight_route_active"
+        ]
+      },
+      "visual_behavior_ko": [
+        "웃는 타이밍을 의식한다",
+        "말하기 전에 호칭을 고른다",
+        "식사 예법을 따라 하지만 손끝이 굳는다",
+        "칭찬을 받으면 잠깐 진심이 드러난다"
+      ],
+      "speech_style_ko": {
+        "sentence_length": "짧음~보통",
+        "honorific_ratio": "보통 이하",
+        "metaphor_level": "낮음~보통",
+        "emotional_leak": "보통 이상",
+        "preferred_words": [
+          "부족하지만",
+          "배우겠습니다",
+          "경",
+          "기회",
+          "잊지 않겠습니다"
+        ],
+        "avoid_words": [
+          "천한",
+          "훔치다",
+          "배고프다",
+          "죽여버리겠다"
+        ]
+      },
+      "unlocked_choice_tags": [
+        "wild",
+        "direct",
+        "awkward_courtly",
+        "humble",
+        "earnest"
+      ],
+      "risky_choice_tags": [
+        "royal_protocol",
+        "deep_theology",
+        "perfect_mourning"
+      ],
+      "base_modifiers": {
+        "audiences": {
+          "commoner": 5,
+          "servant": 5,
+          "merchant": 5,
+          "underworld": 5,
+          "knight": 8,
+          "baron": 2,
+          "viscount": -2,
+          "count_or_higher": -5,
+          "royal": -10
+        },
+        "match_axes": {
+          "favor": 5,
+          "interest": 8,
+          "trust": 1,
+          "comfort": -2,
+          "face": -3,
+          "political_value": -3
+        },
+        "actions": {
+          "rumor_gather": 4,
+          "bargain": 3,
+          "intimidate": 4,
+          "salon": -4,
+          "public_mourning": -3,
+          "alibi_acting": -2
+        },
+        "risks": {
+          "origin_rumor": 6,
+          "impulse_leak": 5,
+          "social_suspicion": 2,
+          "awkward_protocol": 5
+        }
+      }
+    },
+    {
+      "id": "voice_2_hungry_lady",
+      "order": 2,
+      "name_ko": "굶주림을 숨긴 귀부인",
+      "short_name_ko": "다듬어진 신예",
+      "summary_ko": "귀족식 언어와 몸가짐을 상당히 익혔다. 겉으로는 공손하지만 말 속에 계산과 건조한 날이 숨어 있다. 야성은 사라지지 않고 통제되기 시작한다.",
+      "typical_conditions": {
+        "recommended": {
+          "min_etiquette": 35,
+          "min_mask": 30,
+          "min_impulse_control": 30
+        },
+        "story_flags": [
+          "first_marriage_done",
+          "baron_route_active"
+        ]
+      },
+      "visual_behavior_ko": [
+        "분노를 미소로 누른다",
+        "상대의 취향을 듣고 말투를 바꾼다",
+        "하인에게 짧은 지시를 내릴 줄 안다",
+        "실수 후 바로 수습한다"
+      ],
+      "speech_style_ko": {
+        "sentence_length": "보통",
+        "honorific_ratio": "보통~높음",
+        "metaphor_level": "보통",
+        "emotional_leak": "낮음~보통",
+        "preferred_words": [
+          "체면",
+          "가문",
+          "약속",
+          "명예",
+          "조용히",
+          "살피겠습니다"
+        ],
+        "avoid_words": [
+          "골목",
+          "훔치다",
+          "내가 먼저",
+          "다 필요 없어"
+        ]
+      },
+      "unlocked_choice_tags": [
+        "courtly",
+        "mask",
+        "subtle_probe",
+        "humble",
+        "calculated_wild"
+      ],
+      "risky_choice_tags": [
+        "royal_protocol",
+        "perfect_mourning",
+        "open_threat"
+      ],
+      "base_modifiers": {
+        "audiences": {
+          "commoner": 2,
+          "servant": 3,
+          "merchant": 5,
+          "underworld": 2,
+          "knight": 6,
+          "baron": 7,
+          "viscount": 5,
+          "count_or_higher": 2,
+          "royal": -4
+        },
+        "match_axes": {
+          "favor": 4,
+          "interest": 4,
+          "trust": 5,
+          "comfort": 4,
+          "face": 4,
+          "political_value": 3
+        },
+        "actions": {
+          "rumor_gather": 4,
+          "rumor_spread": 3,
+          "bargain": 3,
+          "salon": 2,
+          "public_mourning": 2,
+          "alibi_acting": 3
+        },
+        "risks": {
+          "origin_rumor": 3,
+          "impulse_leak": 3,
+          "social_suspicion": 0,
+          "mask_crack_when_insulted": 4
+        }
+      }
+    },
+    {
+      "id": "voice_3_smiling_widow",
+      "order": 3,
+      "name_ko": "미소 짓는 미망인",
+      "short_name_ko": "은폐와 애도의 가면",
+      "summary_ko": "상실과 품위를 연기할 수 있다. 공개석상에서는 절제된 슬픔을 보이고, 사적인 자리에서는 상대가 스스로 말하게 만든다. 은폐와 여론 관리에 강하다.",
+      "typical_conditions": {
+        "recommended": {
+          "min_mask": 50,
+          "min_impulse_control": 45,
+          "min_grace": 40
+        },
+        "story_flags": [
+          "first_widowhood",
+          "first_removal_survived"
+        ]
+      },
+      "visual_behavior_ko": [
+        "슬픔을 과장하지 않는다",
+        "잠깐 침묵한 뒤 말한다",
+        "손수건과 시선을 연출한다",
+        "조사 앞에서도 호흡이 흐트러지지 않는다"
+      ],
+      "speech_style_ko": {
+        "sentence_length": "보통~김",
+        "honorific_ratio": "높음",
+        "metaphor_level": "보통~높음",
+        "emotional_leak": "낮음",
+        "preferred_words": [
+          "고인의 뜻",
+          "남은 의무",
+          "침묵",
+          "상심",
+          "품위",
+          "감사드립니다"
+        ],
+        "avoid_words": [
+          "다음",
+          "기회",
+          "운이 좋았다",
+          "귀찮다"
+        ]
+      },
+      "unlocked_choice_tags": [
+        "mask",
+        "formal_mourning",
+        "alibi",
+        "subtle_probe",
+        "courtly"
+      ],
+      "risky_choice_tags": [
+        "blunt",
+        "open_threat",
+        "reckless_wild"
+      ],
+      "base_modifiers": {
+        "audiences": {
+          "commoner": 0,
+          "servant": 2,
+          "merchant": 4,
+          "underworld": -1,
+          "knight": 4,
+          "baron": 6,
+          "viscount": 7,
+          "count_or_higher": 6,
+          "royal": -2
+        },
+        "match_axes": {
+          "favor": 2,
+          "interest": 2,
+          "trust": 6,
+          "comfort": 6,
+          "face": 8,
+          "political_value": 8
+        },
+        "actions": {
+          "rumor_gather": 3,
+          "rumor_spread": 5,
+          "salon": 6,
+          "public_mourning": 10,
+          "alibi_acting": 8,
+          "witness_soothe": 6
+        },
+        "risks": {
+          "origin_rumor": 0,
+          "impulse_leak": 1,
+          "social_suspicion_after_death": -5,
+          "overused_widow_image": 6
+        }
+      }
+    },
+    {
+      "id": "voice_4_social_predator",
+      "order": 4,
+      "name_ko": "사교계의 사냥꾼",
+      "short_name_ko": "고위 사교계 조종자",
+      "summary_ko": "말 한마디로 주변 인물의 이해관계를 움직인다. 직접 위협하지 않고 체면, 가문, 의무, 파벌을 이용해 상대의 선택지를 좁힌다.",
+      "typical_conditions": {
+        "recommended": {
+          "min_mask": 65,
+          "min_impulse_control": 60,
+          "min_sociability": 55
+        },
+        "story_flags": [
+          "count_route_active",
+          "high_society_access"
+        ]
+      },
+      "visual_behavior_ko": [
+        "상대의 이름보다 가문과 후원자를 먼저 기억한다",
+        "침묵으로 압박한다",
+        "공개 칭찬으로 사적 빚을 만든다",
+        "분노를 타인의 체면 문제로 바꾼다"
+      ],
+      "speech_style_ko": {
+        "sentence_length": "보통~김",
+        "honorific_ratio": "높음",
+        "metaphor_level": "높음",
+        "emotional_leak": "매우 낮음",
+        "preferred_words": [
+          "왕국",
+          "책임",
+          "품격",
+          "균형",
+          "신뢰",
+          "기억될 것입니다"
+        ],
+        "avoid_words": [
+          "내 욕심",
+          "복수",
+          "두렵다",
+          "몰라요"
+        ]
+      },
+      "unlocked_choice_tags": [
+        "courtly",
+        "mask",
+        "political",
+        "indirect_threat",
+        "public_narrative"
+      ],
+      "risky_choice_tags": [
+        "reckless_wild",
+        "streetwise_open",
+        "childlike"
+      ],
+      "base_modifiers": {
+        "audiences": {
+          "commoner": -2,
+          "servant": 0,
+          "merchant": 4,
+          "underworld": -3,
+          "knight": 2,
+          "baron": 5,
+          "viscount": 7,
+          "count_or_higher": 8,
+          "royal": 2
+        },
+        "match_axes": {
+          "favor": 2,
+          "interest": 5,
+          "trust": 5,
+          "comfort": 2,
+          "face": 8,
+          "political_value": 12
+        },
+        "actions": {
+          "rumor_gather": 5,
+          "rumor_spread": 8,
+          "salon": 10,
+          "public_mourning": 8,
+          "alibi_acting": 7,
+          "political_removal": 8
+        },
+        "risks": {
+          "origin_rumor": -2,
+          "impulse_leak": -2,
+          "social_suspicion": -3,
+          "rival_attention": 6
+        }
+      }
+    },
+    {
+      "id": "voice_5_court_predator",
+      "order": 5,
+      "name_ko": "궁정의 포식자",
+      "short_name_ko": "왕궁의 완성된 가면",
+      "summary_ko": "감정, 사랑, 애도, 겸손, 신앙심까지 연기할 수 있는 최종 단계. 직접 요구하지 않고도 상대가 스스로 원하는 결론에 도달하게 만든다.",
+      "typical_conditions": {
+        "recommended": {
+          "min_mask": 80,
+          "min_impulse_control": 75,
+          "min_grace": 70,
+          "min_etiquette": 75
+        },
+        "story_flags": [
+          "ducal_or_royal_access",
+          "late_game"
+        ]
+      },
+      "visual_behavior_ko": [
+        "눈물의 양까지 계산된다",
+        "왕족 앞에서 감정 누수가 없다",
+        "칭찬과 경고의 경계가 흐릿하다",
+        "누구도 진심을 확신하지 못한다"
+      ],
+      "speech_style_ko": {
+        "sentence_length": "김",
+        "honorific_ratio": "매우 높음",
+        "metaphor_level": "높음",
+        "emotional_leak": "거의 없음",
+        "preferred_words": [
+          "왕실",
+          "질서",
+          "은혜",
+          "역사",
+          "책무",
+          "영광",
+          "침묵으로 섬기겠습니다"
+        ],
+        "avoid_words": [
+          "원한다",
+          "싫다",
+          "무섭다",
+          "내 차례"
+        ]
+      },
+      "unlocked_choice_tags": [
+        "royal_protocol",
+        "courtly",
+        "mask",
+        "public_narrative",
+        "political",
+        "perfect_mourning"
+      ],
+      "risky_choice_tags": [
+        "reckless_wild",
+        "open_threat",
+        "streetwise_open"
+      ],
+      "base_modifiers": {
+        "audiences": {
+          "commoner": -4,
+          "servant": 0,
+          "merchant": 2,
+          "underworld": -6,
+          "knight": 0,
+          "baron": 3,
+          "viscount": 5,
+          "count_or_higher": 10,
+          "royal": 8
+        },
+        "match_axes": {
+          "favor": 1,
+          "interest": 4,
+          "trust": 6,
+          "comfort": 8,
+          "face": 12,
+          "political_value": 16
+        },
+        "actions": {
+          "rumor_gather": 4,
+          "rumor_spread": 10,
+          "salon": 12,
+          "public_mourning": 12,
+          "alibi_acting": 10,
+          "political_removal": 12
+        },
+        "risks": {
+          "origin_rumor": -5,
+          "impulse_leak": -6,
+          "social_suspicion": -6,
+          "rival_attention": 8
+        }
+      }
+    }
+  ]
+}

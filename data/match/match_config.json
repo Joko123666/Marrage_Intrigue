@@ -1,0 +1,181 @@
+{
+  "schema_version": "0.1",
+  "description_ko": "맞선은 제한시간/턴 동안 선택지를 고르고 레이더 축을 올리는 소셜 승부다.",
+  "axes": [
+    {
+      "id": "favor",
+      "name_ko": "호감",
+      "success_weight": 1.0
+    },
+    {
+      "id": "interest",
+      "name_ko": "흥미",
+      "success_weight": 0.8
+    },
+    {
+      "id": "trust",
+      "name_ko": "신뢰",
+      "success_weight": 1.0
+    },
+    {
+      "id": "comfort",
+      "name_ko": "안심",
+      "success_weight": 0.9
+    },
+    {
+      "id": "face",
+      "name_ko": "체면 만족",
+      "success_weight": 0.8
+    },
+    {
+      "id": "political_value",
+      "name_ko": "정략 가치",
+      "success_weight": 1.2
+    }
+  ],
+  "default_match": {
+    "time_limit_turns": 8,
+    "success_threshold": 62,
+    "critical_fail_axis_below": 10,
+    "choice_stat_scaling": {
+      "reference_stat": 25,
+      "positive_min_multiplier": 0.75,
+      "positive_max_multiplier": 1.75,
+      "drawback_max_multiplier": 1.25,
+      "drawback_min_multiplier": 0.5,
+      "soft_requirement_reversal_below": 0.4,
+      "soft_requirement_positive_floor": 0.0,
+      "soft_requirement_reversal_max": 0.6,
+      "soft_requirement_drawback_max": 2.0
+    }
+  },
+  "rank_rules": {
+    "knight": {
+      "success_threshold": 50,
+      "critical_fail_axis_below": 5,
+      "critical_axes": [
+        "favor",
+        "interest",
+        "trust",
+        "comfort"
+      ],
+      "start_axis_floor": {
+        "favor": 10,
+        "interest": 10,
+        "trust": 12,
+        "comfort": 15
+      },
+      "axis_weights": {
+        "favor": 1.1,
+        "interest": 1.1,
+        "trust": 1.0,
+        "comfort": 0.8,
+        "face": 0.3,
+        "political_value": 0.1
+      },
+      "preparation_top_stats": 2,
+      "preparation_scale": 0.5,
+      "affinity_positive_multiplier": 1.25,
+      "affinity_drawback_multiplier": 0.45
+    }
+  },
+  "choice_examples": [
+    {
+      "id": "match_choice_raw_honesty",
+      "name_ko": "거친 솔직함",
+      "tags": [
+        "wild"
+      ],
+      "requirements": {},
+      "effects": {
+        "interest": 8,
+        "favor": 3,
+        "comfort": -4,
+        "face": -3
+      },
+      "line_context": "honest_interest"
+    },
+    {
+      "id": "match_choice_polite_listen",
+      "name_ko": "예의 있게 경청",
+      "tags": [
+        "etiquette"
+      ],
+      "requirements": {
+        "etiquette": 15
+      },
+      "effects": {
+        "comfort": 5,
+        "face": 5,
+        "trust": 2
+      },
+      "state_dialogue": {
+        "reduced": "말씀을… 계속해 주시겠어요? 제가 예를 조금 놓쳤다면 용서해 주세요.",
+        "backfire": "아, 그 말씀은… 아니, 먼저 제가 답해야 했던가요? 실례했습니다."
+      },
+      "line_context": "polite_listen"
+    },
+    {
+      "id": "match_choice_quote_book",
+      "name_ko": "교양 있는 인용",
+      "tags": [
+        "culture"
+      ],
+      "requirements": {
+        "culture": 20
+      },
+      "effects": {
+        "interest": 3,
+        "face": 4,
+        "political_value": 2
+      },
+      "state_dialogue": {
+        "reduced": "그 구절이… 분명 이 대목과 닮았는데, 정확한 문장이 잠시 생각나지 않는군요.",
+        "backfire": "옛 시인도 그렇게 말했지요. 아마… 아니, 다른 작품이었을지도 모르겠습니다."
+      },
+      "line_context": "culture_quote"
+    },
+    {
+      "id": "match_choice_calculated_blush",
+      "name_ko": "계산된 수줍음",
+      "tags": [
+        "mask",
+        "beauty"
+      ],
+      "requirements": {
+        "mask": 15,
+        "beauty": 40
+      },
+      "effects": {
+        "favor": 6,
+        "comfort": 3,
+        "trust": -1
+      },
+      "state_dialogue": {
+        "reduced": "이런 말씀을 들으면… 제가 어떤 표정을 지어야 할지 모르겠군요.",
+        "backfire": "저, 지금은 수줍어해야… 아니, 방금 말은 잊어주세요."
+      },
+      "line_context": "masked_affection"
+    },
+    {
+      "id": "match_choice_status_offer",
+      "name_ko": "정략적 가치 암시",
+      "tags": [
+        "political"
+      ],
+      "requirements": {
+        "information": 15
+      },
+      "effects": {
+        "political_value": 8,
+        "trust": 1,
+        "favor": -2
+      },
+      "state_dialogue": {
+        "reduced": "두 가문이 함께한다면 얻을 것이… 적지 않을 겁니다. 구체적인 셈은 다시 말씀드리죠.",
+        "backfire": "저희 가문의 힘이라면 충분히… 아, 그 수치가 지난 분기 것이었군요."
+      },
+      "line_context": "political_value_offer"
+    }
+  ]
+}

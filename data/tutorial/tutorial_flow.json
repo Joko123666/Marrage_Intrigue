@@ -1,0 +1,59 @@
+{
+  "schema_version": "0.1",
+  "flow_id": "tutorial_knight_to_nobility",
+  "goal_ko": "평민 고아에서 기사와의 결혼을 통해 귀족 사회 진입까지 경험시킨다.",
+  "steps": [
+    {
+      "id": "start_slum",
+      "week": 1,
+      "screen": "DashboardScreen",
+      "objective_ko": "기본 스탯과 1주 행동 구조를 확인한다."
+    },
+    {
+      "id": "meet_tailor",
+      "week_min": 1,
+      "trigger": "first_buy_goods",
+      "objective_ko": "상인을 통해 아이템과 페르소나 보정을 배운다."
+    },
+    {
+      "id": "gather_knight_rumor",
+      "week_min": 4,
+      "trigger": "gather_rumor_success",
+      "objective_ko": "기사 후보의 존재를 발견한다."
+    },
+    {
+      "id": "train_for_meeting",
+      "week_min": 5,
+      "objective_ko": "외모/예법/가면 중 일부를 올려 맞선을 준비한다."
+    },
+    {
+      "id": "chance_meeting",
+      "week_min": 10,
+      "trigger": "candidate_knight_visible",
+      "objective_ko": "우연을 가장한 만남 이벤트를 진행한다."
+    },
+    {
+      "id": "match_knight",
+      "trigger": "send_match_request_success",
+      "screen": "MatchScreen",
+      "objective_ko": "맞선 레이더 UI에서 선택지를 고른다."
+    },
+    {
+      "id": "wedding_knight",
+      "trigger": "match_success",
+      "screen": "WeddingScreen",
+      "objective_ko": "결혼식 옵션을 선택하고 귀족 진입 플래그를 얻는다."
+    },
+    {
+      "id": "spouse_dashboard_intro",
+      "trigger": "married",
+      "screen": "SpouseDashboardScreen",
+      "objective_ko": "배우자 상태, 주변 인물, 제거/정치처리 준비 UI를 확인한다."
+    },
+    {
+      "id": "first_removal_or_hold",
+      "trigger": "spouse_dashboard_seen",
+      "objective_ko": "배우자를 유지할지, 제거할지, 정치적으로 처리할지 선택하게 한다."
+    }
+  ]
+}

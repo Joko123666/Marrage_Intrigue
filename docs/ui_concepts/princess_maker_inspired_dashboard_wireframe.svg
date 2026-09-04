@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#18130f"/>
+      <stop offset="1" stop-color="#2c2119"/>
+    </linearGradient>
+    <linearGradient id="room" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2c3744"/>
+      <stop offset="1" stop-color="#131a22"/>
+    </linearGradient>
+    <style>
+      .panel { fill:#efe1bd; stroke:#7a4f26; stroke-width:3; }
+      .dark { fill:#1f1a17; stroke:#bd8a42; stroke-width:2; }
+      .ink { fill:#33271d; font-family:'Malgun Gothic',sans-serif; }
+      .paper { fill:#f7eccf; font-family:'Malgun Gothic',sans-serif; }
+      .muted { fill:#a89170; font-family:'Malgun Gothic',sans-serif; }
+      .title { font-size:22px; font-weight:700; }
+      .label { font-size:15px; font-weight:700; }
+      .small { font-size:12px; }
+      .note { fill:#e6bd68; font-family:'Malgun Gothic',sans-serif; font-size:12px; }
+    </style>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bg)"/>
+
+  <!-- top ledger -->
+  <rect x="18" y="14" width="1244" height="64" rx="8" class="panel"/>
+  <text x="38" y="41" class="ink label">제1년 1월 · W001</text>
+  <text x="38" y="61" class="ink small">14세 · 겨울 · 이번 주 행동 1회</text>
+  <text x="640" y="44" text-anchor="middle" class="ink title">골목에서 궁정으로</text>
+  <text x="1240" y="39" text-anchor="end" class="ink label">자금 8  ·  체력 90</text>
+  <text x="1240" y="60" text-anchor="end" class="ink small">신분 0  ·  의심 0  ·  출신 소문 20</text>
+
+  <!-- left portrait room -->
+  <rect x="18" y="92" width="310" height="470" rx="8" fill="url(#room)" stroke="#bd8a42" stroke-width="3"/>
+  <rect x="36" y="110" width="274" height="328" rx="4" fill="#34404d" stroke="#75869a" stroke-width="2"/>
+  <path d="M84 410 C90 295 112 190 173 154 C236 194 259 294 264 410 Z" fill="#12171c" stroke="#d5bd8d" stroke-width="2"/>
+  <circle cx="173" cy="176" r="42" fill="#8d7861" stroke="#d5bd8d" stroke-width="2"/>
+  <text x="173" y="286" text-anchor="middle" class="paper label">주인공 전신/반신 일러스트</text>
+  <text x="173" y="309" text-anchor="middle" class="muted small">나이·계절·페르소나에 따라 변화</text>
+  <rect x="36" y="450" width="274" height="92" rx="5" class="dark"/>
+  <text x="52" y="476" class="paper label">골목의 생존자</text>
+  <text x="52" y="499" class="muted small">현재 페르소나 · 경계 어린 표정</text>
+  <text x="52" y="523" class="paper small">“이번 주에는 무엇을 준비할까요?”</text>
+
+  <!-- center objective/schedule -->
+  <rect x="344" y="92" width="568" height="294" rx="8" class="panel"/>
+  <text x="368" y="125" class="ink title">이번 달의 목표</text>
+  <rect x="368" y="142" width="520" height="88" rx="6" fill="#fff5db" stroke="#bd8a42" stroke-width="2"/>
+  <text x="388" y="172" class="ink label">기사 후보에 접근할 준비를 한다</text>
+  <text x="388" y="197" class="ink small">외모 35 · 예법 5 · 후보 정보 확보</text>
+  <rect x="388" y="208" width="390" height="9" rx="4" fill="#d2c19d"/>
+  <rect x="388" y="208" width="132" height="9" rx="4" fill="#b57a2b"/>
+  <text x="368" y="266" class="ink label">주간 일정</text>
+  <g>
+    <rect x="368" y="280" width="158" height="76" rx="6" fill="#26384d" stroke="#56799f" stroke-width="2"/>
+    <text x="447" y="307" text-anchor="middle" class="paper label">1주차</text>
+    <text x="447" y="334" text-anchor="middle" class="paper small">예법 훈련</text>
+    <rect x="535" y="280" width="158" height="76" rx="6" fill="#49383a" stroke="#9d656b" stroke-width="2"/>
+    <text x="614" y="307" text-anchor="middle" class="paper label">2주차</text>
+    <text x="614" y="334" text-anchor="middle" class="paper small">소문 조사</text>
+    <rect x="702" y="280" width="186" height="76" rx="6" fill="#514323" stroke="#bd8a42" stroke-width="2"/>
+    <text x="795" y="307" text-anchor="middle" class="paper label">다음 행동</text>
+    <text x="795" y="334" text-anchor="middle" class="paper small">선택 대기</text>
+  </g>
+
+  <rect x="344" y="402" width="568" height="160" rx="8" class="dark"/>
+  <text x="368" y="432" class="paper label">궁정 소식과 조언</text>
+  <text x="368" y="459" class="muted small">정보상 브렌: 기사 가문 셋이 혼처를 찾고 있다는 소문입니다.</text>
+  <text x="368" y="484" class="muted small">위험 경보: 출신 소문이 20입니다. 공개 행보 전에 관리하십시오.</text>
+  <rect x="368" y="508" width="242" height="34" rx="5" fill="#7a4f26"/>
+  <text x="489" y="530" text-anchor="middle" class="paper label">추천 행동 · 소문 조사</text>
+
+  <!-- right status book -->
+  <rect x="928" y="92" width="334" height="470" rx="8" class="panel"/>
+  <rect x="944" y="106" width="84" height="30" rx="5" fill="#7a4f26"/>
+  <rect x="1034" y="106" width="84" height="30" rx="5" fill="#d9c89f"/>
+  <rect x="1124" y="106" width="122" height="30" rx="5" fill="#d9c89f"/>
+  <text x="986" y="127" text-anchor="middle" class="paper small">능력</text>
+  <text x="1076" y="127" text-anchor="middle" class="ink small">평판</text>
+  <text x="1185" y="127" text-anchor="middle" class="ink small">위험</text>
+  <text x="952" y="168" class="ink label">핵심 능력</text>
+  <g class="ink small">
+    <text x="952" y="198">외모</text><text x="1228" y="198" text-anchor="end">42</text>
+    <rect x="1010" y="187" width="190" height="10" fill="#d2c19d"/><rect x="1010" y="187" width="80" height="10" fill="#a16467"/>
+    <text x="952" y="229">예법</text><text x="1228" y="229" text-anchor="end">5</text>
+    <rect x="1010" y="218" width="190" height="10" fill="#d2c19d"/><rect x="1010" y="218" width="12" height="10" fill="#a16467"/>
+    <text x="952" y="260">교양</text><text x="1228" y="260" text-anchor="end">8</text>
+    <rect x="1010" y="249" width="190" height="10" fill="#d2c19d"/><rect x="1010" y="249" width="19" height="10" fill="#617d9a"/>
+    <text x="952" y="291">가면술</text><text x="1228" y="291" text-anchor="end">4</text>
+    <rect x="1010" y="280" width="190" height="10" fill="#d2c19d"/><rect x="1010" y="280" width="10" height="10" fill="#617d9a"/>
+    <text x="952" y="322">정보력</text><text x="1228" y="322" text-anchor="end">12</text>
+    <rect x="1010" y="311" width="190" height="10" fill="#d2c19d"/><rect x="1010" y="311" width="29" height="10" fill="#4f7b68"/>
+  </g>
+  <line x1="952" y1="350" x2="1238" y2="350" stroke="#a78350"/>
+  <text x="952" y="382" class="ink label">상태</text>
+  <text x="952" y="410" class="ink small">체력 90 / 100</text>
+  <rect x="952" y="420" width="270" height="12" rx="6" fill="#d2c19d"/><rect x="952" y="420" width="243" height="12" rx="6" fill="#4d8a65"/>
+  <text x="952" y="462" class="ink small">피로 10</text>
+  <text x="1100" y="462" class="ink small">스트레스 15</text>
+  <text x="952" y="495" class="ink small">사회적 의심 0</text>
+  <text x="1100" y="495" class="ink small">출신 소문 20</text>
+  <text x="952" y="530" class="ink small">보유 후보 0명 · 접근 인맥 2명</text>
+
+  <!-- bottom action ribbon -->
+  <rect x="18" y="578" width="1244" height="124" rx="8" class="panel"/>
+  <text x="38" y="608" class="ink label">이번 주 행동 선택</text>
+  <g>
+    <rect x="38" y="622" width="134" height="58" rx="7" fill="#31425a"/><text x="105" y="656" text-anchor="middle" class="paper label">자유행동</text>
+    <rect x="180" y="622" width="134" height="58" rx="7" fill="#4d3b33"/><text x="247" y="656" text-anchor="middle" class="paper label">인물</text>
+    <rect x="322" y="622" width="134" height="58" rx="7" fill="#5a2634"/><text x="389" y="656" text-anchor="middle" class="paper label">소문</text>
+    <rect x="464" y="622" width="134" height="58" rx="7" fill="#4c4225"/><text x="531" y="656" text-anchor="middle" class="paper label">후보</text>
+    <rect x="606" y="622" width="134" height="58" rx="7" fill="#3c4f3e"/><text x="673" y="656" text-anchor="middle" class="paper label">상점</text>
+    <rect x="748" y="622" width="134" height="58" rx="7" fill="#5a4930"/><text x="815" y="656" text-anchor="middle" class="paper label">페르소나</text>
+    <rect x="894" y="622" width="348" height="58" rx="7" fill="#7a4f26" stroke="#e6bd68" stroke-width="2"/><text x="1068" y="648" text-anchor="middle" class="paper label">일정을 확정하고 1주 진행</text><text x="1068" y="669" text-anchor="middle" class="paper small">행동 결과 → 능력 변화 → 사건 판정</text>
+  </g>
+</svg>

@@ -1,0 +1,66 @@
+{
+  "schema_version": "0.1",
+  "items": [
+    {
+      "id": "item_refitted_dress",
+      "name_ko": "고쳐 입은 드레스",
+      "slot": "outfit",
+      "rarity": "common",
+      "price": 6,
+      "effects": {
+        "beauty": 4,
+        "etiquette": 1,
+        "origin_rumor": -2
+      },
+      "summary_ko": "낡았지만 제대로 수선한 드레스. 초반 출신 의심을 조금 낮춘다."
+    },
+    {
+      "id": "item_ribbon_of_modesty",
+      "name_ko": "수수한 리본",
+      "slot": "accessory",
+      "rarity": "common",
+      "price": 2,
+      "effects": {
+        "comfort": 2,
+        "face": 1
+      },
+      "summary_ko": "과하지 않은 장식. 보수적인 상대에게 안정감을 준다."
+    },
+    {
+      "id": "item_basic_etiquette_book",
+      "name_ko": "기초 예법서",
+      "slot": "tool",
+      "rarity": "common",
+      "price": 4,
+      "effects": {
+        "etiquette_training_bonus": 1
+      },
+      "summary_ko": "예법 훈련 행동의 효율을 조금 올린다."
+    },
+    {
+      "id": "item_secondhand_gloves",
+      "name_ko": "중고 장갑",
+      "slot": "accessory",
+      "rarity": "common",
+      "price": 3,
+      "effects": {
+        "grace": 1,
+        "etiquette": 1
+      },
+      "summary_ko": "손버릇과 거친 손을 감추는 데 도움이 된다."
+    },
+    {
+      "id": "item_black_mourning_veil",
+      "name_ko": "검은 애도 베일",
+      "slot": "outfit",
+      "rarity": "uncommon",
+      "price": 10,
+      "effects": {
+        "public_mourning": 5,
+        "mask": 2,
+        "social_suspicion": -2
+      },
+      "summary_ko": "장례와 공개 애도 상황에서 유리하다."
+    }
+  ]
+}

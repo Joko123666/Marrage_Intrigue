@@ -1,0 +1,1374 @@
+{
+  "schema_version": "0.1",
+  "description_ko": "결혼 후보 프로필. 후보 색출 전에는 일부 필드만 표시하고 정보력에 따라 세부 정보가 열린다.",
+  "candidate_profiles": [
+    {
+      "id": "candidate_knight_tutorial_adrien",
+      "character_id": "npc_knight_adrien",
+      "rank": "knight",
+      "marriage_difficulty": 28,
+      "preferred_stats": {
+        "beauty": 1.1,
+        "wildness": 1.3,
+        "etiquette": 0.5,
+        "culture": 0.4,
+        "grace": 0.6
+      },
+      "match_affinity_tags": [
+        "wild",
+        "direct"
+      ],
+      "minimums": {
+        "beauty": 35,
+        "etiquette": 5
+      },
+      "match_start_axes": {
+        "favor": 25,
+        "interest": 35,
+        "trust": 20,
+        "comfort": 15,
+        "face": 10,
+        "political_value": 5
+      },
+      "family_scrutiny": 8,
+      "security_level": 25,
+      "wealth_gain": 12,
+      "status_gain": 1,
+      "special_traits": [
+        "honor_bound",
+        "drawn_to_wildness",
+        "physically_resilient"
+      ],
+      "motivation_ko": "가난한 기사 가문을 회복하면서도 자신을 숨기지 않는 배우자를 원한다.",
+      "pressure_ko": "상급 귀족 후원 없이는 복무와 가문 재건이 동시에 무너진다.",
+      "weakness_hint_ko": "명예로운 결투와 진심 어린 인정에는 계산보다 먼저 반응한다.",
+      "spouse_dynamic_ko": "애정은 빠르게 오르지만 거짓말을 느끼면 직접 의심이 급등한다.",
+      "unique_match_choices": [
+        {
+          "id": "match_unique_adrien_training_ground",
+          "name_ko": "훈련장 흉터를 알아본다",
+          "candidate_specific": true,
+          "tags": [
+            "wild",
+            "direct"
+          ],
+          "requirements": {
+            "wildness": 20
+          },
+          "effects": {
+            "trust": 6,
+            "interest": 4,
+            "comfort": -2
+          },
+          "state_dialogue": {
+            "reduced": "그 흉터는 훈련장에서 얻으신 건가요? 칼자국과… 조금 비슷해 보여서요.",
+            "backfire": "그 흉터, 싸움에서 도망치다 생긴 건가요? …아니, 그런 뜻은 아니었습니다."
+          },
+          "line_context": "honest_interest"
+        }
+      ],
+      "info_unlocks": [
+        {
+          "quality": 0,
+          "visible": [
+            "rank",
+            "public_summary"
+          ]
+        },
+        {
+          "quality": 30,
+          "visible": [
+            "preferred_stats",
+            "minimums"
+          ]
+        },
+        {
+          "quality": 60,
+          "visible": [
+            "special_traits",
+            "security_level"
+          ]
+        },
+        {
+          "quality": 85,
+          "visible": [
+            "private_summary",
+            "weakness_hint"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "candidate_baron_lucas",
+      "character_id": "npc_baron_lucas",
+      "rank": "baron",
+      "marriage_difficulty": 42,
+      "preferred_stats": {
+        "beauty": 1.4,
+        "etiquette": 0.9,
+        "culture": 0.7,
+        "grace": 0.8,
+        "mask": 0.6,
+        "wildness": -0.2
+      },
+      "minimums": {
+        "beauty": 45,
+        "etiquette": 25,
+        "culture": 20
+      },
+      "match_start_axes": {
+        "favor": 10,
+        "interest": 20,
+        "trust": 10,
+        "comfort": 25,
+        "face": 30,
+        "political_value": 18
+      },
+      "family_scrutiny": 24,
+      "security_level": 36,
+      "wealth_gain": 28,
+      "status_gain": 2,
+      "special_traits": [
+        "vain",
+        "rural_power",
+        "hidden_money"
+      ],
+      "motivation_ko": "아름다운 배우자를 앞세워 촌스러운 남작이라는 평판을 지우고 싶어 한다.",
+      "pressure_ko": "비공식 수입과 농민 불만이 동시에 커져 공개 체면에 집착한다.",
+      "weakness_hint_ko": "칭찬과 사치품에는 약하지만 장부 이야기가 나오면 방어적으로 변한다.",
+      "spouse_dynamic_ko": "공개 금슬을 과시하면 순해지지만 비용과 허영이 계속 자금을 압박한다.",
+      "unique_match_choices": [
+        {
+          "id": "match_unique_lucas_estate_income",
+          "name_ko": "영지 수입 이야기를 꺼낸다",
+          "candidate_specific": true,
+          "tags": [
+            "political"
+          ],
+          "requirements": {
+            "information": 20
+          },
+          "effects": {
+            "political_value": 7,
+            "trust": 2,
+            "favor": -1
+          },
+          "state_dialogue": {
+            "reduced": "올해 영지 수입이 괜찮다고 들었습니다. 정확한 규모까지는 제가 미처…",
+            "backfire": "영지 수입이 줄었다는 소문이… 아니, 늘었다는 이야기였던가요?"
+          },
+          "line_context": "political_value_offer"
+        }
+      ],
+      "info_unlocks": [
+        {
+          "quality": 0,
+          "visible": [
+            "rank",
+            "public_summary"
+          ]
+        },
+        {
+          "quality": 35,
+          "visible": [
+            "preferred_stats",
+            "family_scrutiny"
+          ]
+        },
+        {
+          "quality": 65,
+          "visible": [
+            "security_level",
+            "hidden_money_hint"
+          ]
+        },
+        {
+          "quality": 90,
+          "visible": [
+            "private_summary",
+            "political_weakness"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "candidate_knight_cedric",
+      "character_id": "npc_knight_cedric",
+      "rank": "knight",
+      "marriage_difficulty": 32,
+      "preferred_stats": {
+        "beauty": 0.7,
+        "wildness": 0.8,
+        "etiquette": 0.7,
+        "culture": 0.3,
+        "grace": 0.6
+      },
+      "match_affinity_tags": [
+        "subtle_probe",
+        "political"
+      ],
+      "minimums": {
+        "beauty": 30,
+        "etiquette": 8
+      },
+      "match_start_axes": {
+        "favor": 15,
+        "interest": 20,
+        "trust": 25,
+        "comfort": 18,
+        "face": 12,
+        "political_value": 8
+      },
+      "family_scrutiny": 10,
+      "security_level": 30,
+      "wealth_gain": 10,
+      "status_gain": 1,
+      "special_traits": [
+        "honor_bound",
+        "debt_pressure",
+        "wary_household"
+      ],
+      "motivation_ko": "가문 빚을 해결할 안정적인 혼인을 찾되, 약속을 지키는 사람만 받아들인다.",
+      "pressure_ko": "채권자와 국경 초소의 명령 사이에서 집안을 오래 비울 수 없다.",
+      "weakness_hint_ko": "빚을 공개적으로 몰아붙이기보다 조용히 해결책을 제시하면 마음을 연다.",
+      "spouse_dynamic_ko": "충성도는 높지만 배신 징후를 보면 대화보다 거리두기를 먼저 택한다.",
+      "unique_match_choices": [
+        {
+          "id": "match_unique_cedric_debt_probe",
+          "name_ko": "빚 이야기를 돌려 묻는다",
+          "candidate_specific": true,
+          "tags": [
+            "subtle_probe",
+            "political"
+          ],
+          "requirements": {
+            "information": 10
+          },
+          "effects": {
+            "political_value": 5,
+            "trust": 5,
+            "comfort": -1
+          },
+          "state_dialogue": {
+            "reduced": "요즘 기사 가문의 채무가 흔하다지요. 경의 이야기는 아니라고 믿습니다만…",
+            "backfire": "빚이 상당하시다 들었습니다. …아직 비밀이었습니까?"
+          },
+          "line_context": "political_value_offer"
+        }
+      ],
+      "info_unlocks": [
+        {
+          "quality": 0,
+          "visible": [
+            "rank",
+            "public_summary"
+          ]
+        },
+        {
+          "quality": 35,
+          "visible": [
+            "preferred_stats",
+            "minimums",
+            "family_scrutiny"
+          ]
+        },
+        {
+          "quality": 65,
+          "visible": [
+            "special_traits",
+            "security_level"
+          ]
+        },
+        {
+          "quality": 90,
+          "visible": [
+            "private_summary",
+            "weakness_hint"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "candidate_knight_rohan",
+      "character_id": "npc_knight_rohan",
+      "rank": "knight",
+      "marriage_difficulty": 35,
+      "preferred_stats": {
+        "beauty": 1.2,
+        "wildness": 1.1,
+        "grace": 0.8,
+        "etiquette": 0.4,
+        "culture": 0.2
+      },
+      "match_affinity_tags": [
+        "wild",
+        "beauty"
+      ],
+      "minimums": {
+        "beauty": 36,
+        "wildness": 35
+      },
+      "match_start_axes": {
+        "favor": 20,
+        "interest": 30,
+        "trust": 12,
+        "comfort": 12,
+        "face": 25,
+        "political_value": 5
+      },
+      "family_scrutiny": 8,
+      "security_level": 22,
+      "wealth_gain": 14,
+      "status_gain": 1,
+      "special_traits": [
+        "vain",
+        "drawn_to_wildness",
+        "tournament_pride"
+      ],
+      "motivation_ko": "혼인을 새로운 무대이자 자신의 이름을 더 크게 알릴 장식으로 본다.",
+      "pressure_ko": "마상시합 명성이 식기 전에 후원자와 관중을 붙잡아야 한다.",
+      "weakness_hint_ko": "사람들 앞에서 체면을 세워주면 위험한 제안도 쉽게 받아들인다.",
+      "spouse_dynamic_ko": "열정은 높지만 질투와 충동이 잦아 공개 사건으로 번지기 쉽다.",
+      "unique_match_choices": [
+        {
+          "id": "match_unique_rohan_tournament_pride",
+          "name_ko": "마상 시합의 승부욕을 건드린다",
+          "candidate_specific": true,
+          "tags": [
+            "wild",
+            "beauty"
+          ],
+          "requirements": {
+            "wildness": 35
+          },
+          "effects": {
+            "interest": 7,
+            "favor": 2,
+            "face": -2
+          },
+          "state_dialogue": {
+            "reduced": "지난 시합의 돌진은 인상적이었습니다. 마지막 승부는… 제가 잘못 보았을 수도 있겠군요.",
+            "backfire": "지난 시합에서 낙마하신 모습이 꽤… 아, 승부를 칭찬하려던 것입니다."
+          },
+          "line_context": "honest_interest"
+        }
+      ],
+      "info_unlocks": [
+        {
+          "quality": 0,
+          "visible": [
+            "rank",
+            "public_summary"
+          ]
+        },
+        {
+          "quality": 35,
+          "visible": [
+            "preferred_stats",
+            "minimums",
+            "family_scrutiny"
+          ]
+        },
+        {
+          "quality": 65,
+          "visible": [
+            "special_traits",
+            "security_level"
+          ]
+        },
+        {
+          "quality": 90,
+          "visible": [
+            "private_summary",
+            "weakness_hint"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "candidate_baron_etienne",
+      "character_id": "npc_baron_etienne",
+      "rank": "baron",
+      "marriage_difficulty": 40,
+      "preferred_stats": {
+        "beauty": 1.0,
+        "etiquette": 0.8,
+        "culture": 0.5,
+        "mask": 0.8,
+        "information": 0.4
+      },
+      "minimums": {
+        "beauty": 40,
+        "etiquette": 18,
+        "cash": 8
+      },
+      "match_start_axes": {
+        "favor": 12,
+        "interest": 18,
+        "trust": 10,
+        "comfort": 22,
+        "face": 18,
+        "political_value": 20
+      },
+      "family_scrutiny": 20,
+      "security_level": 30,
+      "wealth_gain": 24,
+      "status_gain": 2,
+      "special_traits": [
+        "debt_pressure",
+        "rural_power",
+        "ledger_sensitive"
+      ],
+      "motivation_ko": "지참금과 거래망으로 과수원 영지의 현금 흐름을 되살리고 싶어 한다.",
+      "pressure_ko": "수확 실패와 사채 이자가 겹쳐 겉보기 온화함 뒤에 불안이 쌓였다.",
+      "weakness_hint_ko": "장부의 빈칸을 먼저 찾아내면 협박보다 협상이 잘 통한다.",
+      "spouse_dynamic_ko": "가정은 조용하지만 돈 문제를 숨기면 신뢰가 꾸준히 깎인다.",
+      "info_unlocks": [
+        {
+          "quality": 0,
+          "visible": [
+            "rank",
+            "public_summary"
+          ]
+        },
+        {
+          "quality": 35,
+          "visible": [
+            "preferred_stats",
+            "minimums",
+            "family_scrutiny"
+          ]
+        },
+        {
+          "quality": 65,
+          "visible": [
+            "special_traits",
+            "security_level"
+          ]
+        },
+        {
+          "quality": 90,
+          "visible": [
+            "private_summary",
+            "weakness_hint"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "candidate_baron_marius",
+      "character_id": "npc_baron_marius",
+      "rank": "baron",
+      "marriage_difficulty": 45,
+      "preferred_stats": {
+        "etiquette": 1.0,
+        "culture": 0.8,
+        "grace": 0.7,
+        "mask": 0.5,
+        "beauty": 0.6
+      },
+      "minimums": {
+        "etiquette": 28,
+        "culture": 15
+      },
+      "match_start_axes": {
+        "favor": 8,
+        "interest": 15,
+        "trust": 18,
+        "comfort": 18,
+        "face": 25,
+        "political_value": 15
+      },
+      "family_scrutiny": 26,
+      "security_level": 42,
+      "wealth_gain": 20,
+      "status_gain": 2,
+      "special_traits": [
+        "pious_reputation",
+        "household_watch",
+        "widower"
+      ],
+      "motivation_ko": "검소하고 흠 없는 새 안주인으로 집안의 불길한 소문을 덮으려 한다.",
+      "pressure_ko": "전처의 죽음 이후 하인과 친족 모두를 의심해 저택 분위기가 얼어 있다.",
+      "weakness_hint_ko": "신앙과 애도를 존중하는 태도에는 약하지만 가벼운 농담은 모욕으로 받아들인다.",
+      "spouse_dynamic_ko": "의례를 지키면 안정적이나 감시가 심해 은밀한 행동의 위험이 커진다.",
+      "info_unlocks": [
+        {
+          "quality": 0,
+          "visible": [
+            "rank",
+            "public_summary"
+          ]
+        },
+        {
+          "quality": 35,
+          "visible": [
+            "preferred_stats",
+            "minimums",
+            "family_scrutiny"
+          ]
+        },
+        {
+          "quality": 65,
+          "visible": [
+            "special_traits",
+            "security_level"
+          ]
+        },
+        {
+          "quality": 90,
+          "visible": [
+            "private_summary",
+            "weakness_hint"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "candidate_viscount_theodore",
+      "character_id": "npc_viscount_theodore",
+      "rank": "viscount",
+      "marriage_difficulty": 55,
+      "preferred_stats": {
+        "culture": 1.2,
+        "etiquette": 1.1,
+        "mask": 0.9,
+        "beauty": 0.6,
+        "information": 0.7
+      },
+      "minimums": {
+        "status": 2,
+        "culture": 28,
+        "etiquette": 30
+      },
+      "match_start_axes": {
+        "favor": 8,
+        "interest": 18,
+        "trust": 10,
+        "comfort": 15,
+        "face": 30,
+        "political_value": 28
+      },
+      "family_scrutiny": 34,
+      "security_level": 46,
+      "wealth_gain": 42,
+      "status_gain": 3,
+      "special_traits": [
+        "archive_power",
+        "procedural_mind",
+        "secretive"
+      ],
+      "motivation_ko": "공식 기록에 남는 결혼으로 가문의 문서 권력을 더 단단히 묶으려 한다.",
+      "pressure_ko": "궁정 기록원 가문 내부에서 실수 하나가 정치적 약점으로 보관된다.",
+      "weakness_hint_ko": "절차와 선례를 존중하면 신뢰하지만, 문서 위조 냄새에는 냉혹하다.",
+      "spouse_dynamic_ko": "생활은 예측 가능하지만 모든 행동이 기록처럼 남아 의심 관리가 까다롭다.",
+      "info_unlocks": [
+        {
+          "quality": 0,
+          "visible": [
+            "rank",
+            "public_summary"
+          ]
+        },
+        {
+          "quality": 35,
+          "visible": [
+            "preferred_stats",
+            "minimums",
+            "family_scrutiny"
+          ]
+        },
+        {
+          "quality": 65,
+          "visible": [
+            "special_traits",
+            "security_level"
+          ]
+        },
+        {
+          "quality": 90,
+          "visible": [
+            "private_summary",
+            "weakness_hint"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "candidate_viscount_hugo",
+      "character_id": "npc_viscount_hugo",
+      "rank": "viscount",
+      "marriage_difficulty": 58,
+      "preferred_stats": {
+        "beauty": 0.9,
+        "culture": 0.7,
+        "information": 1.1,
+        "social": 0.8,
+        "mask": 0.8
+      },
+      "minimums": {
+        "status": 2,
+        "information": 25,
+        "social": 8
+      },
+      "match_start_axes": {
+        "favor": 12,
+        "interest": 22,
+        "trust": 8,
+        "comfort": 18,
+        "face": 20,
+        "political_value": 32
+      },
+      "family_scrutiny": 38,
+      "security_level": 44,
+      "wealth_gain": 50,
+      "status_gain": 3,
+      "special_traits": [
+        "trade_network",
+        "bribe_rumor",
+        "hidden_money"
+      ],
+      "motivation_ko": "혼인으로 무역권을 넓히고 뇌물 소문을 사교적 매력 뒤에 감추려 한다.",
+      "pressure_ko": "강변 통행세를 둘러싼 상인, 관리, 친족의 이해관계가 동시에 압박한다.",
+      "weakness_hint_ko": "거래 가치를 보여주면 마음을 열지만, 뇌물 증거는 가장 두려워한다.",
+      "spouse_dynamic_ko": "자금과 정보는 잘 들어오지만 거래 흔적이 의심과 소문을 함께 키운다.",
+      "info_unlocks": [
+        {
+          "quality": 0,
+          "visible": [
+            "rank",
+            "public_summary"
+          ]
+        },
+        {
+          "quality": 35,
+          "visible": [
+            "preferred_stats",
+            "minimums",
+            "family_scrutiny"
+          ]
+        },
+        {
+          "quality": 65,
+          "visible": [
+            "special_traits",
+            "security_level"
+          ]
+        },
+        {
+          "quality": 90,
+          "visible": [
+            "private_summary",
+            "weakness_hint"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "candidate_viscount_felix",
+      "character_id": "npc_viscount_felix",
+      "rank": "viscount",
+      "marriage_difficulty": 52,
+      "preferred_stats": {
+        "culture": 1.3,
+        "grace": 0.9,
+        "beauty": 0.8,
+        "social": 0.6,
+        "etiquette": 0.7
+      },
+      "minimums": {
+        "status": 2,
+        "culture": 30,
+        "grace": 20
+      },
+      "match_start_axes": {
+        "favor": 18,
+        "interest": 28,
+        "trust": 14,
+        "comfort": 20,
+        "face": 18,
+        "political_value": 22
+      },
+      "family_scrutiny": 30,
+      "security_level": 32,
+      "wealth_gain": 36,
+      "status_gain": 3,
+      "special_traits": [
+        "salon_taste",
+        "uncle_regency",
+        "idealistic"
+      ],
+      "motivation_ko": "예술과 사교 후원을 통해 숙부의 그늘에서 독립할 배우자를 찾는다.",
+      "pressure_ko": "가문 실권을 쥔 숙부가 모든 혼담을 정치 계산으로 검열한다.",
+      "weakness_hint_ko": "진심 어린 논쟁과 후원 계획에는 약하지만 조롱에는 크게 상처받는다.",
+      "spouse_dynamic_ko": "공개 금슬과 교양이 오르면 강한 동맹이 되지만 친족 견제가 오래 남는다.",
+      "info_unlocks": [
+        {
+          "quality": 0,
+          "visible": [
+            "rank",
+            "public_summary"
+          ]
+        },
+        {
+          "quality": 35,
+          "visible": [
+            "preferred_stats",
+            "minimums",
+            "family_scrutiny"
+          ]
+        },
+        {
+          "quality": 65,
+          "visible": [
+            "special_traits",
+            "security_level"
+          ]
+        },
+        {
+          "quality": 90,
+          "visible": [
+            "private_summary",
+            "weakness_hint"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "candidate_count_astian",
+      "character_id": "npc_count_astian",
+      "rank": "count",
+      "marriage_difficulty": 68,
+      "preferred_stats": {
+        "culture": 1.0,
+        "grace": 1.0,
+        "etiquette": 1.2,
+        "mask": 0.8,
+        "beauty": 0.7
+      },
+      "minimums": {
+        "status": 3,
+        "etiquette": 42,
+        "grace": 32,
+        "social": 18
+      },
+      "match_start_axes": {
+        "favor": 6,
+        "interest": 14,
+        "trust": 12,
+        "comfort": 12,
+        "face": 38,
+        "political_value": 36
+      },
+      "family_scrutiny": 48,
+      "security_level": 56,
+      "wealth_gain": 70,
+      "status_gain": 4,
+      "special_traits": [
+        "bloodline_pride",
+        "succession_dispute",
+        "honor_bound"
+      ],
+      "motivation_ko": "흠 없는 배우자 이미지를 통해 오래된 백작가의 계승 정당성을 굳히려 한다.",
+      "pressure_ko": "친족 간 후계 다툼이 심해 사소한 평판 흠도 파벌 공격으로 번진다.",
+      "weakness_hint_ko": "혈통 자부심을 정면으로 비웃지 않고 의전으로 인정하면 협상 여지가 생긴다.",
+      "spouse_dynamic_ko": "품위 관리는 강력한 방패가 되지만 자유 행동과 거친 소문에는 민감하다.",
+      "info_unlocks": [
+        {
+          "quality": 0,
+          "visible": [
+            "rank",
+            "public_summary"
+          ]
+        },
+        {
+          "quality": 35,
+          "visible": [
+            "preferred_stats",
+            "minimums",
+            "family_scrutiny"
+          ]
+        },
+        {
+          "quality": 65,
+          "visible": [
+            "special_traits",
+            "security_level"
+          ]
+        },
+        {
+          "quality": 90,
+          "visible": [
+            "private_summary",
+            "weakness_hint"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "candidate_count_benedict",
+      "character_id": "npc_count_benedict",
+      "rank": "count",
+      "marriage_difficulty": 72,
+      "preferred_stats": {
+        "information": 1.1,
+        "mask": 1.0,
+        "culture": 0.7,
+        "social": 0.8,
+        "wildness": 0.4
+      },
+      "minimums": {
+        "status": 3,
+        "information": 35,
+        "mask": 35
+      },
+      "match_start_axes": {
+        "favor": 10,
+        "interest": 18,
+        "trust": 6,
+        "comfort": 10,
+        "face": 24,
+        "political_value": 42
+      },
+      "family_scrutiny": 52,
+      "security_level": 62,
+      "wealth_gain": 86,
+      "status_gain": 4,
+      "special_traits": [
+        "war_contracts",
+        "blackmail_tolerant",
+        "dangerous_pragmatist"
+      ],
+      "motivation_ko": "혼인을 전쟁 물자 계약의 방패이자 새 거래망으로 활용하려 한다.",
+      "pressure_ko": "횡령 의혹을 아는 하청업자와 군 관리들이 계속 더 큰 몫을 요구한다.",
+      "weakness_hint_ko": "도덕보다 쓸모를 중시하므로 약점을 쥐어도 거래 가치를 함께 보여야 한다.",
+      "spouse_dynamic_ko": "현실적 이익은 크지만 협박과 침묵 비용이 결혼 생활의 기본 언어가 된다.",
+      "info_unlocks": [
+        {
+          "quality": 0,
+          "visible": [
+            "rank",
+            "public_summary"
+          ]
+        },
+        {
+          "quality": 35,
+          "visible": [
+            "preferred_stats",
+            "minimums",
+            "family_scrutiny"
+          ]
+        },
+        {
+          "quality": 65,
+          "visible": [
+            "special_traits",
+            "security_level"
+          ]
+        },
+        {
+          "quality": 90,
+          "visible": [
+            "private_summary",
+            "weakness_hint"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "candidate_count_claude",
+      "character_id": "npc_count_claude",
+      "rank": "count",
+      "marriage_difficulty": 65,
+      "preferred_stats": {
+        "grace": 1.2,
+        "culture": 1.0,
+        "beauty": 0.9,
+        "social": 1.0,
+        "etiquette": 0.7
+      },
+      "minimums": {
+        "status": 3,
+        "grace": 35,
+        "social": 20
+      },
+      "match_start_axes": {
+        "favor": 16,
+        "interest": 24,
+        "trust": 12,
+        "comfort": 20,
+        "face": 32,
+        "political_value": 34
+      },
+      "family_scrutiny": 44,
+      "security_level": 48,
+      "wealth_gain": 66,
+      "status_gain": 4,
+      "special_traits": [
+        "salon_patron",
+        "reputation_sensitive",
+        "public_harmony_focused"
+      ],
+      "motivation_ko": "사교계가 사랑할 부부 서사를 만들어 후원자와 예술가들을 묶으려 한다.",
+      "pressure_ko": "살롱의 인기는 변덕스러워 한 번의 추문이 후원망 전체를 흔든다.",
+      "weakness_hint_ko": "공개 칭찬과 세련된 화해 장면에는 약하지만 천박한 소문에는 과민하다.",
+      "spouse_dynamic_ko": "공개 금슬을 관리하면 보상이 크지만 사생활보다 관객의 시선을 우선한다.",
+      "info_unlocks": [
+        {
+          "quality": 0,
+          "visible": [
+            "rank",
+            "public_summary"
+          ]
+        },
+        {
+          "quality": 35,
+          "visible": [
+            "preferred_stats",
+            "minimums",
+            "family_scrutiny"
+          ]
+        },
+        {
+          "quality": 65,
+          "visible": [
+            "special_traits",
+            "security_level"
+          ]
+        },
+        {
+          "quality": 90,
+          "visible": [
+            "private_summary",
+            "weakness_hint"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "candidate_marquis_valerian",
+      "character_id": "npc_marquis_valerian",
+      "rank": "marquis",
+      "marriage_difficulty": 82,
+      "preferred_stats": {
+        "grace": 1.0,
+        "etiquette": 1.1,
+        "mask": 1.1,
+        "influence": 0.9,
+        "wildness": 0.3
+      },
+      "minimums": {
+        "status": 4,
+        "social": 34,
+        "influence": 22,
+        "mask": 42
+      },
+      "match_start_axes": {
+        "favor": 5,
+        "interest": 12,
+        "trust": 8,
+        "comfort": 8,
+        "face": 42,
+        "political_value": 50
+      },
+      "family_scrutiny": 68,
+      "security_level": 78,
+      "wealth_gain": 110,
+      "status_gain": 5,
+      "special_traits": [
+        "marcher_army",
+        "royal_watch",
+        "faction_leader"
+      ],
+      "motivation_ko": "혼인을 서부 변경 파벌의 안정 장치로 삼아 왕실 감시를 버티려 한다.",
+      "pressure_ko": "군사권이 강한 만큼 왕실과 지역 기사단 양쪽에서 충성을 시험받는다.",
+      "weakness_hint_ko": "겁먹은 순종보다 침착한 정치 판단을 보이면 냉정한 존중을 얻는다.",
+      "spouse_dynamic_ko": "가문은 요새처럼 안전하지만 배우자는 늘 파벌 회의와 감시 속에 산다.",
+      "info_unlocks": [
+        {
+          "quality": 0,
+          "visible": [
+            "rank",
+            "public_summary"
+          ]
+        },
+        {
+          "quality": 35,
+          "visible": [
+            "preferred_stats",
+            "minimums",
+            "family_scrutiny"
+          ]
+        },
+        {
+          "quality": 65,
+          "visible": [
+            "special_traits",
+            "security_level"
+          ]
+        },
+        {
+          "quality": 90,
+          "visible": [
+            "private_summary",
+            "weakness_hint"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "candidate_marquis_renard",
+      "character_id": "npc_marquis_renard",
+      "rank": "marquis",
+      "marriage_difficulty": 88,
+      "preferred_stats": {
+        "mask": 1.4,
+        "social": 1.1,
+        "information": 1.0,
+        "grace": 0.8,
+        "etiquette": 0.6
+      },
+      "minimums": {
+        "status": 4,
+        "mask": 48,
+        "information": 35,
+        "social": 32
+      },
+      "match_start_axes": {
+        "favor": 8,
+        "interest": 20,
+        "trust": 4,
+        "comfort": 8,
+        "face": 35,
+        "political_value": 55
+      },
+      "family_scrutiny": 72,
+      "security_level": 70,
+      "wealth_gain": 120,
+      "status_gain": 5,
+      "special_traits": [
+        "court_intriguer",
+        "blackmail_network",
+        "secretive"
+      ],
+      "motivation_ko": "배우자를 궁정 협박망의 우아한 얼굴이자 새 정보 통로로 삼으려 한다.",
+      "pressure_ko": "너무 많은 약점을 쥐고 있어 동맹보다 배신 가능성을 먼저 계산한다.",
+      "weakness_hint_ko": "거짓말을 간파했다는 티를 내지 않고 더 큰 비밀을 제시해야 흔들린다.",
+      "spouse_dynamic_ko": "대화는 매력적이지만 모든 친절 뒤에 거래 조건이 붙어 의심이 쉽게 누적된다.",
+      "info_unlocks": [
+        {
+          "quality": 0,
+          "visible": [
+            "rank",
+            "public_summary"
+          ]
+        },
+        {
+          "quality": 35,
+          "visible": [
+            "preferred_stats",
+            "minimums",
+            "family_scrutiny"
+          ]
+        },
+        {
+          "quality": 65,
+          "visible": [
+            "special_traits",
+            "security_level"
+          ]
+        },
+        {
+          "quality": 90,
+          "visible": [
+            "private_summary",
+            "weakness_hint"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "candidate_marquis_dorian",
+      "character_id": "npc_marquis_dorian",
+      "rank": "marquis",
+      "marriage_difficulty": 80,
+      "preferred_stats": {
+        "social": 1.1,
+        "grace": 0.9,
+        "etiquette": 1.0,
+        "influence": 0.8,
+        "mask": 0.7
+      },
+      "minimums": {
+        "status": 4,
+        "social": 36,
+        "etiquette": 42
+      },
+      "match_start_axes": {
+        "favor": 12,
+        "interest": 18,
+        "trust": 10,
+        "comfort": 18,
+        "face": 36,
+        "political_value": 48
+      },
+      "family_scrutiny": 64,
+      "security_level": 66,
+      "wealth_gain": 105,
+      "status_gain": 5,
+      "special_traits": [
+        "grain_league",
+        "public_harmony_focused",
+        "famine_blame"
+      ],
+      "motivation_ko": "온화한 부부 이미지를 통해 곡물 동맹의 기근 책임을 희석하려 한다.",
+      "pressure_ko": "농민 원성, 상인 장부, 동부 친족의 이익이 모두 그의 공개 이미지를 압박한다.",
+      "weakness_hint_ko": "자선과 공개 금슬을 함께 설계하면 방어가 풀리지만 기근 책임 언급은 위험하다.",
+      "spouse_dynamic_ko": "겉으로는 안정적이나 선행 행사가 반복되어 피로와 정치 비용이 쌓인다.",
+      "info_unlocks": [
+        {
+          "quality": 0,
+          "visible": [
+            "rank",
+            "public_summary"
+          ]
+        },
+        {
+          "quality": 35,
+          "visible": [
+            "preferred_stats",
+            "minimums",
+            "family_scrutiny"
+          ]
+        },
+        {
+          "quality": 65,
+          "visible": [
+            "special_traits",
+            "security_level"
+          ]
+        },
+        {
+          "quality": 90,
+          "visible": [
+            "private_summary",
+            "weakness_hint"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "candidate_duke_everard",
+      "character_id": "npc_duke_everard",
+      "rank": "duke",
+      "marriage_difficulty": 98,
+      "preferred_stats": {
+        "mask": 1.2,
+        "grace": 1.1,
+        "influence": 1.2,
+        "etiquette": 0.9,
+        "culture": 0.7
+      },
+      "minimums": {
+        "status": 5,
+        "social": 50,
+        "influence": 42,
+        "mask": 55
+      },
+      "match_start_axes": {
+        "favor": 4,
+        "interest": 10,
+        "trust": 6,
+        "comfort": 6,
+        "face": 48,
+        "political_value": 65
+      },
+      "family_scrutiny": 86,
+      "security_level": 92,
+      "wealth_gain": 170,
+      "status_gain": 6,
+      "special_traits": [
+        "ducal_house",
+        "succession_dispute",
+        "near_royal_protocol"
+      ],
+      "motivation_ko": "배우자를 감정의 대상보다 북부 공작가 계승 분쟁을 봉합할 의전 축으로 본다.",
+      "pressure_ko": "왕실과 맞먹는 위세 때문에 친족, 봉신, 궁정이 모두 후계 선택을 감시한다.",
+      "weakness_hint_ko": "사적인 애정보다 가문 질서와 침묵을 보장해야 접근할 수 있다.",
+      "spouse_dynamic_ko": "지위 보상은 압도적이지만 궁정 의전과 친족 감시가 매주 관계를 시험한다.",
+      "info_unlocks": [
+        {
+          "quality": 0,
+          "visible": [
+            "rank",
+            "public_summary"
+          ]
+        },
+        {
+          "quality": 35,
+          "visible": [
+            "preferred_stats",
+            "minimums",
+            "family_scrutiny"
+          ]
+        },
+        {
+          "quality": 65,
+          "visible": [
+            "special_traits",
+            "security_level"
+          ]
+        },
+        {
+          "quality": 90,
+          "visible": [
+            "private_summary",
+            "weakness_hint"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "candidate_duke_severin",
+      "character_id": "npc_duke_severin",
+      "rank": "duke",
+      "marriage_difficulty": 102,
+      "preferred_stats": {
+        "mask": 1.3,
+        "etiquette": 1.2,
+        "influence": 1.1,
+        "culture": 0.8,
+        "social": 0.9
+      },
+      "minimums": {
+        "status": 5,
+        "etiquette": 55,
+        "influence": 45,
+        "mask": 55
+      },
+      "match_start_axes": {
+        "favor": 6,
+        "interest": 14,
+        "trust": 4,
+        "comfort": 8,
+        "face": 45,
+        "political_value": 68
+      },
+      "family_scrutiny": 90,
+      "security_level": 88,
+      "wealth_gain": 180,
+      "status_gain": 6,
+      "special_traits": [
+        "foreign_ties",
+        "diplomatic_web",
+        "near_royal_protocol"
+      ],
+      "motivation_ko": "혼인을 남부 외교망의 신뢰 표식으로 세워 외국 사절과 국내 귀족을 함께 묶으려 한다.",
+      "pressure_ko": "외국 거래가 많아 말실수 하나가 반역 의심이나 외교 실패로 번질 수 있다.",
+      "weakness_hint_ko": "예법을 완벽히 지키며 침묵해야 할 정보를 구분하는 사람에게 약하다.",
+      "spouse_dynamic_ko": "부드럽게 대하지만 배우자의 말과 동선이 외교 자산처럼 관리된다.",
+      "info_unlocks": [
+        {
+          "quality": 0,
+          "visible": [
+            "rank",
+            "public_summary"
+          ]
+        },
+        {
+          "quality": 35,
+          "visible": [
+            "preferred_stats",
+            "minimums",
+            "family_scrutiny"
+          ]
+        },
+        {
+          "quality": 65,
+          "visible": [
+            "special_traits",
+            "security_level"
+          ]
+        },
+        {
+          "quality": 90,
+          "visible": [
+            "private_summary",
+            "weakness_hint"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "candidate_duke_cassian",
+      "character_id": "npc_duke_cassian",
+      "rank": "duke",
+      "marriage_difficulty": 96,
+      "preferred_stats": {
+        "mask": 1.0,
+        "wildness": 0.8,
+        "grace": 0.9,
+        "influence": 1.0,
+        "beauty": 0.7
+      },
+      "minimums": {
+        "status": 5,
+        "influence": 40,
+        "mask": 50,
+        "wildness": 45
+      },
+      "match_start_axes": {
+        "favor": 8,
+        "interest": 22,
+        "trust": 6,
+        "comfort": 8,
+        "face": 42,
+        "political_value": 62
+      },
+      "family_scrutiny": 84,
+      "security_level": 96,
+      "wealth_gain": 160,
+      "status_gain": 6,
+      "special_traits": [
+        "capital_guard",
+        "drawn_to_wildness",
+        "dangerous_pragmatist"
+      ],
+      "motivation_ko": "수도 방위권을 함께 감당할 대담한 배우자를 원하며 위험 자체에 끌린다.",
+      "pressure_ko": "왕실과 군부 사이에서 한쪽을 택하지 않으려면 빠른 결단과 비밀 유지가 필요하다.",
+      "weakness_hint_ko": "두려움 없는 태도와 날카로운 가면술을 동시에 보이면 흥미를 숨기지 못한다.",
+      "spouse_dynamic_ko": "속도감 있는 동맹이 되지만 강한 선택을 요구해 피로와 위협 경보가 쉽게 오른다.",
+      "info_unlocks": [
+        {
+          "quality": 0,
+          "visible": [
+            "rank",
+            "public_summary"
+          ]
+        },
+        {
+          "quality": 35,
+          "visible": [
+            "preferred_stats",
+            "minimums",
+            "family_scrutiny"
+          ]
+        },
+        {
+          "quality": 65,
+          "visible": [
+            "special_traits",
+            "security_level"
+          ]
+        },
+        {
+          "quality": 90,
+          "visible": [
+            "private_summary",
+            "weakness_hint"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "schema_version": "0.1",
+  "ranks": [
+    {
+      "id": "commoner",
+      "name_ko": "평민/고아",
+      "order": 0,
+      "marriage_market": "outside_nobility",
+      "notes_ko": "튜토리얼 전용 시작 상태."
+    },
+    {
+      "id": "knight",
+      "name_ko": "기사",
+      "order": 1,
+      "marriage_market": "low",
+      "access_requirement": {
+        "status": 0
+      },
+      "focus_stats": [
+        "beauty",
+        "wildness"
+      ],
+      "removal_note_ko": "물리적으로 강하고 경계심이 낮은 편. 직접 접근은 실패 위험이 있다."
+    },
+    {
+      "id": "baron",
+      "name_ko": "남작",
+      "order": 2,
+      "marriage_market": "low_noble",
+      "access_requirement": {
+        "status": 1
+      },
+      "focus_stats": [
+        "beauty",
+        "etiquette"
+      ],
+      "removal_note_ko": "시골 네트워크와 허술한 호위가 있으나 사람의 눈을 피하는 것이 중요하다."
+    },
+    {
+      "id": "viscount",
+      "name_ko": "자작",
+      "order": 3,
+      "marriage_market": "middle_noble",
+      "access_requirement": {
+        "status": 2,
+        "social": 10
+      },
+      "focus_stats": [
+        "beauty",
+        "culture",
+        "etiquette"
+      ],
+      "removal_note_ko": "비밀정보와 협박/정치공작이 유효해진다."
+    },
+    {
+      "id": "count",
+      "name_ko": "백작",
+      "order": 4,
+      "marriage_market": "high_noble",
+      "access_requirement": {
+        "status": 3,
+        "social": 20,
+        "influence": 10
+      },
+      "focus_stats": [
+        "culture",
+        "grace",
+        "etiquette",
+        "mask"
+      ],
+      "removal_note_ko": "직접 방식이 어려워지고 정치적 제거가 중요해진다."
+    },
+    {
+      "id": "marquis",
+      "name_ko": "후작",
+      "order": 5,
+      "marriage_market": "great_noble",
+      "access_requirement": {
+        "status": 4,
+        "social": 35,
+        "influence": 25
+      },
+      "focus_stats": [
+        "grace",
+        "etiquette",
+        "mask",
+        "social"
+      ],
+      "removal_note_ko": "군사권과 파벌이 개입하며 실패 후 역풍이 크다."
+    },
+    {
+      "id": "duke",
+      "name_ko": "공작",
+      "order": 6,
+      "marriage_market": "near_royal",
+      "access_requirement": {
+        "status": 5,
+        "social": 50,
+        "influence": 45
+      },
+      "focus_stats": [
+        "mask",
+        "grace",
+        "influence"
+      ],
+      "removal_note_ko": "준왕족급으로 제거보다 계승권/외교/파벌 조작이 핵심이다."
+    },
+    {
+      "id": "royal",
+      "name_ko": "왕족",
+      "order": 7,
+      "marriage_market": "endgame",
+      "access_requirement": {
+        "status": 6,
+        "social": 65,
+        "influence": 65,
+        "mask": 75
+      },
+      "focus_stats": [
+        "mask",
+        "grace",
+        "etiquette",
+        "political_value"
+      ],
+      "removal_note_ko": "결혼 성공 시 기본 클리어 후보."
+    }
+  ]
+}

@@ -1,0 +1,272 @@
+{
+  "schema_version": "0.1",
+  "description_ko": "자유단계에서 선택 가능한 기본 행동. 모든 행동은 weeks만큼 시간을 소모한다.",
+  "actions": [
+    {
+      "id": "buy_goods",
+      "name_ko": "상품 구매",
+      "category": "shop",
+      "weeks": 1,
+      "summary_ko": "상점 또는 중개인을 통해 장비, 의상, 소모품을 구매한다.",
+      "result_ko": "필요한 물건과 거래처를 살펴보며 다음 계획을 준비했습니다.",
+      "result_backdrop": "res://assets/art/actions/action_market_alley.png",
+      "cost": {
+        "cash_min": 1
+      },
+      "effects": {},
+      "opens_ui": "ShopScreen",
+      "tags": [
+        "preparation",
+        "economy"
+      ]
+    },
+    {
+      "id": "street_errands",
+      "name_ko": "잡일과 심부름",
+      "category": "economy",
+      "weeks": 1,
+      "cost": {
+        "fatigue": 3
+      },
+      "stat_influence": {
+        "stats": {"wildness": 0.5, "information": 0.3, "impulse_control": 0.2},
+        "reference_stat": 30,
+        "fixed_effects": []
+      },
+      "effects": {
+        "cash": 2,
+        "fatigue": 3,
+        "underworld_trace": 1
+      },
+      "summary_ko": "시장과 뒷골목의 잔일을 처리해 작은 돈을 번다. 초반 결혼 준비 자금을 마련할 수 있지만 흔적이 조금 남는다.",
+      "result_ko": "시장의 소음 속에서 심부름을 마치고 품삯을 챙겼습니다. 골목에는 당신을 기억하는 눈도 남았습니다.",
+      "result_backdrop": "res://assets/art/actions/action_market_alley.png",
+      "tags": [
+        "economy",
+        "risk"
+      ]
+    },
+    {
+      "id": "train_beauty",
+      "name_ko": "외모 관리",
+      "category": "self_improvement",
+      "weeks": 2,
+      "cost": {
+        "cash": 3,
+        "fatigue": 4
+      },
+      "stat_influence": {
+        "stats": {"grace": 0.4, "mask": 0.35, "impulse_control": 0.25},
+        "reference_stat": 30,
+        "fixed_effects": ["cash"]
+      },
+      "effects": {
+        "beauty": 3,
+        "mask": 1,
+        "cash": -3,
+        "fatigue": 4
+      },
+      "summary_ko": "의상, 자세, 피부 관리, 표정 연습을 통해 외모와 연출력을 올린다.",
+      "result_ko": "거울 앞에서 자세와 표정을 거듭 다듬었습니다. 타인의 시선을 붙잡는 법이 조금 더 자연스러워졌습니다.",
+      "result_backdrop": "res://assets/art/actions/action_mirror_chamber.png",
+      "tags": [
+        "beauty",
+        "mask"
+      ]
+    },
+    {
+      "id": "study_culture",
+      "name_ko": "교양 공부",
+      "category": "self_improvement",
+      "weeks": 3,
+      "cost": {
+        "cash": 2,
+        "fatigue": 3
+      },
+      "stat_influence": {
+        "stats": {"culture": 0.45, "impulse_control": 0.35, "information": 0.2},
+        "reference_stat": 30,
+        "positive_max_multiplier": 1.35,
+        "fixed_effects": ["cash"]
+      },
+      "effects": {
+        "culture": 4,
+        "impulse_control": 1,
+        "cash": -2,
+        "fatigue": 3
+      },
+      "summary_ko": "문학, 역사, 종교, 궁정 화제를 배운다.",
+      "result_ko": "촛불이 짧아질 때까지 책과 기록을 읽었습니다. 낯설던 궁정의 화제가 이제는 대화의 실마리로 보입니다.",
+      "result_backdrop": "res://assets/art/actions/action_study_chamber.png",
+      "tags": [
+        "culture",
+        "match"
+      ]
+    },
+    {
+      "id": "practice_etiquette",
+      "name_ko": "예법 훈련",
+      "category": "self_improvement",
+      "weeks": 3,
+      "cost": {
+        "cash": 2,
+        "fatigue": 4
+      },
+      "stat_influence": {
+        "stats": {"culture": 0.35, "grace": 0.35, "impulse_control": 0.3},
+        "reference_stat": 30,
+        "positive_max_multiplier": 1.35,
+        "fixed_effects": ["cash"]
+      },
+      "effects": {
+        "etiquette": 4,
+        "grace": 2,
+        "cash": -2,
+        "fatigue": 4
+      },
+      "summary_ko": "식사, 인사, 호칭, 걷는 법, 침묵하는 법을 익힌다.",
+      "result_ko": "인사와 식사 예절을 몸에 익힐 때까지 반복했습니다. 실수를 감추는 침묵에도 품위가 생겼습니다.",
+      "result_backdrop": "res://assets/art/actions/action_study_chamber.png",
+      "tags": [
+        "etiquette",
+        "grace"
+      ]
+    },
+    {
+      "id": "practice_mask",
+      "name_ko": "가면 연습",
+      "category": "self_improvement",
+      "weeks": 2,
+      "cost": {
+        "fatigue": 5
+      },
+      "stat_influence": {
+        "stats": {"impulse_control": 0.55, "culture": 0.25, "information": 0.2},
+        "reference_stat": 30,
+        "positive_max_multiplier": 1.35
+      },
+      "effects": {
+        "mask": 4,
+        "impulse_control": 2,
+        "fatigue": 5
+      },
+      "summary_ko": "감정을 숨기고, 원하는 표정을 꺼내는 연습을 한다.",
+      "result_ko": "거울 속 표정을 지우고 다시 만들었습니다. 동요를 감춘 채 원하는 인상만 남기는 법을 익혔습니다.",
+      "result_backdrop": "res://assets/art/actions/action_mirror_chamber.png",
+      "tags": [
+        "mask",
+        "coverup"
+      ]
+    },
+    {
+      "id": "gather_rumor",
+      "name_ko": "소문 조사",
+      "category": "rumor",
+      "weeks": 1,
+      "cost": {
+        "cash": 1,
+        "fatigue": 2
+      },
+      "stat_influence": {
+        "stats": {"information": 0.5, "social": 0.3, "mask": 0.2},
+        "reference_stat": 25,
+        "fixed_effects": ["cash"]
+      },
+      "effects": {
+        "information": 2,
+        "cash": -1,
+        "fatigue": 2
+      },
+      "summary_ko": "시장, 하인, 술집, 교회 주변에서 사교계의 소문을 모은다.",
+      "result_ko": "하인들의 뒷말과 시장의 풍문을 한데 맞췄습니다. 누가 누구를 두려워하는지 윤곽이 드러났습니다.",
+      "result_backdrop": "res://assets/art/actions/action_market_alley.png",
+      "tags": [
+        "rumor",
+        "information"
+      ]
+    },
+    {
+      "id": "spread_rumor",
+      "name_ko": "소문 유포",
+      "category": "rumor",
+      "weeks": 1,
+      "cost": {
+        "information": 2,
+        "cash": 1
+      },
+      "stat_influence": {
+        "stats": {"information": 0.45, "social": 0.35, "mask": 0.2},
+        "reference_stat": 35,
+        "fixed_effects": ["cash", "information"]
+      },
+      "effects": {
+        "information": -2,
+        "cash": -1,
+        "social_suspicion": 2
+      },
+      "summary_ko": "선택한 대상이나 주제에 대한 이야기를 퍼뜨린다. 성공 시 여론을 움직이지만 흔적이 남을 수 있다.",
+      "result_ko": "말은 여러 입을 거치며 당신의 의도대로 모양을 바꾸기 시작했습니다. 다만 출처를 찾는 시선도 생겼습니다.",
+      "result_backdrop": "res://assets/art/actions/action_market_alley.png",
+      "tags": [
+        "rumor",
+        "risk"
+      ]
+    },
+    {
+      "id": "attend_social_event",
+      "name_ko": "사교계 참석",
+      "category": "social",
+      "weeks": 1,
+      "requirements": {
+        "min_status": 1,
+        "available_event": true
+      },
+      "cost": {
+        "cash": 4,
+        "fatigue": 6
+      },
+      "stat_influence": {
+        "stats": {"social": 0.4, "grace": 0.25, "etiquette": 0.2, "status": 0.15},
+        "reference_stat": 35,
+        "fixed_effects": ["cash"]
+      },
+      "effects": {
+        "social": 3,
+        "influence": 1,
+        "cash": -4,
+        "fatigue": 6,
+        "origin_rumor": 1
+      },
+      "summary_ko": "가능한 경우 사교 행사에 참석해 인맥과 접근권을 얻는다.",
+      "result_ko": "잔과 인사가 오가는 자리에서 이름을 남겼습니다. 다음 초대와 새로운 혼담으로 이어질 인연이 생겼습니다.",
+      "result_backdrop": "res://assets/art/actions/action_study_chamber.png",
+      "tags": [
+        "social",
+        "candidate"
+      ]
+    },
+    {
+      "id": "rest_and_recover",
+      "name_ko": "휴식",
+      "category": "recovery",
+      "weeks": 1,
+      "cost": {},
+      "stat_influence": {
+        "stats": {"impulse_control": 0.7, "culture": 0.3},
+        "reference_stat": 30,
+        "ignore_condition": true,
+        "positive_max_multiplier": 1.35
+      },
+      "effects": {
+        "fatigue": -8,
+        "stress": -5
+      },
+      "summary_ko": "피로와 스트레스를 낮춘다. 시간은 소모되지만 장기 실패를 줄인다.",
+      "result_ko": "문을 닫고 몸과 마음을 쉬게 했습니다. 흐려졌던 판단이 다시 또렷해졌습니다.",
+      "result_backdrop": "res://assets/art/actions/action_mirror_chamber.png",
+      "tags": [
+        "recovery"
+      ]
+    }
+  ]
+}

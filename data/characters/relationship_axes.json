@@ -1,0 +1,59 @@
+{
+  "schema_version": "0.1",
+  "axes": [
+    {
+      "id": "favor",
+      "name_ko": "호감",
+      "range": "-100~100",
+      "summary_ko": "상대가 주인공을 개인적으로 좋아하는 정도."
+    },
+    {
+      "id": "trust",
+      "name_ko": "신뢰",
+      "range": "-100~100",
+      "summary_ko": "거래, 고백, 부탁을 믿어줄 가능성."
+    },
+    {
+      "id": "respect",
+      "name_ko": "존중",
+      "range": "-100~100",
+      "summary_ko": "신분이나 능력 면에서 주인공을 얕보지 않는 정도."
+    },
+    {
+      "id": "transaction_value",
+      "name_ko": "거래가치",
+      "range": "0~100",
+      "summary_ko": "협력할 때 얻을 이득이 있다고 보는 정도."
+    },
+    {
+      "id": "fear",
+      "name_ko": "두려움",
+      "range": "0~100",
+      "summary_ko": "주인공을 위험 인물로 보는 정도. 충성 대체 수단이 될 수 있으나 배신 위험도 커진다."
+    },
+    {
+      "id": "loyalty",
+      "name_ko": "충성",
+      "range": "0~100",
+      "summary_ko": "손해를 감수하고도 주인공 편에 설 가능성."
+    },
+    {
+      "id": "suspicion",
+      "name_ko": "의심",
+      "range": "0~100",
+      "summary_ko": "주인공의 행동을 수상하게 보는 정도."
+    },
+    {
+      "id": "debt",
+      "name_ko": "빚",
+      "range": "0~100",
+      "summary_ko": "주인공에게 갚아야 할 은혜, 돈, 약점."
+    },
+    {
+      "id": "leverage",
+      "name_ko": "약점 장악도",
+      "range": "0~100",
+      "summary_ko": "협박 또는 정치적 제거에 사용할 수 있는 약점 확보 정도."
+    }
+  ]
+}

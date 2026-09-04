@@ -1,0 +1,309 @@
+{
+  "schema_version": "0.1",
+  "safety_note_ko": "이 데이터는 범죄 절차가 아니라 게임 판정을 위한 추상화된 방식만 포함한다. 실제 실행 절차, 물질, 방법 묘사는 금지한다.",
+  "methods": [
+    {
+      "id": "removal_accident_frame",
+      "name_ko": "사고사 위장",
+      "category": "direct_removal_abstract",
+      "weeks_to_prepare": 4,
+      "base_success": 45,
+      "stat_influence": {
+        "stats": {"information": 0.4, "mask": 0.35, "impulse_control": 0.25},
+        "reference_stat": 50,
+        "chance_per_point": 0.65
+      },
+      "requirements": {
+        "information": 25,
+        "cash": 8,
+        "mask": 15
+      },
+      "risk_profile": {
+        "social_suspicion": 8,
+        "direct_suspicion": 10,
+        "threat_alert": 8,
+        "evidence_risk": 18
+      },
+      "success_result": {
+        "type": "fatal_case",
+        "name_ko": "사망 사건",
+        "summary_ko": "배우자가 사망하고 사건 파일이 열린다. 미망인 이미지를 얻지만 조사와 증거 위험을 관리해야 한다.",
+        "spouse_removed": true,
+        "widow": true,
+        "unlock_next_rank": true,
+        "case_initial": {"investigation_progress": 10, "rumor_spread": 8}
+      },
+      "countered_by": [
+        "high_security",
+        "loyal_servants",
+        "medical_scrutiny"
+      ],
+      "summary_ko": "사건을 우연처럼 보이게 만드는 추상화된 제거 방식. 후반으로 갈수록 보안과 증언 때문에 어려워진다."
+    },
+    {
+      "id": "removal_health_decline_plot",
+      "name_ko": "건강 악화 유도",
+      "category": "direct_removal_abstract",
+      "weeks_to_prepare": 8,
+      "base_success": 50,
+      "stat_influence": {
+        "stats": {"mask": 0.4, "information": 0.35, "impulse_control": 0.25},
+        "reference_stat": 55,
+        "chance_per_point": 0.65
+      },
+      "requirements": {
+        "information": 35,
+        "mask": 25,
+        "access_to_household": true
+      },
+      "risk_profile": {
+        "social_suspicion": 6,
+        "direct_suspicion": 8,
+        "threat_alert": 5,
+        "evidence_risk": 22
+      },
+      "success_result": {
+        "type": "fatal_case",
+        "name_ko": "쇠약 사망 사건",
+        "summary_ko": "배우자가 장기 쇠약 끝에 사망하고 사건 파일이 열린다. 급작스러운 사건보다 소문은 낮지만 증거 위험은 무겁다.",
+        "spouse_removed": true,
+        "widow": true,
+        "unlock_next_rank": true,
+        "case_initial": {"investigation_progress": 8, "rumor_spread": 6}
+      },
+      "countered_by": [
+        "trusted_physician",
+        "high_direct_suspicion",
+        "low_affection"
+      ],
+      "summary_ko": "장기간에 걸친 추상화된 위해/쇠약 서사. 느리지만 결혼 직후 급사보다 덜 튄다."
+    },
+    {
+      "id": "removal_scandal_disgrace",
+      "name_ko": "추문 실각",
+      "category": "political_removal",
+      "weeks_to_prepare": 6,
+      "base_success": 55,
+      "stat_influence": {
+        "stats": {"information": 0.4, "social": 0.35, "influence": 0.25},
+        "reference_stat": 55,
+        "chance_per_point": 0.65
+      },
+      "requirements": {
+        "information": 40,
+        "social": 15,
+        "leverage": 20
+      },
+      "risk_profile": {
+        "social_suspicion": 4,
+        "direct_suspicion": 6,
+        "threat_alert": 4,
+        "evidence_risk": 10
+      },
+      "success_result": {
+        "type": "political_disgrace",
+        "name_ko": "정치적 실각",
+        "summary_ko": "배우자는 살아 있지만 사교계와 가문 안에서 밀려난다. 미망인 이미지는 없고, 대신 추문 후폭풍을 관리해야 한다.",
+        "spouse_removed": true,
+        "widow": false,
+        "unlock_next_rank": true,
+        "effects": {"influence": 1, "notoriety": 1},
+        "case_initial": {"investigation_progress": 6, "rumor_spread": 18, "evidence_risk": 8}
+      },
+      "countered_by": [
+        "strong_family",
+        "high_reputation",
+        "royal_patronage"
+      ],
+      "summary_ko": "배우자를 죽이지 않고 사회적 지위를 무너뜨리는 정치적 제거. 안전하지만 시간과 정보가 많이 든다."
+    },
+    {
+      "id": "removal_war_assignment",
+      "name_ko": "전장 전출 유도",
+      "category": "political_removal",
+      "weeks_to_prepare": 8,
+      "base_success": 40,
+      "stat_influence": {
+        "stats": {"influence": 0.45, "social": 0.35, "status": 0.2},
+        "reference_stat": 60,
+        "chance_per_point": 0.7
+      },
+      "requirements": {
+        "influence": 20,
+        "social": 20,
+        "rank_min": "count"
+      },
+      "risk_profile": {
+        "social_suspicion": 3,
+        "direct_suspicion": 5,
+        "threat_alert": 2,
+        "evidence_risk": 8
+      },
+      "success_result": {
+        "type": "distant_assignment",
+        "name_ko": "장기 전출",
+        "summary_ko": "배우자는 정치적 명분으로 먼 임지에 묶인다. 결혼은 사실상 기능하지 않지만 생존 소식과 후원자 반응이 남는다.",
+        "spouse_removed": true,
+        "widow": false,
+        "unlock_next_rank": true,
+        "effects": {"influence": 2, "stress": 2},
+        "case_initial": {"investigation_progress": 4, "rumor_spread": 12, "evidence_risk": 6}
+      },
+      "countered_by": [
+        "pacifist_faction",
+        "royal_favor",
+        "low_military_role"
+      ],
+      "summary_ko": "정치적 명분으로 배우자를 위험한 자리로 보내는 방식. 살아 돌아오면 역풍이 커질 수 있다."
+    },
+    {
+      "id": "removal_marriage_annulment",
+      "name_ko": "혼인무효/파기 공작",
+      "category": "legal_religious_removal",
+      "weeks_to_prepare": 10,
+      "base_success": 45,
+      "stat_influence": {
+        "stats": {"social": 0.35, "information": 0.3, "influence": 0.2, "culture": 0.15},
+        "reference_stat": 60,
+        "chance_per_point": 0.7
+      },
+      "requirements": {
+        "social": 25,
+        "information": 35,
+        "religious_support": 15
+      },
+      "risk_profile": {
+        "social_suspicion": 2,
+        "direct_suspicion": 8,
+        "threat_alert": 1,
+        "evidence_risk": 5
+      },
+      "success_result": {
+        "type": "annulment",
+        "name_ko": "혼인 파기",
+        "summary_ko": "성직 기록과 법적 명분으로 혼인이 끝난다. 배우자는 살아 있고 보상은 작지만 치명적 의심 부담도 낮다.",
+        "spouse_removed": true,
+        "widow": false,
+        "unlock_next_rank": true,
+        "effects": {"status": -1, "origin_rumor": 2, "social_suspicion": -1},
+        "case_initial": {"investigation_progress": 3, "rumor_spread": 16, "evidence_risk": 5}
+      },
+      "countered_by": [
+        "church_opposition",
+        "family_pressure",
+        "low_leverage"
+      ],
+      "summary_ko": "법적·종교적 명분으로 결혼을 끝내는 방식. 보상은 적지만 의심 부담이 낮다."
+    }
+  ],
+  "counter_events": [
+    {
+      "id": "counter_high_security_watch",
+      "name_ko": "강화된 수행원 경계",
+      "summary_ko": "배우자 주변의 수행원과 저택 관리인이 준비 기간 내내 낯선 움직임을 기록했다.",
+      "counter_ids": ["high_security", "loyal_servants"],
+      "method_ids": ["removal_accident_frame"],
+      "trigger": {
+        "spouse_min": {"threat_alert": 35}
+      },
+      "priority": 40,
+      "success_modifier": -14,
+      "effects": {"direct_suspicion": 3, "threat_alert": 4},
+      "case_effects": {"investigation_progress": 8, "evidence_risk": 6}
+    },
+    {
+      "id": "counter_household_memory",
+      "name_ko": "하인들의 기억",
+      "summary_ko": "가문 안쪽 사정을 오래 본 하인들이 작은 불일치를 서로 맞춰 보기 시작했다.",
+      "counter_ids": ["loyal_servants", "family_pressure"],
+      "trigger": {
+        "candidate_traits_any": ["wary_household", "household_watch", "archive_power", "procedural_mind"]
+      },
+      "priority": 34,
+      "success_modifier": -10,
+      "effects": {"social_suspicion": 2},
+      "case_effects": {"investigation_progress": 6, "rumor_spread": 4}
+    },
+    {
+      "id": "counter_physician_scrutiny",
+      "name_ko": "주치의의 재확인",
+      "summary_ko": "가문 주치의가 건강 악화 서사를 그대로 받아들이지 않고 기록과 증언을 다시 맞춰 보았다.",
+      "counter_ids": ["trusted_physician", "medical_scrutiny"],
+      "method_ids": ["removal_health_decline_plot", "removal_accident_frame"],
+      "priority": 36,
+      "success_modifier": -12,
+      "effects": {"direct_suspicion": 2},
+      "case_effects": {"evidence_risk": 8, "investigation_progress": 5}
+    },
+    {
+      "id": "counter_spouse_direct_doubt",
+      "name_ko": "배우자의 직접 의심",
+      "summary_ko": "배우자가 이미 주인공의 태도를 의심하고 있어 준비 과정의 빈틈을 빠르게 눈치챘다.",
+      "counter_ids": ["high_direct_suspicion", "low_affection"],
+      "trigger": {
+        "spouse_min": {"direct_suspicion": 40},
+        "spouse_max": {"affection": 35}
+      },
+      "priority": 45,
+      "success_modifier": -16,
+      "effects": {"direct_suspicion": 6, "threat_alert": 4},
+      "case_effects": {"investigation_progress": 8}
+    },
+    {
+      "id": "counter_family_shields_reputation",
+      "name_ko": "가문의 평판 방패",
+      "summary_ko": "배우자 가문이 하객, 후원자, 친족의 증언을 모아 추문을 단순한 공격으로 몰아갔다.",
+      "counter_ids": ["strong_family", "high_reputation", "royal_patronage"],
+      "method_ids": ["removal_scandal_disgrace"],
+      "trigger": {
+        "candidate_traits_any": ["bloodline_pride", "near_royal_protocol", "ducal_house", "reputation_sensitive", "faction_leader"]
+      },
+      "priority": 42,
+      "success_modifier": -15,
+      "effects": {"social_suspicion": 3, "influence": -1},
+      "case_effects": {"rumor_spread": 8}
+    },
+    {
+      "id": "counter_court_whisper_network",
+      "name_ko": "궁정 정보망의 역추적",
+      "summary_ko": "궁정과 살롱의 정보망이 추문이 어디서 시작됐는지 되짚으며 주인공 쪽 소문까지 끌어냈다.",
+      "counter_ids": ["strong_family", "royal_patronage"],
+      "method_ids": ["removal_scandal_disgrace", "removal_marriage_annulment"],
+      "trigger": {
+        "candidate_traits_any": ["court_intriguer", "blackmail_network", "salon_patron", "salon_taste"]
+      },
+      "priority": 38,
+      "success_modifier": -11,
+      "effects": {"origin_rumor": 2, "social_suspicion": 2},
+      "case_effects": {"rumor_spread": 6, "evidence_risk": 3}
+    },
+    {
+      "id": "counter_military_patronage",
+      "name_ko": "군무 후원의 개입",
+      "summary_ko": "전장 전출 명분이 군무 인맥과 후원자의 손에서 다시 검토되며 정치적 비용이 커졌다.",
+      "counter_ids": ["pacifist_faction", "royal_favor", "low_military_role"],
+      "method_ids": ["removal_war_assignment"],
+      "trigger": {
+        "candidate_traits_any": ["marcher_army", "capital_guard", "war_contracts", "foreign_ties", "diplomatic_web"]
+      },
+      "priority": 40,
+      "success_modifier": -13,
+      "effects": {"influence": -2, "social_suspicion": 2},
+      "case_effects": {"rumor_spread": 5, "investigation_progress": 3}
+    },
+    {
+      "id": "counter_church_records",
+      "name_ko": "성직 기록의 반박",
+      "summary_ko": "혼인 무효 명분이 성직 기록과 친족 증언 앞에서 흔들리며 논쟁의 흔적을 남겼다.",
+      "counter_ids": ["church_opposition", "family_pressure", "low_leverage"],
+      "method_ids": ["removal_marriage_annulment"],
+      "trigger": {
+        "candidate_traits_any": ["pious_reputation", "procedural_mind", "archive_power", "honor_bound"]
+      },
+      "priority": 40,
+      "success_modifier": -12,
+      "effects": {"social_suspicion": 2, "stress": 2},
+      "case_effects": {"evidence_risk": 4, "rumor_spread": 4}
+    }
+  ]
+}

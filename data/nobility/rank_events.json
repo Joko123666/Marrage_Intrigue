@@ -1,0 +1,188 @@
+{
+  "schema_version": "0.1",
+  "description_ko": "결혼 이후 시간이 흐를 때 배우자 작위와 가문 성향에 따라 발생하는 중후반 압박 이벤트.",
+  "weekly_check": {
+    "start_week": 12,
+    "interval_weeks": 4
+  },
+  "events": [
+    {
+      "id": "rank_pressure_knight_debt_roll",
+      "name_ko": "기사 가문 빚 독촉",
+      "summary_ko": "채권자와 군무 비용이 한꺼번에 밀려와 작은 기사 가문이 배우자의 선택을 압박한다.",
+      "rank_ids": [
+        "knight"
+      ],
+      "trigger_traits_any": [
+        "debt_pressure",
+        "honor_bound",
+        "wary_household"
+      ],
+      "min_week": 12,
+      "cooldown_weeks": 4,
+      "priority": 20,
+      "effects": {
+        "cash": -2,
+        "stress": 3,
+        "direct_suspicion": 2,
+        "public_harmony": -2
+      },
+      "unlock_candidates": [
+        {
+          "rank": "baron",
+          "quality": 35,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "rank_pressure_baron_estate_audit",
+      "name_ko": "남작 영지 장부 감사",
+      "summary_ko": "지방 영지의 수입과 소작료가 검토되며 새 안주인의 출신과 지출이 함께 입에 오른다.",
+      "rank_ids": [
+        "baron"
+      ],
+      "trigger_traits_any": [
+        "hidden_money",
+        "rural_power",
+        "vain",
+        "account_book"
+      ],
+      "min_week": 18,
+      "cooldown_weeks": 5,
+      "priority": 30,
+      "effects": {
+        "cash": -3,
+        "origin_rumor": 2,
+        "information": 1,
+        "social_suspicion": 2,
+        "public_harmony": -3
+      },
+      "unlock_candidates": [
+        {
+          "rank": "viscount",
+          "quality": 35,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "rank_pressure_viscount_archive_probe",
+      "name_ko": "자작가 기록 보관소 조사",
+      "summary_ko": "궁정 기록관과 서기관들이 혼인 경위와 하인들의 증언을 대조하며 사소한 거짓말을 찾기 시작한다.",
+      "rank_ids": [
+        "viscount"
+      ],
+      "trigger_traits_any": [
+        "archivist",
+        "court_records",
+        "wary_household",
+        "information_network"
+      ],
+      "min_week": 24,
+      "cooldown_weeks": 6,
+      "priority": 40,
+      "effects": {
+        "information": 2,
+        "social_suspicion": 3,
+        "direct_suspicion": 3,
+        "threat_alert": 2
+      },
+      "unlock_candidates": [
+        {
+          "rank": "count",
+          "quality": 35,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "rank_pressure_count_salon_faction",
+      "name_ko": "백작가 살롱 파벌전",
+      "summary_ko": "살롱 후원자와 군수 계약자들이 편을 가르며 주인공에게 공개 입장을 요구한다.",
+      "rank_ids": [
+        "count"
+      ],
+      "trigger_traits_any": [
+        "salon_patron",
+        "military_supply",
+        "old_blood",
+        "factional"
+      ],
+      "min_week": 30,
+      "cooldown_weeks": 6,
+      "priority": 50,
+      "effects": {
+        "social": 1,
+        "influence": 1,
+        "social_suspicion": 4,
+        "stress": 4,
+        "public_harmony": -4
+      },
+      "unlock_candidates": [
+        {
+          "rank": "marquis",
+          "quality": 35,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "rank_pressure_marquis_border_muster",
+      "name_ko": "후작 변경군 소집",
+      "summary_ko": "변경군 소집과 파벌 후원이 겹치며 혼인 관계가 군사적 충성의 증거로 이용된다.",
+      "rank_ids": [
+        "marquis"
+      ],
+      "trigger_traits_any": [
+        "military_house",
+        "border_march",
+        "court_faction",
+        "command_network"
+      ],
+      "min_week": 38,
+      "cooldown_weeks": 7,
+      "priority": 60,
+      "effects": {
+        "influence": 2,
+        "cash": -4,
+        "notoriety": 2,
+        "threat_alert": 4,
+        "social_suspicion": 3
+      },
+      "unlock_candidates": [
+        {
+          "rank": "duke",
+          "quality": 35,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "rank_pressure_duke_court_balance",
+      "name_ko": "공작가 궁정 균형",
+      "summary_ko": "준왕족급 가문이 궁정 의전과 외교 균형을 명분으로 주인공의 모든 접촉을 세밀히 재단한다.",
+      "rank_ids": [
+        "duke"
+      ],
+      "trigger_traits_any": [
+        "near_royal",
+        "diplomatic_web",
+        "dynastic_claim",
+        "court_faction"
+      ],
+      "min_week": 46,
+      "cooldown_weeks": 8,
+      "priority": 70,
+      "effects": {
+        "influence": 2,
+        "social_suspicion": 5,
+        "origin_rumor": 3,
+        "underworld_trace": 2,
+        "direct_suspicion": 4,
+        "threat_alert": 5
+      },
+      "unlock_candidates": []
+    }
+  ]
+}

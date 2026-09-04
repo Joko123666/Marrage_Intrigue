@@ -1,0 +1,993 @@
+{
+  "schema_version": "0.1",
+  "created_at": "2026-06-15",
+  "language": "ko",
+  "project": "귀족 권력상승 시뮬레이션",
+  "engine_target": "Godot Engine 4.x",
+  "numeric_scale": {
+    "stat": "0~100. 50은 훈련된 평균, 70 이상은 상위권, 85 이상은 최상위권.",
+    "mood_axis": "맞선 레이더 축은 0~100. 선택지와 페르소나 보정은 일반적으로 -20~+20 범위의 가산값.",
+    "audience_modifier": "대상 계층 또는 인물 유형에 대한 상호작용 성공 판정 가산값. 단위는 점수 또는 %p로 변환 가능.",
+    "risk_modifier": "양수는 위험 증가, 음수는 위험 감소. 위험 종류별로 별도 누적 권장."
+  },
+  "core_stats": [
+    "beauty",
+    "culture",
+    "grace",
+    "etiquette",
+    "wildness",
+    "mask",
+    "impulse_control",
+    "funds",
+    "information",
+    "sociability",
+    "influence",
+    "status"
+  ],
+  "mood_axes": [
+    "favor",
+    "interest",
+    "trust",
+    "comfort",
+    "face",
+    "political_value"
+  ],
+  "suspicion_axes": [
+    "social_suspicion",
+    "direct_suspicion",
+    "threat_alert",
+    "evidence_risk"
+  ],
+  "note": "대사 단계는 주인공의 장기 성장 상태이고, 페르소나는 현재 사교계에 보여주는 연출/가면이다. 둘은 분리해서 관리한다.",
+  "dialogue_templates": [
+    {
+      "id": "dlg_self_intro_low_noble_00",
+      "context": "self_intro_low_noble",
+      "context_name_ko": "초반 자기소개",
+      "voice_stage_id": "voice_0_street_beast",
+      "speaker": "protagonist",
+      "text_ko": "이름은 아직 값이 없어요. 하지만 곧, 누구도 무시하지 못하게 만들 겁니다.",
+      "choice_tags": [
+        "wild",
+        "direct"
+      ],
+      "base_effects": {
+        "interest": 4,
+        "face": -3
+      },
+      "requirements": {
+        "voice_stage_id": "voice_0_street_beast"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_self_intro_low_noble_01",
+      "context": "self_intro_low_noble",
+      "context_name_ko": "초반 자기소개",
+      "voice_stage_id": "voice_1_borrowed_dress",
+      "speaker": "protagonist",
+      "text_ko": "부족한 점이 많습니다. 그래도 배울 기회를 주신다면, 반드시 기억하겠습니다.",
+      "choice_tags": [
+        "humble",
+        "awkward_courtly"
+      ],
+      "base_effects": {
+        "favor": 3,
+        "comfort": 2
+      },
+      "requirements": {
+        "voice_stage_id": "voice_1_borrowed_dress"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_self_intro_low_noble_02",
+      "context": "self_intro_low_noble",
+      "context_name_ko": "초반 자기소개",
+      "voice_stage_id": "voice_2_hungry_lady",
+      "speaker": "protagonist",
+      "text_ko": "아직 내세울 가문은 작으나, 약속을 가볍게 여긴 적은 없습니다.",
+      "choice_tags": [
+        "courtly",
+        "mask"
+      ],
+      "base_effects": {
+        "trust": 3,
+        "face": 2
+      },
+      "requirements": {
+        "voice_stage_id": "voice_2_hungry_lady"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_self_intro_low_noble_03",
+      "context": "self_intro_low_noble",
+      "context_name_ko": "초반 자기소개",
+      "voice_stage_id": "voice_3_smiling_widow",
+      "speaker": "protagonist",
+      "text_ko": "지난 일들은 제게 침묵을 가르쳤습니다. 이제는 남은 의무를 다하고자 합니다.",
+      "choice_tags": [
+        "mask",
+        "formal_mourning"
+      ],
+      "base_effects": {
+        "trust": 4,
+        "comfort": 3
+      },
+      "requirements": {
+        "voice_stage_id": "voice_3_smiling_widow"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_self_intro_low_noble_04",
+      "context": "self_intro_low_noble",
+      "context_name_ko": "초반 자기소개",
+      "voice_stage_id": "voice_4_social_predator",
+      "speaker": "protagonist",
+      "text_ko": "제 이름은 아직 작습니다. 그러나 작은 이름도 올바른 자리에 놓이면, 가문과 가문 사이의 균형이 될 수 있습니다.",
+      "choice_tags": [
+        "political",
+        "courtly"
+      ],
+      "base_effects": {
+        "political_value": 5,
+        "face": 3
+      },
+      "requirements": {
+        "voice_stage_id": "voice_4_social_predator"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_self_intro_low_noble_05",
+      "context": "self_intro_low_noble",
+      "context_name_ko": "초반 자기소개",
+      "voice_stage_id": "voice_5_court_predator",
+      "speaker": "protagonist",
+      "text_ko": "저는 제 이름보다 제가 섬길 질서를 앞세우고자 합니다. 그 질서가 저를 필요로 한다면, 조용히 응답하겠습니다.",
+      "choice_tags": [
+        "royal_protocol",
+        "mask"
+      ],
+      "base_effects": {
+        "political_value": 6,
+        "face": 5
+      },
+      "requirements": {
+        "voice_stage_id": "voice_5_court_predator"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_match_interest_00",
+      "context": "match_interest",
+      "context_name_ko": "맞선 중 호감/흥미 유도",
+      "voice_stage_id": "voice_0_street_beast",
+      "speaker": "protagonist",
+      "text_ko": "당신은 지루하진 않네요. 보통 귀족들은 눈만 높고 속은 비었거든요.",
+      "choice_tags": [
+        "wild",
+        "direct"
+      ],
+      "base_effects": {
+        "interest": 7,
+        "face": -5,
+        "comfort": -2
+      },
+      "requirements": {
+        "voice_stage_id": "voice_0_street_beast"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_match_interest_01",
+      "context": "match_interest",
+      "context_name_ko": "맞선 중 호감/흥미 유도",
+      "voice_stage_id": "voice_1_borrowed_dress",
+      "speaker": "protagonist",
+      "text_ko": "경과 이야기하면, 제가 모르는 세상이 조금은 가까워지는 것 같습니다.",
+      "choice_tags": [
+        "earnest",
+        "humble"
+      ],
+      "base_effects": {
+        "favor": 4,
+        "interest": 3
+      },
+      "requirements": {
+        "voice_stage_id": "voice_1_borrowed_dress"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_match_interest_02",
+      "context": "match_interest",
+      "context_name_ko": "맞선 중 호감/흥미 유도",
+      "voice_stage_id": "voice_2_hungry_lady",
+      "speaker": "protagonist",
+      "text_ko": "경의 말씀에는 단순한 취향보다 오래 쌓인 기준이 느껴집니다. 그래서 더 듣고 싶습니다.",
+      "choice_tags": [
+        "subtle_probe",
+        "courtly"
+      ],
+      "base_effects": {
+        "interest": 4,
+        "face": 2,
+        "information_gain": 2
+      },
+      "requirements": {
+        "voice_stage_id": "voice_2_hungry_lady"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_match_interest_03",
+      "context": "match_interest",
+      "context_name_ko": "맞선 중 호감/흥미 유도",
+      "voice_stage_id": "voice_3_smiling_widow",
+      "speaker": "protagonist",
+      "text_ko": "상처를 겪은 사람은 침묵을 압니다. 경께서도 그런 침묵을 아시는 분처럼 보입니다.",
+      "choice_tags": [
+        "mask",
+        "subtle_probe"
+      ],
+      "base_effects": {
+        "trust": 4,
+        "interest": 3
+      },
+      "requirements": {
+        "voice_stage_id": "voice_3_smiling_widow"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_match_interest_04",
+      "context": "match_interest",
+      "context_name_ko": "맞선 중 호감/흥미 유도",
+      "voice_stage_id": "voice_4_social_predator",
+      "speaker": "protagonist",
+      "text_ko": "경의 선택은 개인의 취향을 넘어 한 가문의 방향이 될 것입니다. 그 점이 특히 흥미롭습니다.",
+      "choice_tags": [
+        "political",
+        "courtly"
+      ],
+      "base_effects": {
+        "political_value": 5,
+        "interest": 3
+      },
+      "requirements": {
+        "voice_stage_id": "voice_4_social_predator"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_match_interest_05",
+      "context": "match_interest",
+      "context_name_ko": "맞선 중 호감/흥미 유도",
+      "voice_stage_id": "voice_5_court_predator",
+      "speaker": "protagonist",
+      "text_ko": "사적인 호감마저 때로는 왕국의 질서를 세우는 조용한 기둥이 됩니다. 경께서는 그 무게를 아시는 분이군요.",
+      "choice_tags": [
+        "royal_protocol",
+        "political"
+      ],
+      "base_effects": {
+        "political_value": 6,
+        "trust": 3
+      },
+      "requirements": {
+        "voice_stage_id": "voice_5_court_predator"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_insult_response_00",
+      "context": "insult_response",
+      "context_name_ko": "모욕 대응",
+      "voice_stage_id": "voice_0_street_beast",
+      "speaker": "protagonist",
+      "text_ko": "그 말, 기억해둘게요. 오래는 아니고, 필요한 때까지만.",
+      "choice_tags": [
+        "wild",
+        "threat"
+      ],
+      "base_effects": {
+        "interest": 2,
+        "comfort": -6,
+        "direct_suspicion": 3
+      },
+      "requirements": {
+        "voice_stage_id": "voice_0_street_beast"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_insult_response_01",
+      "context": "insult_response",
+      "context_name_ko": "모욕 대응",
+      "voice_stage_id": "voice_1_borrowed_dress",
+      "speaker": "protagonist",
+      "text_ko": "제가 부족한 것은 사실입니다. 하지만 부족함을 웃음거리로 삼는 분도 완전하진 않군요.",
+      "choice_tags": [
+        "direct",
+        "awkward_courtly"
+      ],
+      "base_effects": {
+        "face": -1,
+        "interest": 3
+      },
+      "requirements": {
+        "voice_stage_id": "voice_1_borrowed_dress"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_insult_response_02",
+      "context": "insult_response",
+      "context_name_ko": "모욕 대응",
+      "voice_stage_id": "voice_2_hungry_lady",
+      "speaker": "protagonist",
+      "text_ko": "지적 감사합니다. 덕분에 어떤 예를 조심해야 하는지 배웠습니다.",
+      "choice_tags": [
+        "mask",
+        "courtly"
+      ],
+      "base_effects": {
+        "face": 3,
+        "comfort": 2,
+        "direct_suspicion": -1
+      },
+      "requirements": {
+        "voice_stage_id": "voice_2_hungry_lady"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_insult_response_03",
+      "context": "insult_response",
+      "context_name_ko": "모욕 대응",
+      "voice_stage_id": "voice_3_smiling_widow",
+      "speaker": "protagonist",
+      "text_ko": "상심한 이에게도 예를 가르쳐주시니, 귀한 친절로 받아들이겠습니다.",
+      "choice_tags": [
+        "mask",
+        "formal_mourning"
+      ],
+      "base_effects": {
+        "face": 5,
+        "trust": 2
+      },
+      "requirements": {
+        "voice_stage_id": "voice_3_smiling_widow"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_insult_response_04",
+      "context": "insult_response",
+      "context_name_ko": "모욕 대응",
+      "voice_stage_id": "voice_4_social_predator",
+      "speaker": "protagonist",
+      "text_ko": "그 말씀은 여기 계신 분들께도 오래 기억될 듯합니다. 물론, 각자 다른 방식으로요.",
+      "choice_tags": [
+        "indirect_threat",
+        "political"
+      ],
+      "base_effects": {
+        "face": 4,
+        "rival_attention": 2
+      },
+      "requirements": {
+        "voice_stage_id": "voice_4_social_predator"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_insult_response_05",
+      "context": "insult_response",
+      "context_name_ko": "모욕 대응",
+      "voice_stage_id": "voice_5_court_predator",
+      "speaker": "protagonist",
+      "text_ko": "폐하의 궁정에서는 모든 말이 자리를 가집니다. 방금 말씀도 곧 제 자리를 찾게 되겠지요.",
+      "choice_tags": [
+        "royal_protocol",
+        "indirect_threat"
+      ],
+      "base_effects": {
+        "face": 6,
+        "comfort": -1
+      },
+      "requirements": {
+        "voice_stage_id": "voice_5_court_predator"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_merchant_bargain_00",
+      "context": "merchant_bargain",
+      "context_name_ko": "상인 흥정",
+      "voice_stage_id": "voice_0_street_beast",
+      "speaker": "protagonist",
+      "text_ko": "비싸게 부른 거 알아요. 나도 장사꾼 눈은 봤거든요. 다시 말해봐요.",
+      "choice_tags": [
+        "streetwise",
+        "direct"
+      ],
+      "base_effects": {
+        "bargain": 6,
+        "trust": -1
+      },
+      "requirements": {
+        "voice_stage_id": "voice_0_street_beast"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_merchant_bargain_01",
+      "context": "merchant_bargain",
+      "context_name_ko": "상인 흥정",
+      "voice_stage_id": "voice_1_borrowed_dress",
+      "speaker": "protagonist",
+      "text_ko": "제 주머니가 가볍다는 건 압니다. 대신 제 이름이 무거워질 때 다시 찾아오겠습니다.",
+      "choice_tags": [
+        "humble",
+        "direct"
+      ],
+      "base_effects": {
+        "bargain": 4,
+        "favor": 2
+      },
+      "requirements": {
+        "voice_stage_id": "voice_1_borrowed_dress"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_merchant_bargain_02",
+      "context": "merchant_bargain",
+      "context_name_ko": "상인 흥정",
+      "voice_stage_id": "voice_2_hungry_lady",
+      "speaker": "protagonist",
+      "text_ko": "오늘은 값보다 관계를 사고 싶습니다. 제게 맞는 제안을 해주시겠습니까?",
+      "choice_tags": [
+        "courtly",
+        "subtle_probe"
+      ],
+      "base_effects": {
+        "bargain": 3,
+        "trust": 2
+      },
+      "requirements": {
+        "voice_stage_id": "voice_2_hungry_lady"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_merchant_bargain_03",
+      "context": "merchant_bargain",
+      "context_name_ko": "상인 흥정",
+      "voice_stage_id": "voice_3_smiling_widow",
+      "speaker": "protagonist",
+      "text_ko": "상중이라 사치할 뜻은 없습니다. 다만, 예를 갖추는 데 필요한 것은 아끼지 않겠습니다.",
+      "choice_tags": [
+        "formal_mourning",
+        "courtly"
+      ],
+      "base_effects": {
+        "face": 3,
+        "bargain": 2
+      },
+      "requirements": {
+        "voice_stage_id": "voice_3_smiling_widow"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_merchant_bargain_04",
+      "context": "merchant_bargain",
+      "context_name_ko": "상인 흥정",
+      "voice_stage_id": "voice_4_social_predator",
+      "speaker": "protagonist",
+      "text_ko": "제가 여는 자리에는 물건만이 아니라 상인의 이름도 오릅니다. 가격은 그 명성에 맞추어 듣고 싶군요.",
+      "choice_tags": [
+        "political",
+        "public_narrative"
+      ],
+      "base_effects": {
+        "bargain": 4,
+        "influence": 2
+      },
+      "requirements": {
+        "voice_stage_id": "voice_4_social_predator"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_merchant_bargain_05",
+      "context": "merchant_bargain",
+      "context_name_ko": "상인 흥정",
+      "voice_stage_id": "voice_5_court_predator",
+      "speaker": "protagonist",
+      "text_ko": "왕궁에 들어가는 물건은 상인의 평판까지 함께 들어갑니다. 그 무게를 감안한 가격이겠지요?",
+      "choice_tags": [
+        "royal_protocol",
+        "political"
+      ],
+      "base_effects": {
+        "bargain": 5,
+        "face": 2
+      },
+      "requirements": {
+        "voice_stage_id": "voice_5_court_predator"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_underworld_contact_00",
+      "context": "underworld_contact",
+      "context_name_ko": "뒷세계 접촉",
+      "voice_stage_id": "voice_0_street_beast",
+      "speaker": "protagonist",
+      "text_ko": "돌려 말하지 맙시다. 필요한 건 입이 무거운 사람이고, 대가는 치를 겁니다.",
+      "choice_tags": [
+        "streetwise",
+        "direct"
+      ],
+      "base_effects": {
+        "underworld_contact": 6,
+        "social_suspicion": 2
+      },
+      "requirements": {
+        "voice_stage_id": "voice_0_street_beast"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_underworld_contact_01",
+      "context": "underworld_contact",
+      "context_name_ko": "뒷세계 접촉",
+      "voice_stage_id": "voice_1_borrowed_dress",
+      "speaker": "protagonist",
+      "text_ko": "제가 아직 모르는 길을 아는 분이라 들었습니다. 길값은 준비했습니다.",
+      "choice_tags": [
+        "humble",
+        "streetwise"
+      ],
+      "base_effects": {
+        "underworld_contact": 4
+      },
+      "requirements": {
+        "voice_stage_id": "voice_1_borrowed_dress"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_underworld_contact_02",
+      "context": "underworld_contact",
+      "context_name_ko": "뒷세계 접촉",
+      "voice_stage_id": "voice_2_hungry_lady",
+      "speaker": "protagonist",
+      "text_ko": "제가 원하는 것은 소란이 아니라 정적입니다. 그런 일을 다루는 분을 찾고 있습니다.",
+      "choice_tags": [
+        "mask",
+        "subtle_probe"
+      ],
+      "base_effects": {
+        "underworld_contact": 3,
+        "direct_suspicion": -1
+      },
+      "requirements": {
+        "voice_stage_id": "voice_2_hungry_lady"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_underworld_contact_03",
+      "context": "underworld_contact",
+      "context_name_ko": "뒷세계 접촉",
+      "voice_stage_id": "voice_3_smiling_widow",
+      "speaker": "protagonist",
+      "text_ko": "제 이름이 오르내리지 않는 선에서, 조용한 정보가 필요합니다.",
+      "choice_tags": [
+        "mask",
+        "alibi"
+      ],
+      "base_effects": {
+        "underworld_contact": 2,
+        "evidence_risk": -1
+      },
+      "requirements": {
+        "voice_stage_id": "voice_3_smiling_widow"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_underworld_contact_04",
+      "context": "underworld_contact",
+      "context_name_ko": "뒷세계 접촉",
+      "voice_stage_id": "voice_4_social_predator",
+      "speaker": "protagonist",
+      "text_ko": "저는 거래보다 연결고리를 더 두려워합니다. 그러니 남는 흔적의 값을 먼저 말해주십시오.",
+      "choice_tags": [
+        "political",
+        "subtle_probe"
+      ],
+      "base_effects": {
+        "underworld_contact": 2,
+        "evidence_risk": -2
+      },
+      "requirements": {
+        "voice_stage_id": "voice_4_social_predator"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_underworld_contact_05",
+      "context": "underworld_contact",
+      "context_name_ko": "뒷세계 접촉",
+      "voice_stage_id": "voice_5_court_predator",
+      "speaker": "protagonist",
+      "text_ko": "이 만남은 없었던 일이어야 합니다. 존재하지 않는 거래에 이름 없는 대가를 지불하겠습니다.",
+      "choice_tags": [
+        "mask",
+        "royal_protocol"
+      ],
+      "base_effects": {
+        "underworld_contact": 1,
+        "evidence_risk": -3
+      },
+      "requirements": {
+        "voice_stage_id": "voice_5_court_predator"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_public_mourning_00",
+      "context": "public_mourning",
+      "context_name_ko": "공개 애도",
+      "voice_stage_id": "voice_0_street_beast",
+      "speaker": "protagonist",
+      "text_ko": "그는... 제게 많은 걸 남겼습니다. 더는 말하고 싶지 않습니다.",
+      "choice_tags": [
+        "blunt"
+      ],
+      "base_effects": {
+        "social_suspicion": 2,
+        "face": -2
+      },
+      "requirements": {
+        "voice_stage_id": "voice_0_street_beast"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_public_mourning_01",
+      "context": "public_mourning",
+      "context_name_ko": "공개 애도",
+      "voice_stage_id": "voice_1_borrowed_dress",
+      "speaker": "protagonist",
+      "text_ko": "제가 좋은 아내였는지는 모르겠습니다. 다만 마지막까지 부끄럽지 않으려 했습니다.",
+      "choice_tags": [
+        "humble"
+      ],
+      "base_effects": {
+        "social_suspicion": -1,
+        "trust": 2
+      },
+      "requirements": {
+        "voice_stage_id": "voice_1_borrowed_dress"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_public_mourning_02",
+      "context": "public_mourning",
+      "context_name_ko": "공개 애도",
+      "voice_stage_id": "voice_2_hungry_lady",
+      "speaker": "protagonist",
+      "text_ko": "고인의 이름에 누가 되지 않도록, 남은 예를 다하겠습니다.",
+      "choice_tags": [
+        "courtly",
+        "mask"
+      ],
+      "base_effects": {
+        "social_suspicion": -3,
+        "face": 3
+      },
+      "requirements": {
+        "voice_stage_id": "voice_2_hungry_lady"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_public_mourning_03",
+      "context": "public_mourning",
+      "context_name_ko": "공개 애도",
+      "voice_stage_id": "voice_3_smiling_widow",
+      "speaker": "protagonist",
+      "text_ko": "고인의 뜻을 제가 모두 헤아릴 수는 없습니다. 다만 남겨진 침묵을 품위 있게 지키겠습니다.",
+      "choice_tags": [
+        "formal_mourning",
+        "mask"
+      ],
+      "base_effects": {
+        "social_suspicion": -6,
+        "face": 5,
+        "trust": 3
+      },
+      "requirements": {
+        "voice_stage_id": "voice_3_smiling_widow"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_public_mourning_04",
+      "context": "public_mourning",
+      "context_name_ko": "공개 애도",
+      "voice_stage_id": "voice_4_social_predator",
+      "speaker": "protagonist",
+      "text_ko": "한 사람의 죽음은 한 가문의 균형을 흔듭니다. 저는 그 흔들림이 추문이 아니라 의무로 남기를 바랍니다.",
+      "choice_tags": [
+        "public_narrative",
+        "political"
+      ],
+      "base_effects": {
+        "social_suspicion": -6,
+        "political_value": 3
+      },
+      "requirements": {
+        "voice_stage_id": "voice_4_social_predator"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_public_mourning_05",
+      "context": "public_mourning",
+      "context_name_ko": "공개 애도",
+      "voice_stage_id": "voice_5_court_predator",
+      "speaker": "protagonist",
+      "text_ko": "그분의 부재가 사사로운 비탄에 머물지 않도록, 왕국의 질서 안에서 남은 책무를 다하겠습니다.",
+      "choice_tags": [
+        "perfect_mourning",
+        "royal_protocol"
+      ],
+      "base_effects": {
+        "social_suspicion": -8,
+        "face": 6,
+        "political_value": 4
+      },
+      "requirements": {
+        "voice_stage_id": "voice_5_court_predator"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_alibi_statement_00",
+      "context": "alibi_statement",
+      "context_name_ko": "알리바이 진술",
+      "voice_stage_id": "voice_0_street_beast",
+      "speaker": "protagonist",
+      "text_ko": "그 시간엔 거기 없었어요. 본 사람이 있을 겁니다. 없으면 찾아보세요.",
+      "choice_tags": [
+        "direct"
+      ],
+      "base_effects": {
+        "direct_suspicion": 2,
+        "face": -2
+      },
+      "requirements": {
+        "voice_stage_id": "voice_0_street_beast"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_alibi_statement_01",
+      "context": "alibi_statement",
+      "context_name_ko": "알리바이 진술",
+      "voice_stage_id": "voice_1_borrowed_dress",
+      "speaker": "protagonist",
+      "text_ko": "기억이 완전하진 않습니다. 하지만 그 무렵 저는 예배당 근처에 있었습니다.",
+      "choice_tags": [
+        "humble"
+      ],
+      "base_effects": {
+        "direct_suspicion": 0,
+        "trust": 1
+      },
+      "requirements": {
+        "voice_stage_id": "voice_1_borrowed_dress"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_alibi_statement_02",
+      "context": "alibi_statement",
+      "context_name_ko": "알리바이 진술",
+      "voice_stage_id": "voice_2_hungry_lady",
+      "speaker": "protagonist",
+      "text_ko": "그 시간에는 부인들과 함께 있었습니다. 필요하시다면 참석자 명단을 확인해드리겠습니다.",
+      "choice_tags": [
+        "courtly",
+        "alibi"
+      ],
+      "base_effects": {
+        "direct_suspicion": -3,
+        "trust": 2
+      },
+      "requirements": {
+        "voice_stage_id": "voice_2_hungry_lady"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_alibi_statement_03",
+      "context": "alibi_statement",
+      "context_name_ko": "알리바이 진술",
+      "voice_stage_id": "voice_3_smiling_widow",
+      "speaker": "protagonist",
+      "text_ko": "상중의 기억은 흐립니다. 그러나 제 곁에 있었던 이들이 제 침묵을 증언해줄 것입니다.",
+      "choice_tags": [
+        "formal_mourning",
+        "alibi"
+      ],
+      "base_effects": {
+        "direct_suspicion": -5,
+        "social_suspicion": -2
+      },
+      "requirements": {
+        "voice_stage_id": "voice_3_smiling_widow"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_alibi_statement_04",
+      "context": "alibi_statement",
+      "context_name_ko": "알리바이 진술",
+      "voice_stage_id": "voice_4_social_predator",
+      "speaker": "protagonist",
+      "text_ko": "제가 어디 있었는지는 이미 여러 분의 일정 속에 남아 있습니다. 확인은 어렵지 않을 것입니다.",
+      "choice_tags": [
+        "public_narrative",
+        "alibi"
+      ],
+      "base_effects": {
+        "direct_suspicion": -5,
+        "evidence_risk": -2
+      },
+      "requirements": {
+        "voice_stage_id": "voice_4_social_predator"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_alibi_statement_05",
+      "context": "alibi_statement",
+      "context_name_ko": "알리바이 진술",
+      "voice_stage_id": "voice_5_court_predator",
+      "speaker": "protagonist",
+      "text_ko": "제 동선은 저 개인의 기억보다 궁정의 기록이 더 정확히 보관하고 있습니다. 그 기록을 따르겠습니다.",
+      "choice_tags": [
+        "royal_protocol",
+        "alibi"
+      ],
+      "base_effects": {
+        "direct_suspicion": -6,
+        "evidence_risk": -3
+      },
+      "requirements": {
+        "voice_stage_id": "voice_5_court_predator"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_inner_monologue_00",
+      "context": "inner_monologue",
+      "context_name_ko": "내면 독백",
+      "voice_stage_id": "voice_0_street_beast",
+      "speaker": "protagonist",
+      "text_ko": "저들은 웃으면서 빼앗는다. 그럼 나도 웃는 법부터 배워야겠지.",
+      "choice_tags": [
+        "wild"
+      ],
+      "base_effects": {
+        "ambition": 3
+      },
+      "requirements": {
+        "voice_stage_id": "voice_0_street_beast"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_inner_monologue_01",
+      "context": "inner_monologue",
+      "context_name_ko": "내면 독백",
+      "voice_stage_id": "voice_1_borrowed_dress",
+      "speaker": "protagonist",
+      "text_ko": "혀끝이 먼저 달려나가려 한다. 참아. 지금은 칼보다 인사가 먼저다.",
+      "choice_tags": [
+        "impulse_control"
+      ],
+      "base_effects": {
+        "impulse_control_xp": 2
+      },
+      "requirements": {
+        "voice_stage_id": "voice_1_borrowed_dress"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_inner_monologue_02",
+      "context": "inner_monologue",
+      "context_name_ko": "내면 독백",
+      "voice_stage_id": "voice_2_hungry_lady",
+      "speaker": "protagonist",
+      "text_ko": "예법은 족쇄가 아니었다. 제대로 쓰면 다른 사람 목에 거는 끈이다.",
+      "choice_tags": [
+        "mask"
+      ],
+      "base_effects": {
+        "mask_xp": 2
+      },
+      "requirements": {
+        "voice_stage_id": "voice_2_hungry_lady"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_inner_monologue_03",
+      "context": "inner_monologue",
+      "context_name_ko": "내면 독백",
+      "voice_stage_id": "voice_3_smiling_widow",
+      "speaker": "protagonist",
+      "text_ko": "눈물은 흘리는 것이 아니다. 보여줄 만큼만 허락하는 것이다.",
+      "choice_tags": [
+        "formal_mourning"
+      ],
+      "base_effects": {
+        "mask_xp": 3
+      },
+      "requirements": {
+        "voice_stage_id": "voice_3_smiling_widow"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_inner_monologue_04",
+      "context": "inner_monologue",
+      "context_name_ko": "내면 독백",
+      "voice_stage_id": "voice_4_social_predator",
+      "speaker": "protagonist",
+      "text_ko": "사람은 자신이 선택했다고 믿을 때 가장 깊이 끌려온다.",
+      "choice_tags": [
+        "political"
+      ],
+      "base_effects": {
+        "influence_xp": 2
+      },
+      "requirements": {
+        "voice_stage_id": "voice_4_social_predator"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    },
+    {
+      "id": "dlg_inner_monologue_05",
+      "context": "inner_monologue",
+      "context_name_ko": "내면 독백",
+      "voice_stage_id": "voice_5_court_predator",
+      "speaker": "protagonist",
+      "text_ko": "왕관은 머리에 얹는 것이 아니다. 모두가 그 자리를 비워두게 만드는 것이다.",
+      "choice_tags": [
+        "royal_protocol"
+      ],
+      "base_effects": {
+        "ambition": 5
+      },
+      "requirements": {
+        "voice_stage_id": "voice_5_court_predator"
+      },
+      "implementation_note_ko": "동일한 선택 의도라도 voice_stage_id에 따라 이 문장으로 교체한다. 수치 효과는 실제 밸런스 단계에서 50~70%로 축소 적용 가능."
+    }
+  ]
+}

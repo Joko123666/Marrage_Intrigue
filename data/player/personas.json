@@ -1,0 +1,719 @@
+{
+  "schema_version": "0.1",
+  "created_at": "2026-06-15",
+  "language": "ko",
+  "project": "귀족 권력상승 시뮬레이션",
+  "engine_target": "Godot Engine 4.x",
+  "numeric_scale": {
+    "stat": "0~100. 50은 훈련된 평균, 70 이상은 상위권, 85 이상은 최상위권.",
+    "mood_axis": "맞선 레이더 축은 0~100. 선택지와 페르소나 보정은 일반적으로 -20~+20 범위의 가산값.",
+    "audience_modifier": "대상 계층 또는 인물 유형에 대한 상호작용 성공 판정 가산값. 단위는 점수 또는 %p로 변환 가능.",
+    "risk_modifier": "양수는 위험 증가, 음수는 위험 감소. 위험 종류별로 별도 누적 권장."
+  },
+  "core_stats": [
+    "beauty",
+    "culture",
+    "grace",
+    "etiquette",
+    "wildness",
+    "mask",
+    "impulse_control",
+    "funds",
+    "information",
+    "sociability",
+    "influence",
+    "status"
+  ],
+  "mood_axes": [
+    "favor",
+    "interest",
+    "trust",
+    "comfort",
+    "face",
+    "political_value"
+  ],
+  "suspicion_axes": [
+    "social_suspicion",
+    "direct_suspicion",
+    "threat_alert",
+    "evidence_risk"
+  ],
+  "note": "대사 단계는 주인공의 장기 성장 상태이고, 페르소나는 현재 사교계에 보여주는 연출/가면이다. 둘은 분리해서 관리한다.",
+  "personas": [
+    {
+      "id": "persona_street_survivor",
+      "name_ko": "골목의 생존자",
+      "category": "early_default",
+      "summary_ko": "귀족 가면을 거의 쓰지 않은 기본 이미지. 초반 생존, 뒷세계, 사용인, 하급 기사에게 강하다.",
+      "unlock_conditions": {
+        "default": true
+      },
+      "recommended_voice_stages": [
+        "voice_0_street_beast",
+        "voice_1_borrowed_dress"
+      ],
+      "maintenance": {
+        "weekly_fatigue": 0,
+        "weekly_funds": 0,
+        "required_items": []
+      },
+      "modifiers": {
+        "audiences": {
+          "commoner": 8,
+          "servant": 8,
+          "merchant": 4,
+          "underworld": 10,
+          "knight": 5,
+          "baron": -5,
+          "viscount": -8,
+          "count_or_higher": -12,
+          "royal": -18
+        },
+        "match_axes": {
+          "favor": 2,
+          "interest": 12,
+          "trust": -4,
+          "comfort": -8,
+          "face": -12,
+          "political_value": -10
+        },
+        "actions": {
+          "rumor_gather": 6,
+          "bargain": 5,
+          "intimidate": 10,
+          "salon": -12,
+          "public_mourning": -10,
+          "political_removal": -8
+        },
+        "risks": {
+          "origin_rumor": 12,
+          "impulse_leak": 8,
+          "direct_suspicion": 4,
+          "social_suspicion": 5
+        }
+      },
+      "best_use_ko": [
+        "초반 정보 수집",
+        "뒷골목 중개상 접촉",
+        "사용인 회유",
+        "기사를 흔드는 맞선"
+      ],
+      "bad_use_ko": [
+        "백작 이상 공식 사교회",
+        "왕실 예법 행사",
+        "배우자 사망 직후 공개 애도"
+      ],
+      "dialogue_tone_ko": "짧고 거칠며 상대의 약점을 직접 찌른다."
+    },
+    {
+      "id": "persona_innocent_protegee",
+      "name_ko": "순진한 보호대상",
+      "category": "early_social",
+      "summary_ko": "교육은 부족하지만 보호하고 싶게 만드는 이미지. 기사, 온건한 남작, 후원자에게 유효하다.",
+      "unlock_conditions": {
+        "min_beauty": 15,
+        "min_impulse_control": 10
+      },
+      "recommended_voice_stages": [
+        "voice_1_borrowed_dress",
+        "voice_2_hungry_lady"
+      ],
+      "maintenance": {
+        "weekly_fatigue": 1,
+        "weekly_funds": 1,
+        "required_items": [
+          "plain_dress"
+        ]
+      },
+      "modifiers": {
+        "audiences": {
+          "commoner": 2,
+          "servant": 3,
+          "merchant": 2,
+          "underworld": -5,
+          "knight": 10,
+          "baron": 6,
+          "viscount": 2,
+          "count_or_higher": -4,
+          "royal": -8
+        },
+        "match_axes": {
+          "favor": 8,
+          "interest": 4,
+          "trust": 6,
+          "comfort": 10,
+          "face": 2,
+          "political_value": -4
+        },
+        "actions": {
+          "request_patronage": 8,
+          "apology": 8,
+          "salon": -2,
+          "rumor_defense": 4,
+          "public_mourning": 1,
+          "political_removal": -5
+        },
+        "risks": {
+          "being_underestimated": 8,
+          "origin_rumor": 4,
+          "predatory_noble_risk": 6,
+          "social_suspicion": -2
+        }
+      },
+      "best_use_ko": [
+        "튜토리얼 기사 공략",
+        "후원자 찾기",
+        "초반 실수 수습"
+      ],
+      "bad_use_ko": [
+        "뒷세계 거래",
+        "강한 정치 거래",
+        "냉소적인 고위 귀족 상대"
+      ],
+      "dialogue_tone_ko": "조심스럽고 배우려는 태도. 약함을 연기해 상대의 방심을 산다."
+    },
+    {
+      "id": "persona_fallen_noble_pretender",
+      "name_ko": "몰락 귀족가의 영애",
+      "category": "cover_identity",
+      "summary_ko": "출신 약점을 덮기 위한 초중반 위장 이미지. 예법과 교양이 일정 수준 필요하며, 조사당하면 위험하다.",
+      "unlock_conditions": {
+        "min_etiquette": 25,
+        "min_culture": 20,
+        "required_items": [
+          "modest_jewelry",
+          "letter_of_introduction"
+        ]
+      },
+      "recommended_voice_stages": [
+        "voice_1_borrowed_dress",
+        "voice_2_hungry_lady",
+        "voice_3_smiling_widow"
+      ],
+      "maintenance": {
+        "weekly_fatigue": 2,
+        "weekly_funds": 2,
+        "required_items": [
+          "family_cover_story"
+        ]
+      },
+      "modifiers": {
+        "audiences": {
+          "commoner": -2,
+          "servant": 0,
+          "merchant": 4,
+          "underworld": -2,
+          "knight": 4,
+          "baron": 8,
+          "viscount": 8,
+          "count_or_higher": 2,
+          "royal": -6
+        },
+        "match_axes": {
+          "favor": 3,
+          "interest": 4,
+          "trust": 4,
+          "comfort": 4,
+          "face": 8,
+          "political_value": 6
+        },
+        "actions": {
+          "salon": 4,
+          "request_patronage": 5,
+          "rumor_defense": 5,
+          "alibi_acting": 2,
+          "political_removal": 2
+        },
+        "risks": {
+          "origin_investigation": 12,
+          "cover_story_crack": 10,
+          "social_suspicion": 2,
+          "rival_probe": 6
+        }
+      },
+      "best_use_ko": [
+        "남작·자작 맞선",
+        "초반 사교계 진입",
+        "출신 공격 방어"
+      ],
+      "bad_use_ko": [
+        "정보력이 높은 백작가",
+        "집요한 라이벌이 있는 행사",
+        "왕실 공식 검증"
+      ],
+      "dialogue_tone_ko": "겸손하지만 가문의 흔적을 암시한다. 구체적 과거는 흐린다."
+    },
+    {
+      "id": "persona_pious_lady",
+      "name_ko": "신앙심 깊은 숙녀",
+      "category": "respectability",
+      "summary_ko": "보수적 귀족과 성직자에게 신뢰를 주는 이미지. 은폐와 혼인무효, 공식 소견 확보에 보조적으로 유리하다.",
+      "unlock_conditions": {
+        "min_culture": 30,
+        "min_etiquette": 30,
+        "church_contact": true
+      },
+      "recommended_voice_stages": [
+        "voice_2_hungry_lady",
+        "voice_3_smiling_widow",
+        "voice_4_social_predator"
+      ],
+      "maintenance": {
+        "weekly_fatigue": 1,
+        "weekly_funds": 2,
+        "required_items": [
+          "prayer_book"
+        ]
+      },
+      "modifiers": {
+        "audiences": {
+          "commoner": 3,
+          "servant": 4,
+          "merchant": 1,
+          "underworld": -12,
+          "knight": 3,
+          "baron": 5,
+          "viscount": 6,
+          "count_or_higher": 5,
+          "royal": 2
+        },
+        "match_axes": {
+          "favor": 1,
+          "interest": -2,
+          "trust": 8,
+          "comfort": 8,
+          "face": 6,
+          "political_value": 4
+        },
+        "actions": {
+          "church_petition": 10,
+          "rumor_defense": 6,
+          "public_mourning": 6,
+          "annulment": 8,
+          "underworld_contact": -10
+        },
+        "risks": {
+          "hypocrisy_exposure": 10,
+          "decadent_noble_boredom": 5,
+          "social_suspicion": -4,
+          "direct_suspicion": -2
+        }
+      },
+      "best_use_ko": [
+        "보수적 가문 공략",
+        "성직자 접촉",
+        "공개 애도",
+        "혼인무효 명분"
+      ],
+      "bad_use_ko": [
+        "향락적 귀족",
+        "뒷세계 거래",
+        "노골적인 유혹 선택지"
+      ],
+      "dialogue_tone_ko": "절제되고 겸허하다. 개인 욕망보다 의무와 신앙을 앞세운다."
+    },
+    {
+      "id": "persona_devoted_spouse",
+      "name_ko": "헌신적인 배우자",
+      "category": "marriage_cover",
+      "summary_ko": "결혼생활 중 배우자의 애정과 안심을 올리고 직접의심과 경계도를 낮추는 이미지. 다음 결혼 준비에는 제약이 생긴다.",
+      "unlock_conditions": {
+        "married": true
+      },
+      "recommended_voice_stages": [
+        "voice_2_hungry_lady",
+        "voice_3_smiling_widow",
+        "voice_4_social_predator"
+      ],
+      "maintenance": {
+        "weekly_fatigue": 2,
+        "weekly_funds": 1,
+        "required_items": []
+      },
+      "modifiers": {
+        "audiences": {
+          "commoner": 1,
+          "servant": 3,
+          "merchant": 0,
+          "underworld": -4,
+          "knight": 4,
+          "baron": 5,
+          "viscount": 5,
+          "count_or_higher": 4,
+          "royal": 0
+        },
+        "match_axes": {
+          "favor": 5,
+          "interest": -2,
+          "trust": 8,
+          "comfort": 10,
+          "face": 6,
+          "political_value": 2
+        },
+        "actions": {
+          "spouse_affection": 10,
+          "lower_direct_suspicion": 8,
+          "lower_threat_alert": 6,
+          "public_couple_story": 8,
+          "new_candidate_contact": -8
+        },
+        "risks": {
+          "time_cost": 6,
+          "attachment_event": 3,
+          "social_suspicion_after_death": -3,
+          "hypocrisy_if_too_soon": 8
+        }
+      },
+      "best_use_ko": [
+        "배우자 경계 완화",
+        "결혼생활 안전화",
+        "공개 금슬 연출"
+      ],
+      "bad_use_ko": [
+        "다음 후보와 동시 접근",
+        "빠른 제거 직전의 노골적 준비"
+      ],
+      "dialogue_tone_ko": "따뜻하고 충실해 보인다. 진심인지 연기인지 구분하기 어렵게 만든다."
+    },
+    {
+      "id": "persona_grieving_widow",
+      "name_ko": "비탄에 잠긴 미망인",
+      "category": "post_removal_cover",
+      "summary_ko": "배우자 사망 직후 사회적 의심을 낮추고 애도 서사를 확정하는 이미지. 반복 사용하면 ‘수상한 미망인’ 역효과가 난다.",
+      "unlock_conditions": {
+        "widowed": true
+      },
+      "recommended_voice_stages": [
+        "voice_3_smiling_widow",
+        "voice_4_social_predator",
+        "voice_5_court_predator"
+      ],
+      "maintenance": {
+        "weekly_fatigue": 3,
+        "weekly_funds": 2,
+        "required_items": [
+          "mourning_dress"
+        ]
+      },
+      "modifiers": {
+        "audiences": {
+          "commoner": 2,
+          "servant": 4,
+          "merchant": 1,
+          "underworld": -8,
+          "knight": 3,
+          "baron": 6,
+          "viscount": 7,
+          "count_or_higher": 8,
+          "royal": 4
+        },
+        "match_axes": {
+          "favor": 1,
+          "interest": -4,
+          "trust": 6,
+          "comfort": 8,
+          "face": 10,
+          "political_value": 5
+        },
+        "actions": {
+          "public_mourning": 12,
+          "alibi_acting": 8,
+          "rumor_defense": 10,
+          "new_candidate_contact": -12,
+          "political_removal": 1
+        },
+        "risks": {
+          "overused_widow_image": 12,
+          "too_fast_recovery": 10,
+          "social_suspicion_after_death": -10,
+          "direct_suspicion": -4
+        }
+      },
+      "best_use_ko": [
+        "사망 직후 은폐",
+        "장례 의례",
+        "친족의 분노 진정",
+        "사교계 의심 완화"
+      ],
+      "bad_use_ko": [
+        "너무 빠른 재혼 공략",
+        "반복 사망 루프 직후",
+        "향락적 행사"
+      ],
+      "dialogue_tone_ko": "절제된 슬픔. 많이 말하지 않고, 침묵으로 신뢰를 만든다."
+    },
+    {
+      "id": "persona_cultured_hostess",
+      "name_ko": "교양 있는 사교계 여주인",
+      "category": "social_operator",
+      "summary_ko": "살롱, 연회, 후원자 접촉, 소문 유포에 강한 이미지. 자금과 교양을 요구하지만 정보망을 넓힌다.",
+      "unlock_conditions": {
+        "min_culture": 45,
+        "min_sociability": 40,
+        "min_funds": 20
+      },
+      "recommended_voice_stages": [
+        "voice_2_hungry_lady",
+        "voice_3_smiling_widow",
+        "voice_4_social_predator"
+      ],
+      "maintenance": {
+        "weekly_fatigue": 2,
+        "weekly_funds": 4,
+        "required_items": [
+          "salon_gown",
+          "tea_set"
+        ]
+      },
+      "modifiers": {
+        "audiences": {
+          "commoner": -1,
+          "servant": 1,
+          "merchant": 6,
+          "underworld": -5,
+          "knight": 3,
+          "baron": 7,
+          "viscount": 8,
+          "count_or_higher": 8,
+          "royal": 2
+        },
+        "match_axes": {
+          "favor": 3,
+          "interest": 5,
+          "trust": 5,
+          "comfort": 4,
+          "face": 8,
+          "political_value": 8
+        },
+        "actions": {
+          "salon": 12,
+          "rumor_spread": 8,
+          "rumor_gather": 6,
+          "request_patronage": 5,
+          "political_removal": 5
+        },
+        "risks": {
+          "upkeep_burden": 6,
+          "rival_attention": 6,
+          "social_suspicion": -1,
+          "origin_rumor": -2
+        }
+      },
+      "best_use_ko": [
+        "중반 사교계 확장",
+        "후보 리스트 품질 향상",
+        "소문전",
+        "후원자 확보"
+      ],
+      "bad_use_ko": [
+        "자금 부족 상태",
+        "은폐 직후 조용히 지내야 하는 시기"
+      ],
+      "dialogue_tone_ko": "문학, 음악, 유행, 가문 이야기로 상대의 체면을 세워준다."
+    },
+    {
+      "id": "persona_ambitious_debutante",
+      "name_ko": "야심 있는 사교계 신예",
+      "category": "social_climb",
+      "summary_ko": "상승 의지를 감추지 않는 공격적 이미지. 정략 가치와 흥미를 올리지만 라이벌과 경계도도 자극한다.",
+      "unlock_conditions": {
+        "min_sociability": 35,
+        "min_influence": 20,
+        "min_mask": 35
+      },
+      "recommended_voice_stages": [
+        "voice_2_hungry_lady",
+        "voice_4_social_predator"
+      ],
+      "maintenance": {
+        "weekly_fatigue": 2,
+        "weekly_funds": 3,
+        "required_items": [
+          "fashionable_gown"
+        ]
+      },
+      "modifiers": {
+        "audiences": {
+          "commoner": -3,
+          "servant": -1,
+          "merchant": 5,
+          "underworld": -2,
+          "knight": 2,
+          "baron": 5,
+          "viscount": 7,
+          "count_or_higher": 7,
+          "royal": 1
+        },
+        "match_axes": {
+          "favor": 1,
+          "interest": 8,
+          "trust": 0,
+          "comfort": -2,
+          "face": 3,
+          "political_value": 12
+        },
+        "actions": {
+          "request_patronage": 8,
+          "salon": 6,
+          "rumor_spread": 7,
+          "political_removal": 6,
+          "public_mourning": -2
+        },
+        "risks": {
+          "rival_attention": 10,
+          "social_suspicion": 3,
+          "threat_alert": 2,
+          "origin_probe": 4
+        }
+      },
+      "best_use_ko": [
+        "자작~백작 접근",
+        "후원자 거래",
+        "정치적 가치 과시"
+      ],
+      "bad_use_ko": [
+        "배우자 사망 직후",
+        "보수적 가문",
+        "왕실의 조용한 검증"
+      ],
+      "dialogue_tone_ko": "겸손의 형태를 취하지만 목표를 숨기지 않는다. 상대에게 이익을 제안한다."
+    },
+    {
+      "id": "persona_dangerous_enchantress",
+      "name_ko": "위험한 매혹가",
+      "category": "seduction_risk",
+      "summary_ko": "야성과 가면을 동시에 쓰는 고위험 페르소나. 흥미와 호감은 크게 올리지만 안심과 체면을 해칠 수 있다.",
+      "unlock_conditions": {
+        "min_beauty": 45,
+        "min_wildness": 40,
+        "min_mask": 35
+      },
+      "recommended_voice_stages": [
+        "voice_2_hungry_lady",
+        "voice_4_social_predator",
+        "voice_5_court_predator"
+      ],
+      "maintenance": {
+        "weekly_fatigue": 2,
+        "weekly_funds": 3,
+        "required_items": [
+          "striking_accessory"
+        ]
+      },
+      "modifiers": {
+        "audiences": {
+          "commoner": 2,
+          "servant": 1,
+          "merchant": 4,
+          "underworld": 4,
+          "knight": 8,
+          "baron": 6,
+          "viscount": 5,
+          "count_or_higher": 2,
+          "royal": -3
+        },
+        "match_axes": {
+          "favor": 8,
+          "interest": 14,
+          "trust": -3,
+          "comfort": -6,
+          "face": -4,
+          "political_value": 1
+        },
+        "actions": {
+          "seduce": 12,
+          "private_meeting": 8,
+          "rumor_gather": 4,
+          "salon": 1,
+          "public_mourning": -6
+        },
+        "risks": {
+          "scandal_risk": 12,
+          "direct_suspicion": 3,
+          "rival_attention": 8,
+          "social_suspicion": 5
+        }
+      },
+      "best_use_ko": [
+        "향락적 귀족",
+        "기사·남작의 빠른 공략",
+        "사적 만남에서 정보 뽑기"
+      ],
+      "bad_use_ko": [
+        "보수적 귀족",
+        "공개 공식행사",
+        "왕족 결혼 루트 후반"
+      ],
+      "dialogue_tone_ko": "상대가 위험을 알면서도 더 듣고 싶게 만든다."
+    },
+    {
+      "id": "persona_court_lady",
+      "name_ko": "품격 있는 궁정 귀부인",
+      "category": "late_court",
+      "summary_ko": "왕실과 공작가에 접근하기 위한 후반 페르소나. 높은 예법, 기품, 가면술을 요구하며 유지비도 크다.",
+      "unlock_conditions": {
+        "min_etiquette": 70,
+        "min_grace": 65,
+        "min_mask": 60,
+        "min_status_rank": "count_or_higher"
+      },
+      "recommended_voice_stages": [
+        "voice_4_social_predator",
+        "voice_5_court_predator"
+      ],
+      "maintenance": {
+        "weekly_fatigue": 3,
+        "weekly_funds": 6,
+        "required_items": [
+          "court_gown",
+          "proper_retinue"
+        ]
+      },
+      "modifiers": {
+        "audiences": {
+          "commoner": -5,
+          "servant": 0,
+          "merchant": 2,
+          "underworld": -10,
+          "knight": 0,
+          "baron": 4,
+          "viscount": 6,
+          "count_or_higher": 10,
+          "royal": 10
+        },
+        "match_axes": {
+          "favor": 1,
+          "interest": 4,
+          "trust": 6,
+          "comfort": 8,
+          "face": 12,
+          "political_value": 12
+        },
+        "actions": {
+          "royal_audience": 12,
+          "salon": 10,
+          "political_removal": 10,
+          "rumor_defense": 8,
+          "underworld_contact": -12
+        },
+        "risks": {
+          "upkeep_burden": 10,
+          "rival_attention": 8,
+          "social_suspicion": -5,
+          "origin_rumor": -6
+        }
+      },
+      "best_use_ko": [
+        "후작·공작·왕족 접근",
+        "왕실 행사",
+        "정치적 제거 명분 확보"
+      ],
+      "bad_use_ko": [
+        "초반 자금 부족",
+        "뒷세계 접촉",
+        "사용인과 노골적 거래"
+      ],
+      "dialogue_tone_ko": "말마다 가문, 왕실, 질서, 책무를 배치한다. 감정은 거의 보이지 않는다."
+    }
+  ]
+}

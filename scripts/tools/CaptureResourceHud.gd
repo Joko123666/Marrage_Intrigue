@@ -1,0 +1,53 @@
+extends SceneTree
+
+
+func _init() -> void:
+    call_deferred("_capture")
+
+
+func _capture() -> void:
+    DisplayServer.window_set_size(Vector2i(1280, 720))
+    root.size = Vector2i(1280, 720)
+    var packed: PackedScene = load("res://scenes/main/Main.tscn")
+    var scene: Control = packed.instantiate()
+    root.add_child(scene)
+    await process_frame
+    await process_frame
+    await create_timer(0.2).timeout
+    await _save("resource_hud")
+
+    var game_state := root.get_node("/root/GameState")
+    game_state.call("apply_effects", {"cash": -5, "fatigue": 60})
+    await create_timer(0.22).timeout
+    await _save("resource_hud_change")
+
+    DisplayServer.window_set_size(Vector2i(640, 760))
+    root.size = Vector2i(640, 760)
+    await process_frame
+    await process_frame
+    scene.call("_show_dashboard")
+    await process_frame
+    await _save("resource_hud_mobile")
+
+    DisplayServer.window_set_size(Vector2i(1280, 720))
+    root.size = Vector2i(1280, 720)
+    await process_frame
+    await process_frame
+    var data_manager := root.get_node("/root/DataManager")
+    var candidate: Dictionary = data_manager.call("find_by_id", "candidate_profiles", "candidate_profiles", "candidate_knight_tutorial_adrien")
+    scene.call("_start_match", candidate)
+    await process_frame
+    await process_frame
+    await _save("match_resources")
+
+    scene.queue_free()
+    await process_frame
+    quit()
+
+
+func _save(id: String) -> void:
+    var image: Image = root.get_texture().get_image()
+    var path := ProjectSettings.globalize_path("res://tmp/ui_capture_%s.png" % id)
+    var err := image.save_png(path)
+    print("RESOURCE_CAPTURE path=", path, " err=", err)
+    await process_frame
